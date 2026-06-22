@@ -1,0 +1,223 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../node_modules/@prisma-master/client"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Institute {
+  id          String    @id @default(uuid())
+  name        String
+  databaseUrl String?   // Connection string for the tenant DB
+  domain      String?   @unique
+  logoUrl     String?
+  profile     Json?
+  settings    Json?
+  isActive    Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  deletedAt   DateTime?
+
+  subscriptions       Subscription[]
+  subscriptionHistory SubscriptionHistory[]
+  saasInvoices        SaasInvoice[]
+  saasPayments        SaasPayment[]
+  branding            InstituteBranding?
+  customDomain        CustomDomain?
+  apiKeys             ApiKey[]
+  webhookEndpoints    WebhookEndpoint[]
+}
+
+model SuperAdmin {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  passwordHash String
+  firstName    String
+  lastName     String?
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model SubscriptionPlan {
+  id          String  @id @default(uuid())
+  name        String
+  description String?
+  monthlyPrice Float
+  yearlyPrice  Float
+  trialDays    Int   @default(14)
+  isActive    Boolean @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  subscriptions Subscription[]
+  planFeatures  SubscriptionPlanFeature[]
+}
+
+model SaasFeature {
+  id          String  @id @default(uuid())
+  key         String  @unique 
+  name        String 
+  description String?
+  type        String 
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  planFeatures SubscriptionPlanFeature[]
+}
+
+model SubscriptionPlanFeature {
+  id        String @id @default(uuid())
+  planId    String
+  featureId String
+  isEnabled  Boolean @default(false)
+  limitValue Int? 
+  plan    SubscriptionPlan @relation(fields: [planId], references: [id], onDelete: Cascade)
+  feature SaasFeature      @relation(fields: [featureId], references: [id], onDelete: Cascade)
+  @@unique([planId, featureId])
+}
+
+model Subscription {
+  id               String   @id @default(uuid())
+  instituteId      String
+  planId           String
+  status           String   // e.g., 'ACTIVE', 'PAST_DUE', 'CANCELED'
+  billingCycle     String   @default("MONTHLY")
+  currentPeriodEnd DateTime
+  cancelAtPeriodEnd Boolean @default(false)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  institute Institute        @relation(fields: [instituteId], references: [id], onDelete: Cascade)
+  plan      SubscriptionPlan @relation(fields: [planId], references: [id])
+  history   SubscriptionHistory[]
+  saasInvoices SaasInvoice[]
+}
+
+model SubscriptionHistory {
+  id             String   @id @default(uuid())
+  instituteId    String
+  subscriptionId String
+  action         String   // e.g., 'UPGRADE', 'DOWNGRADE', 'CANCEL'
+  details        Json?
+  metadata       Json?
+  previousPlanId String?
+  newPlanId      String?
+  createdAt      DateTime @default(now())
+
+  institute    Institute    @relation(fields: [instituteId], references: [id], onDelete: Cascade)
+  subscription Subscription @relation(fields: [subscriptionId], references: [id], onDelete: Cascade)
+}
+
+model SaasInvoice {
+  id            String   @id @default(uuid())
+  instituteId   String
+  subscriptionId String?
+  amount        Float
+  status        String   // 'DRAFT', 'OPEN', 'PAID', 'VOID', 'UNCOLLECTIBLE'
+  pdfUrl        String?
+  issuedAt      DateTime @default(now())
+  dueDate       DateTime?
+  paidAt        DateTime?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  institute Institute @relation(fields: [instituteId], references: [id], onDelete: Cascade)
+  subscription Subscription? @relation(fields: [subscriptionId], references: [id])
+  payments  SaasPayment[]
+}
+
+model SaasPayment {
+  id            String   @id @default(uuid())
+  instituteId   String
+  invoiceId     String?
+  gatewayOrderId String? @unique
+  amount        Float
+  currency      String   @default("USD")
+  status        String   // 'SUCCESS', 'FAILED', 'PENDING'
+  paymentMethod String?
+  transactionId String?
+  metadata      Json?
+  createdAt     DateTime @default(now())
+
+  institute Institute @relation(fields: [instituteId], references: [id], onDelete: Cascade)
+  invoice   SaasInvoice? @relation(fields: [invoiceId], references: [id])
+}
+
+model InstituteBranding {
+  id                 String   @id @default(uuid())
+  instituteId        String   @unique
+  logoUrl            String?
+  faviconUrl         String?
+  primaryColor       String?
+  secondaryColor     String?
+  loginBackgroundUrl String?
+  loginLayout        String?
+  hideSaasBranding   Boolean? @default(false)
+  colors             Json?
+  fonts              Json?
+  customCss          String?
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  institute Institute @relation(fields: [instituteId], references: [id], onDelete: Cascade)
+}
+
+model CustomDomain {
+  id               String   @id @default(uuid())
+  instituteId      String   @unique
+  domain           String   @unique
+  status           String   // 'PENDING_VERIFICATION', 'ACTIVE', 'FAILED'
+  sslStatus        String?
+  verificationCode String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  institute Institute @relation(fields: [instituteId], references: [id], onDelete: Cascade)
+}
+
+model ApiKey {
+  id          String   @id @default(uuid())
+  instituteId String
+  keyHash     String
+  prefix      String?
+  name        String
+  isActive    Boolean  @default(true)
+  lastUsedAt  DateTime?
+  expiresAt   DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  institute Institute @relation(fields: [instituteId], references: [id], onDelete: Cascade)
+}
+
+model WebhookEndpoint {
+  id          String   @id @default(uuid())
+  instituteId String
+  url         String
+  description String?
+  events      Json     // Array of event types
+  secret      String
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  institute Institute         @relation(fields: [instituteId], references: [id], onDelete: Cascade)
+  deliveries WebhookDelivery[]
+}
+
+model WebhookDelivery {
+  id                String   @id @default(uuid())
+  webhookEndpointId String
+  eventId           String?
+  eventType         String
+  payload           Json
+  statusCode        Int?
+  responseBody      String?
+  status            String   @default("FAILED")
+  createdAt         DateTime @default(now())
+
+  webhookEndpoint WebhookEndpoint @relation(fields: [webhookEndpointId], references: [id], onDelete: Cascade)
+}

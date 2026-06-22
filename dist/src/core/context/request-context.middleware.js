@@ -1,0 +1,79 @@
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.RequestContextMiddleware = void 0;
+const common_1 = require("@nestjs/common");
+const jwt_1 = require("@nestjs/jwt");
+const request_context_1 = require("./request.context");
+const prisma_master_service_1 = require("../../infrastructure/database/prisma-master.service");
+let RequestContextMiddleware = class RequestContextMiddleware {
+    jwtService;
+    masterDb;
+    constructor(jwtService, masterDb) {
+        this.jwtService = jwtService;
+        this.masterDb = masterDb;
+    }
+    async use(req, res, next) {
+        let userId;
+        const authHeader = req.headers['authorization'];
+        if (authHeader && authHeader.startsWith('Bearer ')) {
+            const token = authHeader.split(' ')[1];
+            try {
+                const payload = this.jwtService.decode(token);
+                if (payload && payload.sub) {
+                    userId = payload.sub;
+                }
+            }
+            catch (e) {
+            }
+        }
+        let tenantId = req.headers['x-tenant-id'];
+        let tenantDbUrl;
+        const host = req.headers.host;
+        if (!tenantId && host) {
+            const subdomain = host.split('.')[0];
+            if (subdomain !== 'localhost' && subdomain !== 'api' && subdomain !== 'www') {
+                const instituteByDomain = await this.masterDb.institute.findFirst({
+                    where: { OR: [{ domain: host }, { id: subdomain }] }
+                });
+                if (instituteByDomain) {
+                    tenantId = instituteByDomain.id;
+                    tenantDbUrl = instituteByDomain.databaseUrl || undefined;
+                }
+            }
+        }
+        if (tenantId && !tenantDbUrl) {
+            const institute = await this.masterDb.institute.findUnique({
+                where: { id: tenantId }
+            });
+            if (institute) {
+                tenantDbUrl = institute.databaseUrl || undefined;
+            }
+        }
+        const contextData = {
+            userId,
+            ipAddress: req.ip,
+            userAgent: req.headers['user-agent'],
+            tenantId,
+            tenantDbUrl
+        };
+        request_context_1.requestContext.run(contextData, () => {
+            next();
+        });
+    }
+};
+exports.RequestContextMiddleware = RequestContextMiddleware;
+exports.RequestContextMiddleware = RequestContextMiddleware = __decorate([
+    (0, common_1.Injectable)(),
+    __metadata("design:paramtypes", [jwt_1.JwtService,
+        prisma_master_service_1.PrismaMasterService])
+], RequestContextMiddleware);
+//# sourceMappingURL=request-context.middleware.js.map
