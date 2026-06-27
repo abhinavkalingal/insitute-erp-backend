@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: institute-erp-backend
+    env: node
+    buildCommand: npm install && npx prisma generate && npm run build
+    startCommand: npm run start:prod
+    envVars:
+      - key: DATABASE_URL
+        value: postgresql://neondb_owner:npg_fI37OkBWMqgx@ep-dawn-leaf-aotj6v6d-pooler.c-2.ap-southeast-1.aws.neon.tech/neondb?channel_binding=require&sslmode=require
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRATION_TIME
+        value: 1d
+      # Add other environment variables below if needed
+      - key: RAZORPAY_KEY_ID
+        value: rzp_test_T6jF8jJ7M0poo5
+      - key: RAZORPAY_KEY_SECRET
+        value: 8WCGCH3q9OP2QgJ4BYw6jjAq
+      - key: RAZORPAY_WEBHOOK_SECRET
+        value: abhi9072319506
