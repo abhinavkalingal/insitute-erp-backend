@@ -5,46 +5,46 @@ export declare class SaasFeaturesController {
     constructor(saasFeaturesService: SaasFeaturesService);
     create(createDto: CreateSaasFeatureDto): Promise<{
         id: string;
-        description: string | null;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
+        description: string | null;
         type: string;
         key: string;
     }>;
     findAll(queryOptions: SaasFeatureQueryOptionsDto): Promise<import("../../../../../core/utils/pagination/page.dto").PageDto<{
         id: string;
-        description: string | null;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
+        description: string | null;
         type: string;
         key: string;
     }>>;
     findOne(id: string): Promise<{
         id: string;
-        description: string | null;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
+        description: string | null;
         type: string;
         key: string;
     }>;
     update(id: string, updateDto: UpdateSaasFeatureDto): Promise<{
         id: string;
-        description: string | null;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
+        description: string | null;
         type: string;
         key: string;
     }>;
     remove(id: string): Promise<{
         id: string;
-        description: string | null;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
+        description: string | null;
         type: string;
         key: string;
     }>;

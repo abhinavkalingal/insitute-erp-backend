@@ -16,10 +16,10 @@ export declare class TimetablesController {
         };
     } & {
         id: string;
-        createdAt: Date;
-        updatedAt: Date;
         name: string;
         isActive: boolean;
+        createdAt: Date;
+        updatedAt: Date;
         batchId: string;
     }>>;
     findTeacherSchedule(staffId: string): Promise<({

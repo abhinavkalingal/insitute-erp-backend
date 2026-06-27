@@ -16,6 +16,8 @@ import { ConfigModule } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { LoggerModule } from 'nestjs-pino';
+import { ThrottlerModule, ThrottlerGuard } from '@nestjs/throttler';
+import { APP_GUARD } from '@nestjs/core';
 import { join } from 'path';
 
 import { AppController } from './app.controller';
@@ -42,6 +44,14 @@ import { ReportsModule } from './modules/reports/reports.module';
 import { AutomationModule } from './modules/automation/automation.module';
 import { SearchModule } from './modules/search/search.module';
 import { DataImportExportModule } from './modules/data-import-export/data-import-export.module';
+import { TelecallerModule } from './modules/telecaller/telecaller.module';
+import { PlacementsModule } from './modules/placements/placements.module';
+import { LeaveRequestsModule } from './modules/hr/leave-requests/leave-requests.module';
+import { ReceptionModule } from './modules/reception/reception.module';
+import { MarketingModule } from './modules/marketing/marketing.module';
+import { OperationsModule } from './modules/operations/operations.module';
+import { DirectorModule } from './modules/director/director.module';
+import { DashboardModule } from './modules/dashboard/dashboard.module';
 
 @Module({
   imports: [
@@ -52,6 +62,10 @@ import { DataImportExportModule } from './modules/data-import-export/data-import
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'uploads'),
       serveRoot: '/uploads'}),
+    ThrottlerModule.forRoot([{
+      ttl: 60000,
+      limit: 60,
+    }]),
     DatabaseModule,
     AuthModule,
     UsersModule,
@@ -92,9 +106,23 @@ import { DataImportExportModule } from './modules/data-import-export/data-import
     AutomationModule,
     SearchModule,
     DataImportExportModule,
+    TelecallerModule,
+    PlacementsModule,
+    LeaveRequestsModule,
+    ReceptionModule,
+    MarketingModule,
+    OperationsModule,
+    DirectorModule,
+    DashboardModule,
   ],
   controllers: [AppController],
-  providers: [AppService]})
+  providers: [
+    AppService,
+    {
+      provide: APP_GUARD,
+      useClass: ThrottlerGuard,
+    },
+  ]})
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer.apply(RequestContextMiddleware).forRoutes('*');

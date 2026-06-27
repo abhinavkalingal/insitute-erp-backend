@@ -7,9 +7,9 @@ export declare class WhiteLabelService {
     constructor(prisma: PrismaMasterService, saasEnforcement: SaasEnforcementService);
     getBranding(instituteId: string): Promise<{
         id: string;
+        logoUrl: string | null;
         createdAt: Date;
         updatedAt: Date;
-        logoUrl: string | null;
         instituteId: string;
         faviconUrl: string | null;
         primaryColor: string | null;
@@ -23,9 +23,9 @@ export declare class WhiteLabelService {
     }>;
     updateBranding(instituteId: string, updateDto: UpdateInstituteBrandingDto): Promise<{
         id: string;
+        logoUrl: string | null;
         createdAt: Date;
         updatedAt: Date;
-        logoUrl: string | null;
         instituteId: string;
         faviconUrl: string | null;
         primaryColor: string | null;

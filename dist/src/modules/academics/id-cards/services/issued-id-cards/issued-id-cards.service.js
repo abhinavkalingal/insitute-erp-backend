@@ -158,8 +158,10 @@ let IssuedIdCardsService = class IssuedIdCardsService {
         const card = await this.prisma.issuedIdCard.findUnique({
             where: { cardNumber },
             include: {
-                template: { select: { name: true, roleType: true } }
-            }
+                template: { select: { name: true, roleType: true } },
+                student: { include: { branch: { select: { name: true } } } },
+                staff: { include: { branch: { select: { name: true } } } },
+            },
         });
         if (!card) {
             throw new common_1.NotFoundException('Invalid ID Card Number.');
@@ -170,7 +172,7 @@ let IssuedIdCardsService = class IssuedIdCardsService {
         return {
             isValid,
             status: !card.isActive ? 'REVOKED' : isExpired ? 'EXPIRED' : 'ACTIVE',
-            issuedBy: 'Institute',
+            issuedBy: card.student?.branch?.name || card.staff?.branch?.name || 'Institute',
             holderName: card.holderName,
             roleType: card.template?.roleType || 'Student',
             issueDate: card.issueDate,

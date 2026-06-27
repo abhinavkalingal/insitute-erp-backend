@@ -99,7 +99,20 @@ let UsersService = class UsersService {
                 lastName: true,
                 isActive: true,
                 createdAt: true,
-                deletedAt: true
+                deletedAt: true,
+                roles: {
+                    include: {
+                        role: {
+                            include: {
+                                permissions: {
+                                    include: {
+                                        permission: true,
+                                    },
+                                },
+                            },
+                        },
+                    },
+                },
             }
         });
         if (!user || user.deletedAt) {

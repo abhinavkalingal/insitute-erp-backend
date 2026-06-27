@@ -36,16 +36,16 @@ export declare class SaasInvoicesController {
     findOne(id: string): Promise<{
         institute: {
             id: string;
-            createdAt: Date;
-            updatedAt: Date;
             name: string;
-            isActive: boolean;
-            deletedAt: Date | null;
             databaseUrl: string | null;
             domain: string | null;
             logoUrl: string | null;
             profile: import("@prisma-master/client/runtime/client").JsonValue | null;
             settings: import("@prisma-master/client/runtime/client").JsonValue | null;
+            isActive: boolean;
+            createdAt: Date;
+            updatedAt: Date;
+            deletedAt: Date | null;
         };
         subscription: {
             id: string;

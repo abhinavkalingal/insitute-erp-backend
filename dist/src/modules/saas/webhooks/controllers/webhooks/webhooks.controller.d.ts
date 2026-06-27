@@ -4,24 +4,24 @@ export declare class WebhooksController {
     private readonly webhookEndpointsService;
     constructor(webhookEndpointsService: WebhookEndpointsService);
     createEndpoint(instituteId: string, dto: CreateWebhookEndpointDto): Promise<{
-        url: string;
         id: string;
-        description: string | null;
+        isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
-        isActive: boolean;
+        description: string | null;
         instituteId: string;
+        url: string;
         secret: string;
         events: import("@prisma-master/client/runtime/client").JsonValue;
     }>;
     listEndpoints(instituteId: string): Promise<{
-        url: string;
         id: string;
-        description: string | null;
+        isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
-        isActive: boolean;
+        description: string | null;
         instituteId: string;
+        url: string;
         secret: string;
         events: import("@prisma-master/client/runtime/client").JsonValue;
     }[]>;

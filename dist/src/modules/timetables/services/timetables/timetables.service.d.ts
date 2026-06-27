@@ -17,10 +17,10 @@ export declare class TimetablesService {
         };
     } & {
         id: string;
-        createdAt: Date;
-        updatedAt: Date;
         name: string;
         isActive: boolean;
+        createdAt: Date;
+        updatedAt: Date;
         batchId: string;
     }>>;
     findOne(id: string, tx?: any): Promise<any>;

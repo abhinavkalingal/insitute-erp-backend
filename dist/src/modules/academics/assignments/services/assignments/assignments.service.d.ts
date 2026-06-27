@@ -7,10 +7,10 @@ export declare class AssignmentsService {
     constructor(prisma: PrismaService);
     create(staffId: string, createDto: CreateAssignmentDto): Promise<{
         id: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
+        description: string | null;
         title: string;
         dueDate: Date;
         staffId: string;
@@ -30,18 +30,18 @@ export declare class AssignmentsService {
             };
         } & {
             id: string;
+            profile: Prisma.JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
-            profile: Prisma.JsonValue | null;
             status: string;
             branchId: string | null;
-            documents: Prisma.JsonValue | null;
             employeeId: string | null;
             department: string | null;
             designation: string | null;
             joiningDate: Date | null;
+            documents: Prisma.JsonValue | null;
         };
         subject: {
             name: string;
@@ -52,10 +52,10 @@ export declare class AssignmentsService {
         } | null;
     } & {
         id: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
+        description: string | null;
         title: string;
         dueDate: Date;
         staffId: string;
@@ -72,18 +72,18 @@ export declare class AssignmentsService {
             };
         } & {
             id: string;
+            profile: Prisma.JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
-            profile: Prisma.JsonValue | null;
             status: string;
             branchId: string | null;
-            documents: Prisma.JsonValue | null;
             employeeId: string | null;
             department: string | null;
             designation: string | null;
             joiningDate: Date | null;
+            documents: Prisma.JsonValue | null;
         };
         subject: {
             name: string;
@@ -104,18 +104,18 @@ export declare class AssignmentsService {
                 };
             } & {
                 id: string;
+                profile: Prisma.JsonValue | null;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 userId: string;
-                profile: Prisma.JsonValue | null;
                 status: string;
                 courseId: string | null;
                 batchId: string | null;
                 branchId: string | null;
+                documents: Prisma.JsonValue | null;
                 enrollmentNo: string | null;
                 admissionDate: Date | null;
-                documents: Prisma.JsonValue | null;
             };
             gradedBy: ({
                 user: {
@@ -124,18 +124,18 @@ export declare class AssignmentsService {
                 };
             } & {
                 id: string;
+                profile: Prisma.JsonValue | null;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 userId: string;
-                profile: Prisma.JsonValue | null;
                 status: string;
                 branchId: string | null;
-                documents: Prisma.JsonValue | null;
                 employeeId: string | null;
                 department: string | null;
                 designation: string | null;
                 joiningDate: Date | null;
+                documents: Prisma.JsonValue | null;
             }) | null;
         } & {
             id: string;
@@ -146,18 +146,18 @@ export declare class AssignmentsService {
             assignmentId: string;
             studentId: string;
             fileUrl: string | null;
+            submittedAt: Date;
             marksObtained: number | null;
             feedback: string | null;
-            submittedAt: Date;
             gradedById: string | null;
             gradedAt: Date | null;
         })[];
     } & {
         id: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
+        description: string | null;
         title: string;
         dueDate: Date;
         staffId: string;
@@ -168,10 +168,10 @@ export declare class AssignmentsService {
     }>;
     update(id: string, updateDto: UpdateAssignmentDto): Promise<{
         id: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
+        description: string | null;
         title: string;
         dueDate: Date;
         staffId: string;
@@ -182,10 +182,10 @@ export declare class AssignmentsService {
     }>;
     remove(id: string): Promise<{
         id: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
+        description: string | null;
         title: string;
         dueDate: Date;
         staffId: string;

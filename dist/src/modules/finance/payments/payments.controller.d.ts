@@ -56,18 +56,18 @@ export declare class PaymentsController {
                 };
             } & {
                 id: string;
+                profile: import("@prisma/client/runtime/client").JsonValue | null;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 userId: string;
-                profile: import("@prisma/client/runtime/client").JsonValue | null;
                 status: string;
                 courseId: string | null;
                 batchId: string | null;
                 branchId: string | null;
+                documents: import("@prisma/client/runtime/client").JsonValue | null;
                 enrollmentNo: string | null;
                 admissionDate: Date | null;
-                documents: import("@prisma/client/runtime/client").JsonValue | null;
             };
         } & {
             id: string;

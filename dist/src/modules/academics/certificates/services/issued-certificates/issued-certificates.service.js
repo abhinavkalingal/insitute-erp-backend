@@ -130,15 +130,20 @@ let IssuedCertificatesService = class IssuedCertificatesService {
             where: { certificateNumber },
             include: {
                 template: { select: { name: true } },
-                student: { include: { user: { select: { firstName: true, lastName: true } } } }
-            }
+                student: {
+                    include: {
+                        user: { select: { firstName: true, lastName: true } },
+                        branch: { select: { name: true } },
+                    },
+                },
+            },
         });
         if (!cert) {
             throw new common_1.NotFoundException('Invalid Certificate Number. This certificate does not exist in our records.');
         }
         return {
             isValid: true,
-            issuedBy: 'Institute',
+            issuedBy: cert.student?.branch?.name || 'Institute',
             awardedTo: `${cert.student.user.firstName} ${cert.student.user.lastName}`,
             certificateName: cert.template?.name || 'Certificate',
             issueDate: cert.issueDate,

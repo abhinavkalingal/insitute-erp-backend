@@ -6,50 +6,50 @@ export declare class SubjectsService {
     constructor(prisma: PrismaService);
     create(createDto: CreateSubjectDto): Promise<{
         id: string;
-        createdAt: Date;
-        updatedAt: Date;
         name: string;
         isActive: boolean;
+        createdAt: Date;
+        updatedAt: Date;
         deletedAt: Date | null;
         code: string | null;
         credits: number | null;
     }>;
     findAll(queryOptions: SubjectQueryOptionsDto): Promise<PageDto<{
         id: string;
-        createdAt: Date;
-        updatedAt: Date;
         name: string;
         isActive: boolean;
+        createdAt: Date;
+        updatedAt: Date;
         deletedAt: Date | null;
         code: string | null;
         credits: number | null;
     }>>;
     findOne(id: string): Promise<{
         id: string;
-        createdAt: Date;
-        updatedAt: Date;
         name: string;
         isActive: boolean;
+        createdAt: Date;
+        updatedAt: Date;
         deletedAt: Date | null;
         code: string | null;
         credits: number | null;
     }>;
     update(id: string, updateDto: UpdateSubjectDto): Promise<{
         id: string;
-        createdAt: Date;
-        updatedAt: Date;
         name: string;
         isActive: boolean;
+        createdAt: Date;
+        updatedAt: Date;
         deletedAt: Date | null;
         code: string | null;
         credits: number | null;
     }>;
     remove(id: string): Promise<{
         id: string;
-        createdAt: Date;
-        updatedAt: Date;
         name: string;
         isActive: boolean;
+        createdAt: Date;
+        updatedAt: Date;
         deletedAt: Date | null;
         code: string | null;
         credits: number | null;

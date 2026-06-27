@@ -15,9 +15,9 @@ export declare class WhiteLabelController {
     }>;
     getBranding(instituteId: string): Promise<{
         id: string;
+        logoUrl: string | null;
         createdAt: Date;
         updatedAt: Date;
-        logoUrl: string | null;
         instituteId: string;
         faviconUrl: string | null;
         primaryColor: string | null;
@@ -31,9 +31,9 @@ export declare class WhiteLabelController {
     }>;
     updateBranding(instituteId: string, updateDto: UpdateInstituteBrandingDto): Promise<{
         id: string;
+        logoUrl: string | null;
         createdAt: Date;
         updatedAt: Date;
-        logoUrl: string | null;
         instituteId: string;
         faviconUrl: string | null;
         primaryColor: string | null;

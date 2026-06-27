@@ -53,16 +53,16 @@ export declare class SaasPaymentsService {
     findOne(id: string): Promise<{
         institute: {
             id: string;
-            createdAt: Date;
-            updatedAt: Date;
             name: string;
-            isActive: boolean;
-            deletedAt: Date | null;
             databaseUrl: string | null;
             domain: string | null;
             logoUrl: string | null;
             profile: Prisma.JsonValue | null;
             settings: Prisma.JsonValue | null;
+            isActive: boolean;
+            createdAt: Date;
+            updatedAt: Date;
+            deletedAt: Date | null;
         };
         invoice: {
             id: string;

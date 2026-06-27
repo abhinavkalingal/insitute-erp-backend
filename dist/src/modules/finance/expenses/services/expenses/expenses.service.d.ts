@@ -7,9 +7,9 @@ export declare class ExpensesService {
     create(createDto: CreateExpenseDto): Promise<{
         vendor: {
             id: string;
+            name: string;
             createdAt: Date;
             updatedAt: Date;
-            name: string;
             email: string | null;
             address: string | null;
             contactName: string | null;
@@ -17,16 +17,16 @@ export declare class ExpensesService {
         } | null;
         category: {
             id: string;
-            description: string | null;
+            name: string;
             createdAt: Date;
             updatedAt: Date;
-            name: string;
+            description: string | null;
         };
     } & {
         id: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
+        description: string | null;
         title: string;
         status: string;
         categoryId: string;
@@ -45,9 +45,9 @@ export declare class ExpensesService {
         };
     } & {
         id: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
+        description: string | null;
         title: string;
         status: string;
         categoryId: string;
@@ -60,9 +60,9 @@ export declare class ExpensesService {
     findOne(id: string): Promise<{
         vendor: {
             id: string;
+            name: string;
             createdAt: Date;
             updatedAt: Date;
-            name: string;
             email: string | null;
             address: string | null;
             contactName: string | null;
@@ -70,16 +70,16 @@ export declare class ExpensesService {
         } | null;
         category: {
             id: string;
-            description: string | null;
+            name: string;
             createdAt: Date;
             updatedAt: Date;
-            name: string;
+            description: string | null;
         };
     } & {
         id: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
+        description: string | null;
         title: string;
         status: string;
         categoryId: string;
@@ -92,9 +92,9 @@ export declare class ExpensesService {
     update(id: string, updateDto: UpdateExpenseDto): Promise<{
         vendor: {
             id: string;
+            name: string;
             createdAt: Date;
             updatedAt: Date;
-            name: string;
             email: string | null;
             address: string | null;
             contactName: string | null;
@@ -102,16 +102,16 @@ export declare class ExpensesService {
         } | null;
         category: {
             id: string;
-            description: string | null;
+            name: string;
             createdAt: Date;
             updatedAt: Date;
-            name: string;
+            description: string | null;
         };
     } & {
         id: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
+        description: string | null;
         title: string;
         status: string;
         categoryId: string;
@@ -123,9 +123,9 @@ export declare class ExpensesService {
     }>;
     remove(id: string): Promise<{
         id: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
+        description: string | null;
         title: string;
         status: string;
         categoryId: string;

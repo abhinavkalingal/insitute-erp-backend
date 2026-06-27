@@ -21,10 +21,10 @@ export declare class AttendanceService {
             lastName: string | null;
         };
     } & {
+        date: Date;
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        date: Date;
         type: string;
         batchId: string | null;
         branchId: string | null;

@@ -21,8 +21,11 @@ let PrismaTenantService = class PrismaTenantService {
         if (this.clients.has(databaseUrl)) {
             return this.clients.get(databaseUrl);
         }
-        const pool = new pg_1.Pool({ connectionString: databaseUrl });
-        const adapter = new adapter_pg_1.PrismaPg(pool);
+        const urlObj = new URL(databaseUrl);
+        const schema = urlObj.searchParams.get('schema') || 'public';
+        const poolConfig = { connectionString: databaseUrl };
+        const pool = new pg_1.Pool(poolConfig);
+        const adapter = new adapter_pg_1.PrismaPg(pool, { schema });
         const client = new client_1.PrismaClient({ adapter });
         const extendedClient = client.$extends({
             query: {

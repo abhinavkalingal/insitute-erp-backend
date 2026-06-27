@@ -5,10 +5,10 @@ export declare class MaterialsController {
     constructor(materialsService: MaterialsService);
     create(createDto: CreateMaterialDto): Promise<{
         id: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
+        description: string | null;
         type: string;
         title: string;
         staffId: string;
@@ -27,18 +27,18 @@ export declare class MaterialsController {
             };
         } & {
             id: string;
+            profile: import("@prisma/client/runtime/client").JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
-            profile: import("@prisma/client/runtime/client").JsonValue | null;
             status: string;
             branchId: string | null;
-            documents: import("@prisma/client/runtime/client").JsonValue | null;
             employeeId: string | null;
             department: string | null;
             designation: string | null;
             joiningDate: Date | null;
+            documents: import("@prisma/client/runtime/client").JsonValue | null;
         };
         subject: {
             name: string;
@@ -48,10 +48,10 @@ export declare class MaterialsController {
         };
     } & {
         id: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
+        description: string | null;
         type: string;
         title: string;
         staffId: string;
@@ -70,18 +70,18 @@ export declare class MaterialsController {
             };
         } & {
             id: string;
+            profile: import("@prisma/client/runtime/client").JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
-            profile: import("@prisma/client/runtime/client").JsonValue | null;
             status: string;
             branchId: string | null;
-            documents: import("@prisma/client/runtime/client").JsonValue | null;
             employeeId: string | null;
             department: string | null;
             designation: string | null;
             joiningDate: Date | null;
+            documents: import("@prisma/client/runtime/client").JsonValue | null;
         };
         subject: {
             name: string;
@@ -95,17 +95,17 @@ export declare class MaterialsController {
         } | null;
         category: {
             id: string;
-            description: string | null;
+            name: string;
             createdAt: Date;
             updatedAt: Date;
-            name: string;
+            description: string | null;
         };
     } & {
         id: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
+        description: string | null;
         type: string;
         title: string;
         staffId: string;
@@ -118,10 +118,10 @@ export declare class MaterialsController {
     }>;
     update(id: string, updateDto: UpdateMaterialDto): Promise<{
         id: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
+        description: string | null;
         type: string;
         title: string;
         staffId: string;
@@ -134,10 +134,10 @@ export declare class MaterialsController {
     }>;
     remove(id: string): Promise<{
         id: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
+        description: string | null;
         type: string;
         title: string;
         staffId: string;

@@ -54,6 +54,33 @@ let RolesService = class RolesService {
             }
         });
     }
+    async update(id, updateRoleDto) {
+        const existing = await this.prisma.role.findUnique({ where: { id } });
+        if (!existing)
+            throw new common_1.NotFoundException('Role not found');
+        const { permissionIds, ...roleData } = updateRoleDto;
+        if (permissionIds) {
+            await this.prisma.rolePermission.deleteMany({ where: { roleId: id } });
+        }
+        return this.prisma.role.update({
+            where: { id },
+            data: {
+                ...roleData,
+                permissions: permissionIds
+                    ? {
+                        create: permissionIds.map((permissionId) => ({
+                            permission: { connect: { id: permissionId } }
+                        }))
+                    }
+                    : undefined
+            },
+            include: {
+                permissions: {
+                    include: { permission: true }
+                }
+            }
+        });
+    }
     async remove(id) {
         const existing = await this.prisma.role.findUnique({ where: { id } });
         if (!existing) {

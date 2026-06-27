@@ -6,9 +6,9 @@ export declare class IssuedIdCardsController {
     issue(issueDto: IssueIdCardDto): Promise<{
         card: {
             id: string;
+            isActive: boolean;
             createdAt: Date;
             updatedAt: Date;
-            isActive: boolean;
             staffId: string | null;
             studentId: string | null;
             templateId: string;
@@ -28,9 +28,9 @@ export declare class IssuedIdCardsController {
         };
     } & {
         id: string;
+        isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
-        isActive: boolean;
         staffId: string | null;
         studentId: string | null;
         templateId: string;
@@ -42,9 +42,9 @@ export declare class IssuedIdCardsController {
     }>>;
     revokeCard(id: string): Promise<{
         id: string;
+        isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
-        isActive: boolean;
         staffId: string | null;
         studentId: string | null;
         templateId: string;

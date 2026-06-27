@@ -11,9 +11,9 @@ export declare class AuditLogsController {
         } | null;
     } & {
         id: string;
-        action: string;
         createdAt: Date;
         userId: string | null;
+        action: string;
         type: string;
         entity: string | null;
         entityId: string | null;
@@ -29,9 +29,9 @@ export declare class AuditLogsController {
         } | null;
     } & {
         id: string;
-        action: string;
         createdAt: Date;
         userId: string | null;
+        action: string;
         type: string;
         entity: string | null;
         entityId: string | null;
@@ -47,9 +47,9 @@ export declare class AuditLogsController {
         } | null;
     } & {
         id: string;
-        action: string;
         createdAt: Date;
         userId: string | null;
+        action: string;
         type: string;
         entity: string | null;
         entityId: string | null;
@@ -65,9 +65,9 @@ export declare class AuditLogsController {
         } | null;
     } & {
         id: string;
-        action: string;
         createdAt: Date;
         userId: string | null;
+        action: string;
         type: string;
         entity: string | null;
         entityId: string | null;
@@ -83,9 +83,9 @@ export declare class AuditLogsController {
         } | null;
     } & {
         id: string;
-        action: string;
         createdAt: Date;
         userId: string | null;
+        action: string;
         type: string;
         entity: string | null;
         entityId: string | null;

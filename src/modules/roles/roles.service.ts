@@ -38,6 +38,30 @@ export class RolesService {
           include: { permission: true }}}});
   }
 
+  async update(id: string, updateRoleDto: { name?: string; permissionIds?: string[] }) {
+    const existing = await this.prisma.role.findUnique({ where: { id } });
+    if (!existing) throw new NotFoundException('Role not found');
+
+    const { permissionIds, ...roleData } = updateRoleDto;
+
+    if (permissionIds) {
+      await this.prisma.rolePermission.deleteMany({ where: { roleId: id } });
+    }
+
+    return this.prisma.role.update({
+      where: { id },
+      data: {
+        ...roleData,
+        permissions: permissionIds
+          ? {
+              create: permissionIds.map((permissionId) => ({
+                permission: { connect: { id: permissionId } }}))}
+          : undefined},
+      include: {
+        permissions: {
+          include: { permission: true }}}});
+  }
+
   async remove(id: string) {
     const existing = await this.prisma.role.findUnique({ where: { id } });
     if (!existing) {

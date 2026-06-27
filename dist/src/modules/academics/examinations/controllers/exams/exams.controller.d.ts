@@ -5,9 +5,9 @@ export declare class ExamsController {
     constructor(examsService: ExamsService);
     createTerm(createDto: CreateExamTermDto): Promise<{
         id: string;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
         startDate: Date;
         endDate: Date;
         isPublished: boolean;
@@ -18,19 +18,19 @@ export declare class ExamsController {
         };
     } & {
         id: string;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
         startDate: Date;
         endDate: Date;
         isPublished: boolean;
     }>>;
     findOneTerm(id: string): Promise<{
         exams: {
+            date: Date;
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            date: Date;
             subjectId: string;
             courseId: string | null;
             batchId: string | null;
@@ -42,36 +42,36 @@ export declare class ExamsController {
         }[];
     } & {
         id: string;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
         startDate: Date;
         endDate: Date;
         isPublished: boolean;
     }>;
     updateTerm(id: string, updateDto: UpdateExamTermDto): Promise<{
         id: string;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
         startDate: Date;
         endDate: Date;
         isPublished: boolean;
     }>;
     removeTerm(id: string): Promise<{
         id: string;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
         startDate: Date;
         endDate: Date;
         isPublished: boolean;
     }>;
     createExam(createDto: CreateExamDto): Promise<{
+        date: Date;
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        date: Date;
         subjectId: string;
         courseId: string | null;
         batchId: string | null;
@@ -97,10 +97,10 @@ export declare class ExamsController {
             isPublished: boolean;
         };
     } & {
+        date: Date;
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        date: Date;
         subjectId: string;
         courseId: string | null;
         batchId: string | null;
@@ -113,30 +113,30 @@ export declare class ExamsController {
     findOneExam(id: string): Promise<{
         subject: {
             id: string;
-            createdAt: Date;
-            updatedAt: Date;
             name: string;
             isActive: boolean;
+            createdAt: Date;
+            updatedAt: Date;
             deletedAt: Date | null;
             code: string | null;
             credits: number | null;
         };
         course: {
             id: string;
-            description: string | null;
-            createdAt: Date;
-            updatedAt: Date;
             name: string;
             isActive: boolean;
+            createdAt: Date;
+            updatedAt: Date;
             deletedAt: Date | null;
+            description: string | null;
             code: string | null;
         } | null;
         batch: {
             id: string;
-            createdAt: Date;
-            updatedAt: Date;
             name: string;
             isActive: boolean;
+            createdAt: Date;
+            updatedAt: Date;
             deletedAt: Date | null;
             courseId: string;
             branchId: string | null;
@@ -145,18 +145,18 @@ export declare class ExamsController {
         } | null;
         term: {
             id: string;
+            name: string;
             createdAt: Date;
             updatedAt: Date;
-            name: string;
             startDate: Date;
             endDate: Date;
             isPublished: boolean;
         };
     } & {
+        date: Date;
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        date: Date;
         subjectId: string;
         courseId: string | null;
         batchId: string | null;
@@ -167,10 +167,10 @@ export declare class ExamsController {
         passingMarks: number;
     }>;
     updateExam(id: string, updateDto: UpdateExamDto): Promise<{
+        date: Date;
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        date: Date;
         subjectId: string;
         courseId: string | null;
         batchId: string | null;
@@ -181,10 +181,10 @@ export declare class ExamsController {
         passingMarks: number;
     }>;
     removeExam(id: string): Promise<{
+        date: Date;
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        date: Date;
         subjectId: string;
         courseId: string | null;
         batchId: string | null;

@@ -5,9 +5,9 @@ export declare class IdCardTemplatesController {
     constructor(idCardTemplatesService: IdCardTemplatesService);
     create(createDto: CreateIdTemplateDto): Promise<{
         id: string;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
         backgroundUrl: string | null;
         contentHtml: string;
         roleType: string;
@@ -18,36 +18,36 @@ export declare class IdCardTemplatesController {
         };
     } & {
         id: string;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
         backgroundUrl: string | null;
         contentHtml: string;
         roleType: string;
     }>>;
     findOne(id: string): Promise<{
         id: string;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
         backgroundUrl: string | null;
         contentHtml: string;
         roleType: string;
     }>;
     update(id: string, updateDto: UpdateIdTemplateDto): Promise<{
         id: string;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
         backgroundUrl: string | null;
         contentHtml: string;
         roleType: string;
     }>;
     remove(id: string): Promise<{
         id: string;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
         backgroundUrl: string | null;
         contentHtml: string;
         roleType: string;

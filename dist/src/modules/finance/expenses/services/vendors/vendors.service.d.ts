@@ -6,9 +6,9 @@ export declare class VendorsService {
     constructor(prisma: PrismaService);
     create(createDto: CreateVendorDto): Promise<{
         id: string;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
         email: string | null;
         address: string | null;
         contactName: string | null;
@@ -16,9 +16,9 @@ export declare class VendorsService {
     }>;
     findAll(queryOptions: VendorQueryOptionsDto): Promise<PageDto<{
         id: string;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
         email: string | null;
         address: string | null;
         contactName: string | null;
@@ -26,9 +26,9 @@ export declare class VendorsService {
     }>>;
     findOne(id: string): Promise<{
         id: string;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
         email: string | null;
         address: string | null;
         contactName: string | null;
@@ -36,9 +36,9 @@ export declare class VendorsService {
     }>;
     update(id: string, updateDto: UpdateVendorDto): Promise<{
         id: string;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
         email: string | null;
         address: string | null;
         contactName: string | null;
@@ -46,9 +46,9 @@ export declare class VendorsService {
     }>;
     remove(id: string): Promise<{
         id: string;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
         email: string | null;
         address: string | null;
         contactName: string | null;

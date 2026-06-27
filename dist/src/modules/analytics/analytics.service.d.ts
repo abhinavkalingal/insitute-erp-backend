@@ -54,4 +54,32 @@ export declare class AnalyticsService {
             count: number;
         }[];
     }>;
+    getLeadAnalytics(query: AnalyticsQueryDto): Promise<{
+        totalLeads: number;
+        convertedLeads: number;
+        lostLeads: number;
+        conversionRate: number;
+    }>;
+    getOperationsAnalytics(query: AnalyticsQueryDto): Promise<{
+        openTickets: number;
+        resolvedTickets: number;
+        pendingApprovals: number;
+    }>;
+    getSystemAnalytics(query: AnalyticsQueryDto): Promise<{
+        cpuUsage: string;
+        memoryUsage: string;
+        activeUsers: number;
+        uptime: string;
+    }>;
+    getAcademicAnalytics(query: AnalyticsQueryDto): Promise<{
+        activeCourses: number;
+        activeBatches: number;
+        averageAttendance: string;
+    }>;
+    getBranchAnalytics(query: AnalyticsQueryDto): Promise<{
+        id: string;
+        name: string;
+        students: number;
+        staff: number;
+    }[]>;
 }

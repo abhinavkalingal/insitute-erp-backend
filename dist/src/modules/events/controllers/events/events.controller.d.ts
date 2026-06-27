@@ -5,9 +5,9 @@ export declare class EventsController {
     constructor(eventsService: EventsService);
     create(createDto: CreateEventDto): Promise<{
         id: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
+        description: string | null;
         title: string;
         startDate: Date;
         endDate: Date;
@@ -26,9 +26,9 @@ export declare class EventsController {
         };
     } & {
         id: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
+        description: string | null;
         title: string;
         startDate: Date;
         endDate: Date;
@@ -47,9 +47,9 @@ export declare class EventsController {
         };
     } & {
         id: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
+        description: string | null;
         title: string;
         startDate: Date;
         endDate: Date;
@@ -61,9 +61,9 @@ export declare class EventsController {
     }>;
     update(id: string, updateDto: UpdateEventDto): Promise<{
         id: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
+        description: string | null;
         title: string;
         startDate: Date;
         endDate: Date;
@@ -75,9 +75,9 @@ export declare class EventsController {
     }>;
     remove(id: string): Promise<{
         id: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
+        description: string | null;
         title: string;
         startDate: Date;
         endDate: Date;

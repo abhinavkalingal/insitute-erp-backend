@@ -6,10 +6,10 @@ export declare class PlanFeaturesController {
     assignFeature(planId: string, assignDto: AssignPlanFeatureDto): Promise<{
         feature: {
             id: string;
-            description: string | null;
+            name: string;
             createdAt: Date;
             updatedAt: Date;
-            name: string;
+            description: string | null;
             type: string;
             key: string;
         };
@@ -23,10 +23,10 @@ export declare class PlanFeaturesController {
     getPlanFeatures(planId: string): Promise<({
         feature: {
             id: string;
-            description: string | null;
+            name: string;
             createdAt: Date;
             updatedAt: Date;
-            name: string;
+            description: string | null;
             type: string;
             key: string;
         };
@@ -40,10 +40,10 @@ export declare class PlanFeaturesController {
     updatePlanFeature(planId: string, featureId: string, updateDto: UpdatePlanFeatureDto): Promise<{
         feature: {
             id: string;
-            description: string | null;
+            name: string;
             createdAt: Date;
             updatedAt: Date;
-            name: string;
+            description: string | null;
             type: string;
             key: string;
         };

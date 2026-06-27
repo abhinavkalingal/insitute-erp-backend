@@ -163,4 +163,79 @@ export class AnalyticsService {
         department: d.department || 'Unassigned',
         count: d._count.id}))};
   }
+
+  async getLeadAnalytics(query: AnalyticsQueryDto) {
+    const where = this.buildWhereClause(query);
+    
+    const [totalLeads, convertedLeads, lostLeads] = await Promise.all([
+      this.prisma.enquiry.count({ where }),
+      this.prisma.enquiry.count({ where: { ...where, status: 'CONVERTED' } }),
+      this.prisma.enquiry.count({ where: { ...where, status: 'LOST' } }),
+    ]);
+
+    return {
+      totalLeads,
+      convertedLeads,
+      lostLeads,
+      conversionRate: totalLeads > 0 ? (convertedLeads / totalLeads) * 100 : 0
+    };
+  }
+
+  async getOperationsAnalytics(query: AnalyticsQueryDto) {
+    const where = this.buildWhereClause(query);
+    
+    const [openTickets, resolvedTickets, pendingApprovals] = await Promise.all([
+      this.prisma.supportTicket.count({ where: { ...where, status: 'OPEN' } }),
+      this.prisma.supportTicket.count({ where: { ...where, status: 'RESOLVED' } }),
+      this.prisma.approvalRequest.count({ where: { ...where, status: 'PENDING' } }),
+    ]);
+
+    return {
+      openTickets,
+      resolvedTickets,
+      pendingApprovals
+    };
+  }
+
+  async getSystemAnalytics(query: AnalyticsQueryDto) {
+    // Mock system stats since this usually comes from APM or Prometheus
+    return {
+      cpuUsage: '45%',
+      memoryUsage: '60%',
+      activeUsers: 124,
+      uptime: '99.9%'
+    };
+  }
+
+  async getAcademicAnalytics(query: AnalyticsQueryDto) {
+    const where = this.buildWhereClause(query);
+    
+    const [activeCourses, activeBatches] = await Promise.all([
+      this.prisma.course.count({ where: { ...where, isActive: true } }),
+      this.prisma.batch.count({ where }),
+    ]);
+
+    return {
+      activeCourses,
+      activeBatches,
+      averageAttendance: '85%' // Mock average attendance
+    };
+  }
+
+  async getBranchAnalytics(query: AnalyticsQueryDto) {
+    const branches = await this.prisma.branch.findMany({
+      include: {
+        _count: {
+          select: { students: true, staff: true }
+        }
+      }
+    });
+    
+    return branches.map(branch => ({
+      id: branch.id,
+      name: branch.name,
+      students: branch._count.students,
+      staff: branch._count.staff
+    }));
+  }
 }

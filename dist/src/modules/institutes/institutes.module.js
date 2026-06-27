@@ -11,6 +11,7 @@ const storage_module_1 = require("../storage/storage.module");
 const common_1 = require("@nestjs/common");
 const institutes_controller_1 = require("./institutes.controller");
 const institutes_service_1 = require("./institutes.service");
+const tenant_provisioning_service_1 = require("./tenant-provisioning.service");
 let InstitutesModule = class InstitutesModule {
 };
 exports.InstitutesModule = InstitutesModule;
@@ -18,8 +19,8 @@ exports.InstitutesModule = InstitutesModule = __decorate([
     (0, common_1.Module)({
         imports: [storage_module_1.StorageModule],
         controllers: [institutes_controller_1.InstitutesController],
-        providers: [institutes_service_1.InstitutesService],
-        exports: [institutes_service_1.InstitutesService]
+        providers: [institutes_service_1.InstitutesService, tenant_provisioning_service_1.TenantProvisioningService],
+        exports: [institutes_service_1.InstitutesService, tenant_provisioning_service_1.TenantProvisioningService]
     })
 ], InstitutesModule);
 //# sourceMappingURL=institutes.module.js.map

@@ -7,44 +7,68 @@ export declare class RolesService {
         permissions: ({
             permission: {
                 id: string;
-                action: string;
-                description: string | null;
                 createdAt: Date;
                 updatedAt: Date;
+                description: string | null;
+                action: string;
             };
         } & {
             createdAt: Date;
-            permissionId: string;
             roleId: string;
+            permissionId: string;
         })[];
     } & {
         id: string;
-        description: string | null;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
+        description: string | null;
     }>;
     findAll(): import("@prisma/client").Prisma.PrismaPromise<({
         permissions: ({
             permission: {
                 id: string;
-                action: string;
-                description: string | null;
                 createdAt: Date;
                 updatedAt: Date;
+                description: string | null;
+                action: string;
             };
         } & {
             createdAt: Date;
-            permissionId: string;
             roleId: string;
+            permissionId: string;
         })[];
     } & {
         id: string;
-        description: string | null;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
+        description: string | null;
     })[]>;
+    update(id: string, updateRoleDto: {
+        name?: string;
+        permissionIds?: string[];
+    }): Promise<{
+        permissions: ({
+            permission: {
+                id: string;
+                createdAt: Date;
+                updatedAt: Date;
+                description: string | null;
+                action: string;
+            };
+        } & {
+            createdAt: Date;
+            roleId: string;
+            permissionId: string;
+        })[];
+    } & {
+        id: string;
+        name: string;
+        createdAt: Date;
+        updatedAt: Date;
+        description: string | null;
+    }>;
     remove(id: string): Promise<{
         message: string;
     }>;

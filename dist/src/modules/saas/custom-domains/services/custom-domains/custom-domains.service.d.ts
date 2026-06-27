@@ -8,9 +8,9 @@ export declare class CustomDomainsService {
     constructor(prisma: PrismaMasterService, saasEnforcement: SaasEnforcementService);
     getDomain(instituteId: string): Promise<{
         id: string;
+        domain: string;
         createdAt: Date;
         updatedAt: Date;
-        domain: string;
         instituteId: string;
         status: string;
         sslStatus: string | null;
@@ -18,9 +18,9 @@ export declare class CustomDomainsService {
     } | null>;
     registerDomain(instituteId: string, dto: RegisterCustomDomainDto): Promise<{
         id: string;
+        domain: string;
         createdAt: Date;
         updatedAt: Date;
-        domain: string;
         instituteId: string;
         status: string;
         sslStatus: string | null;
@@ -30,9 +30,9 @@ export declare class CustomDomainsService {
         message: string;
         customDomain: {
             id: string;
+            domain: string;
             createdAt: Date;
             updatedAt: Date;
-            domain: string;
             instituteId: string;
             status: string;
             sslStatus: string | null;

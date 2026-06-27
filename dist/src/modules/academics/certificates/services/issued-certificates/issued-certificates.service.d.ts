@@ -28,18 +28,18 @@ export declare class IssuedCertificatesService {
             };
         } & {
             id: string;
+            profile: Prisma.JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
-            profile: Prisma.JsonValue | null;
             status: string;
             courseId: string | null;
             batchId: string | null;
             branchId: string | null;
+            documents: Prisma.JsonValue | null;
             enrollmentNo: string | null;
             admissionDate: Date | null;
-            documents: Prisma.JsonValue | null;
         };
         template: {
             name: string;

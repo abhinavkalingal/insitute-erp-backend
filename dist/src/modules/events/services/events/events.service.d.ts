@@ -6,9 +6,9 @@ export declare class EventsService {
     constructor(prisma: PrismaService);
     create(createDto: CreateEventDto): Promise<{
         id: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
+        description: string | null;
         title: string;
         startDate: Date;
         endDate: Date;
@@ -27,9 +27,9 @@ export declare class EventsService {
         };
     } & {
         id: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
+        description: string | null;
         title: string;
         startDate: Date;
         endDate: Date;
@@ -48,9 +48,9 @@ export declare class EventsService {
         };
     } & {
         id: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
+        description: string | null;
         title: string;
         startDate: Date;
         endDate: Date;
@@ -62,9 +62,9 @@ export declare class EventsService {
     }>;
     update(id: string, updateDto: UpdateEventDto): Promise<{
         id: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
+        description: string | null;
         title: string;
         startDate: Date;
         endDate: Date;
@@ -76,9 +76,9 @@ export declare class EventsService {
     }>;
     remove(id: string): Promise<{
         id: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
+        description: string | null;
         title: string;
         startDate: Date;
         endDate: Date;

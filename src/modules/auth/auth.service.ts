@@ -4,6 +4,9 @@ import { BadRequestException, Injectable, UnauthorizedException } from '@nestjs/
 import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
+import * as crypto from 'crypto';
+
+import { MailService } from '../mail/mail.service';
 
 import { ChangePasswordDto } from './dto/change-password.dto';
 import { LoginDto } from './dto/login.dto';
@@ -15,6 +18,7 @@ export class AuthService {
     private readonly prismaMaster: PrismaMasterService,
     private readonly jwtService: JwtService,
     private readonly configService: ConfigService,
+    private readonly mailService: MailService,
   ) {}
 
   async login(loginDto: LoginDto) {
@@ -131,19 +135,70 @@ export class AuthService {
           'If that email address is in our database, we will send you an email to reset your password.'};
     }
 
-    // TODO: Generate reset token, save to DB, and send email (Step 11)
+    const resetToken = crypto.randomBytes(32).toString('hex');
+    const resetPasswordExpires = new Date(Date.now() + 3600000); // 1 hour
+
+    await this.prisma.user.update({
+      where: { id: user.id },
+      data: {
+        resetPasswordToken: resetToken,
+        resetPasswordExpires,
+      },
+    });
+
+    await this.mailService.sendPasswordReset(user.email, resetToken);
+
     return {
       message:
         'If that email address is in our database, we will send you an email to reset your password.'};
   }
 
   async resetPassword(token: string, newPassword: string) {
-    // TODO: Validate reset token, hash new password, update DB
+    const user = await this.prisma.user.findFirst({
+      where: {
+        resetPasswordToken: token,
+        resetPasswordExpires: { gt: new Date() },
+      },
+    });
+
+    if (!user) {
+      throw new BadRequestException('Password reset token is invalid or has expired.');
+    }
+
+    const saltRounds = 10;
+    const newPasswordHash = await bcrypt.hash(newPassword, saltRounds);
+
+    await this.prisma.user.update({
+      where: { id: user.id },
+      data: {
+        passwordHash: newPasswordHash,
+        resetPasswordToken: null,
+        resetPasswordExpires: null,
+      },
+    });
+
     return { message: 'Password successfully reset' };
   }
 
   async verifyEmail(token: string) {
-    // TODO: Validate verification token, update user isEmailVerified flag
+    const user = await this.prisma.user.findFirst({
+      where: {
+        emailVerificationToken: token,
+      },
+    });
+
+    if (!user) {
+      throw new BadRequestException('Email verification token is invalid.');
+    }
+
+    await this.prisma.user.update({
+      where: { id: user.id },
+      data: {
+        isEmailVerified: true,
+        emailVerificationToken: null,
+      },
+    });
+
     return { message: 'Email successfully verified' };
   }
 }

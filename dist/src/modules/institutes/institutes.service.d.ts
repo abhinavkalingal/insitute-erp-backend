@@ -4,9 +4,11 @@ import { Prisma } from '@prisma-master/client';
 import { CreateInstituteDto } from './dto/create-institute.dto';
 import { InstituteQueryOptionsDto } from './dto/institute-query-options.dto';
 import { UpdateInstituteDto } from './dto/update-institute.dto';
+import { TenantProvisioningService } from './tenant-provisioning.service';
 export declare class InstitutesService {
     private readonly prisma;
-    constructor(prisma: PrismaMasterService);
+    private readonly tenantProvisioningService;
+    constructor(prisma: PrismaMasterService, tenantProvisioningService: TenantProvisioningService);
     create(createInstituteDto: CreateInstituteDto): Promise<{
         id: string;
         name: string;

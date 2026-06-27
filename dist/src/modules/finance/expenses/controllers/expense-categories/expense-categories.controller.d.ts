@@ -5,10 +5,10 @@ export declare class ExpenseCategoriesController {
     constructor(expenseCategoriesService: ExpenseCategoriesService);
     create(createDto: CreateExpenseCategoryDto): Promise<{
         id: string;
-        description: string | null;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
+        description: string | null;
     }>;
     findAll(queryOptions: ExpenseCategoryQueryOptionsDto): Promise<import("../../../../../core/utils/pagination/page.dto").PageDto<{
         _count: {
@@ -16,30 +16,30 @@ export declare class ExpenseCategoriesController {
         };
     } & {
         id: string;
-        description: string | null;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
+        description: string | null;
     }>>;
     findOne(id: string): Promise<{
         id: string;
-        description: string | null;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
+        description: string | null;
     }>;
     update(id: string, updateDto: UpdateExpenseCategoryDto): Promise<{
         id: string;
-        description: string | null;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
+        description: string | null;
     }>;
     remove(id: string): Promise<{
         id: string;
-        description: string | null;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
+        description: string | null;
     }>;
 }

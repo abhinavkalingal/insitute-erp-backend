@@ -5,9 +5,9 @@ export declare class LicenseManagementController {
     constructor(licenseManagementService: LicenseManagementService);
     registerDevice(instituteId: string, req: any, dto: RegisterDeviceDto): Promise<{
         id: string;
+        isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
-        isActive: boolean;
         userId: string;
         deviceIdentifier: string;
         deviceName: string;
@@ -21,9 +21,9 @@ export declare class LicenseManagementController {
         };
     } & {
         id: string;
+        isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
-        isActive: boolean;
         userId: string;
         deviceIdentifier: string;
         deviceName: string;

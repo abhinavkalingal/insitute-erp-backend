@@ -43,6 +43,21 @@ let AnalyticsController = class AnalyticsController {
     getFacultyAnalytics(query) {
         return this.analyticsService.getFacultyAnalytics(query);
     }
+    getLeadAnalytics(query) {
+        return this.analyticsService.getLeadAnalytics(query);
+    }
+    getOperationsAnalytics(query) {
+        return this.analyticsService.getOperationsAnalytics(query);
+    }
+    getSystemAnalytics(query) {
+        return this.analyticsService.getSystemAnalytics(query);
+    }
+    getAcademicAnalytics(query) {
+        return this.analyticsService.getAcademicAnalytics(query);
+    }
+    getBranchAnalytics(query) {
+        return this.analyticsService.getBranchAnalytics(query);
+    }
 };
 exports.AnalyticsController = AnalyticsController;
 __decorate([
@@ -99,6 +114,51 @@ __decorate([
     __metadata("design:paramtypes", [analytics_query_dto_1.AnalyticsQueryDto]),
     __metadata("design:returntype", void 0)
 ], AnalyticsController.prototype, "getFacultyAnalytics", null);
+__decorate([
+    (0, common_1.Get)('leads'),
+    (0, permissions_decorator_1.RequirePermissions)('read:analytics'),
+    (0, swagger_1.ApiOperation)({ summary: 'Get lead and conversion analytics' }),
+    __param(0, (0, common_1.Query)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [analytics_query_dto_1.AnalyticsQueryDto]),
+    __metadata("design:returntype", void 0)
+], AnalyticsController.prototype, "getLeadAnalytics", null);
+__decorate([
+    (0, common_1.Get)('operations'),
+    (0, permissions_decorator_1.RequirePermissions)('read:analytics'),
+    (0, swagger_1.ApiOperation)({ summary: 'Get operations and tickets analytics' }),
+    __param(0, (0, common_1.Query)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [analytics_query_dto_1.AnalyticsQueryDto]),
+    __metadata("design:returntype", void 0)
+], AnalyticsController.prototype, "getOperationsAnalytics", null);
+__decorate([
+    (0, common_1.Get)('system'),
+    (0, permissions_decorator_1.RequirePermissions)('read:analytics'),
+    (0, swagger_1.ApiOperation)({ summary: 'Get system and infrastructure analytics' }),
+    __param(0, (0, common_1.Query)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [analytics_query_dto_1.AnalyticsQueryDto]),
+    __metadata("design:returntype", void 0)
+], AnalyticsController.prototype, "getSystemAnalytics", null);
+__decorate([
+    (0, common_1.Get)('academic'),
+    (0, permissions_decorator_1.RequirePermissions)('read:analytics'),
+    (0, swagger_1.ApiOperation)({ summary: 'Get academic performance analytics' }),
+    __param(0, (0, common_1.Query)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [analytics_query_dto_1.AnalyticsQueryDto]),
+    __metadata("design:returntype", void 0)
+], AnalyticsController.prototype, "getAcademicAnalytics", null);
+__decorate([
+    (0, common_1.Get)('branch'),
+    (0, permissions_decorator_1.RequirePermissions)('read:analytics'),
+    (0, swagger_1.ApiOperation)({ summary: 'Get branch performance analytics' }),
+    __param(0, (0, common_1.Query)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [analytics_query_dto_1.AnalyticsQueryDto]),
+    __metadata("design:returntype", void 0)
+], AnalyticsController.prototype, "getBranchAnalytics", null);
 exports.AnalyticsController = AnalyticsController = __decorate([
     (0, swagger_1.ApiTags)('Analytics'),
     (0, swagger_1.ApiBearerAuth)(),

@@ -6,10 +6,10 @@ export declare class BatchesService {
     constructor(prisma: PrismaService);
     create(createDto: CreateBatchDto): Promise<{
         id: string;
-        createdAt: Date;
-        updatedAt: Date;
         name: string;
         isActive: boolean;
+        createdAt: Date;
+        updatedAt: Date;
         deletedAt: Date | null;
         courseId: string;
         branchId: string | null;
@@ -29,10 +29,10 @@ export declare class BatchesService {
         };
     } & {
         id: string;
-        createdAt: Date;
-        updatedAt: Date;
         name: string;
         isActive: boolean;
+        createdAt: Date;
+        updatedAt: Date;
         deletedAt: Date | null;
         courseId: string;
         branchId: string | null;
@@ -52,10 +52,10 @@ export declare class BatchesService {
         };
     } & {
         id: string;
-        createdAt: Date;
-        updatedAt: Date;
         name: string;
         isActive: boolean;
+        createdAt: Date;
+        updatedAt: Date;
         deletedAt: Date | null;
         courseId: string;
         branchId: string | null;
@@ -64,10 +64,10 @@ export declare class BatchesService {
     }>;
     update(id: string, updateDto: UpdateBatchDto): Promise<{
         id: string;
-        createdAt: Date;
-        updatedAt: Date;
         name: string;
         isActive: boolean;
+        createdAt: Date;
+        updatedAt: Date;
         deletedAt: Date | null;
         courseId: string;
         branchId: string | null;
@@ -76,10 +76,10 @@ export declare class BatchesService {
     }>;
     remove(id: string): Promise<{
         id: string;
-        createdAt: Date;
-        updatedAt: Date;
         name: string;
         isActive: boolean;
+        createdAt: Date;
+        updatedAt: Date;
         deletedAt: Date | null;
         courseId: string;
         branchId: string | null;

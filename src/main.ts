@@ -5,15 +5,21 @@ import { ValidationPipe } from '@nestjs/common';
 import { HttpAdapterHost, NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { Logger } from 'nestjs-pino';
+import helmet from 'helmet';
 
 import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // Enable CORS for Flutter web app and other frontends
+  // Apply Security Headers
+  app.use(helmet());
+
+  // Enable CORS with strict rules for production
+  const isProd = process.env.NODE_ENV === 'production';
+  const allowedOrigin = isProd ? (process.env.FRONTEND_URL || false) : true;
   app.enableCors({
-    origin: true, // Allow all origins in development
+    origin: allowedOrigin,
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'Accept'],
     credentials: true,

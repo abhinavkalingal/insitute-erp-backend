@@ -20,10 +20,10 @@ export declare class AttendanceController {
             lastName: string | null;
         };
     } & {
+        date: Date;
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        date: Date;
         type: string;
         batchId: string | null;
         branchId: string | null;

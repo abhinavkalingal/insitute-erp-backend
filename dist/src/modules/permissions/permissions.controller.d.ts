@@ -5,17 +5,17 @@ export declare class PermissionsController {
     constructor(permissionsService: PermissionsService);
     create(createPermissionDto: CreatePermissionDto): Promise<{
         id: string;
-        action: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
+        description: string | null;
+        action: string;
     }>;
     findAll(): import("@prisma/client").Prisma.PrismaPromise<{
         id: string;
-        action: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
+        description: string | null;
+        action: string;
     }[]>;
     remove(id: string): Promise<{
         message: string;

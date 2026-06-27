@@ -7,4 +7,5 @@ export declare class MailService {
     sendMail(to: string, subject: string, html: string): Promise<any>;
     sendPasswordReset(to: string, token: string): Promise<any>;
     sendWelcomeEmail(to: string, name: string): Promise<any>;
+    sendEmailVerification(to: string, token: string): Promise<any>;
 }

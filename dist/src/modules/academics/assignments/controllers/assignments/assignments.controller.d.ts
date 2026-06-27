@@ -5,10 +5,10 @@ export declare class AssignmentsController {
     constructor(assignmentsService: AssignmentsService);
     create(createDto: CreateAssignmentDto): Promise<{
         id: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
+        description: string | null;
         title: string;
         dueDate: Date;
         staffId: string;
@@ -28,18 +28,18 @@ export declare class AssignmentsController {
             };
         } & {
             id: string;
+            profile: import("@prisma/client/runtime/client").JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
-            profile: import("@prisma/client/runtime/client").JsonValue | null;
             status: string;
             branchId: string | null;
-            documents: import("@prisma/client/runtime/client").JsonValue | null;
             employeeId: string | null;
             department: string | null;
             designation: string | null;
             joiningDate: Date | null;
+            documents: import("@prisma/client/runtime/client").JsonValue | null;
         };
         subject: {
             name: string;
@@ -50,10 +50,10 @@ export declare class AssignmentsController {
         } | null;
     } & {
         id: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
+        description: string | null;
         title: string;
         dueDate: Date;
         staffId: string;
@@ -70,18 +70,18 @@ export declare class AssignmentsController {
             };
         } & {
             id: string;
+            profile: import("@prisma/client/runtime/client").JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
-            profile: import("@prisma/client/runtime/client").JsonValue | null;
             status: string;
             branchId: string | null;
-            documents: import("@prisma/client/runtime/client").JsonValue | null;
             employeeId: string | null;
             department: string | null;
             designation: string | null;
             joiningDate: Date | null;
+            documents: import("@prisma/client/runtime/client").JsonValue | null;
         };
         subject: {
             name: string;
@@ -102,18 +102,18 @@ export declare class AssignmentsController {
                 };
             } & {
                 id: string;
+                profile: import("@prisma/client/runtime/client").JsonValue | null;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 userId: string;
-                profile: import("@prisma/client/runtime/client").JsonValue | null;
                 status: string;
                 courseId: string | null;
                 batchId: string | null;
                 branchId: string | null;
+                documents: import("@prisma/client/runtime/client").JsonValue | null;
                 enrollmentNo: string | null;
                 admissionDate: Date | null;
-                documents: import("@prisma/client/runtime/client").JsonValue | null;
             };
             gradedBy: ({
                 user: {
@@ -122,18 +122,18 @@ export declare class AssignmentsController {
                 };
             } & {
                 id: string;
+                profile: import("@prisma/client/runtime/client").JsonValue | null;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 userId: string;
-                profile: import("@prisma/client/runtime/client").JsonValue | null;
                 status: string;
                 branchId: string | null;
-                documents: import("@prisma/client/runtime/client").JsonValue | null;
                 employeeId: string | null;
                 department: string | null;
                 designation: string | null;
                 joiningDate: Date | null;
+                documents: import("@prisma/client/runtime/client").JsonValue | null;
             }) | null;
         } & {
             id: string;
@@ -144,18 +144,18 @@ export declare class AssignmentsController {
             assignmentId: string;
             studentId: string;
             fileUrl: string | null;
+            submittedAt: Date;
             marksObtained: number | null;
             feedback: string | null;
-            submittedAt: Date;
             gradedById: string | null;
             gradedAt: Date | null;
         })[];
     } & {
         id: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
+        description: string | null;
         title: string;
         dueDate: Date;
         staffId: string;
@@ -166,10 +166,10 @@ export declare class AssignmentsController {
     }>;
     update(id: string, updateDto: UpdateAssignmentDto): Promise<{
         id: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
+        description: string | null;
         title: string;
         dueDate: Date;
         staffId: string;
@@ -180,10 +180,10 @@ export declare class AssignmentsController {
     }>;
     remove(id: string): Promise<{
         id: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
+        description: string | null;
         title: string;
         dueDate: Date;
         staffId: string;

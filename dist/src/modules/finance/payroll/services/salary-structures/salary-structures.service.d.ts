@@ -24,18 +24,18 @@ export declare class SalaryStructuresService {
             };
         } & {
             id: string;
+            profile: Prisma.JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
-            profile: Prisma.JsonValue | null;
             status: string;
             branchId: string | null;
-            documents: Prisma.JsonValue | null;
             employeeId: string | null;
             department: string | null;
             designation: string | null;
             joiningDate: Date | null;
+            documents: Prisma.JsonValue | null;
         };
     } & {
         id: string;
@@ -55,18 +55,18 @@ export declare class SalaryStructuresService {
             };
         } & {
             id: string;
+            profile: Prisma.JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
-            profile: Prisma.JsonValue | null;
             status: string;
             branchId: string | null;
-            documents: Prisma.JsonValue | null;
             employeeId: string | null;
             department: string | null;
             designation: string | null;
             joiningDate: Date | null;
+            documents: Prisma.JsonValue | null;
         };
     } & {
         id: string;

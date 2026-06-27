@@ -5,33 +5,33 @@ export declare class FeeDiscountsService {
     private readonly prisma;
     constructor(prisma: PrismaService);
     create(createDto: CreateFeeDiscountDto): Promise<{
+        value: number;
         id: string;
         name: string;
-        value: number;
         type: string;
     }>;
     findAll(queryOptions: FeeDiscountQueryOptionsDto): Promise<PageDto<{
+        value: number;
         id: string;
         name: string;
-        value: number;
         type: string;
     }>>;
     findOne(id: string): Promise<{
+        value: number;
         id: string;
         name: string;
-        value: number;
         type: string;
     }>;
     update(id: string, updateDto: UpdateFeeDiscountDto): Promise<{
+        value: number;
         id: string;
         name: string;
-        value: number;
         type: string;
     }>;
     remove(id: string): Promise<{
+        value: number;
         id: string;
         name: string;
-        value: number;
         type: string;
     }>;
 }

@@ -44,30 +44,33 @@ export declare class PaymentsController {
             student: {
                 user: {
                     id: string;
+                    isActive: boolean;
                     createdAt: Date;
                     updatedAt: Date;
+                    deletedAt: Date | null;
                     email: string;
                     passwordHash: string;
                     firstName: string;
                     lastName: string | null;
-                    isActive: boolean;
                     isEmailVerified: boolean;
-                    deletedAt: Date | null;
+                    resetPasswordToken: string | null;
+                    resetPasswordExpires: Date | null;
+                    emailVerificationToken: string | null;
                 };
             } & {
                 id: string;
+                profile: import("@prisma/client/runtime/client").JsonValue | null;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 userId: string;
-                profile: import("@prisma/client/runtime/client").JsonValue | null;
                 status: string;
                 courseId: string | null;
                 batchId: string | null;
                 branchId: string | null;
+                documents: import("@prisma/client/runtime/client").JsonValue | null;
                 enrollmentNo: string | null;
                 admissionDate: Date | null;
-                documents: import("@prisma/client/runtime/client").JsonValue | null;
             };
         } & {
             id: string;

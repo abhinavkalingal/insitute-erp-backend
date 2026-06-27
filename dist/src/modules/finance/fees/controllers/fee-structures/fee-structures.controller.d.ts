@@ -14,9 +14,9 @@ export declare class FeeStructuresController {
         }[];
     } & {
         id: string;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
         courseId: string | null;
         batchId: string | null;
         categoryId: string;
@@ -36,9 +36,9 @@ export declare class FeeStructuresController {
         }[];
     } & {
         id: string;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
         courseId: string | null;
         batchId: string | null;
         categoryId: string;
@@ -47,10 +47,10 @@ export declare class FeeStructuresController {
     findOne(id: string): Promise<{
         category: {
             id: string;
-            description: string | null;
+            name: string;
             createdAt: Date;
             updatedAt: Date;
-            name: string;
+            description: string | null;
         };
         installments: {
             id: string;
@@ -62,9 +62,9 @@ export declare class FeeStructuresController {
         }[];
     } & {
         id: string;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
         courseId: string | null;
         batchId: string | null;
         categoryId: string;
@@ -81,9 +81,9 @@ export declare class FeeStructuresController {
         }[];
     } & {
         id: string;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
         courseId: string | null;
         batchId: string | null;
         categoryId: string;
@@ -91,9 +91,9 @@ export declare class FeeStructuresController {
     }>;
     remove(id: string): Promise<{
         id: string;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
         courseId: string | null;
         batchId: string | null;
         categoryId: string;

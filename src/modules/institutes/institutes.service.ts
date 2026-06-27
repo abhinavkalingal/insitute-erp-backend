@@ -7,10 +7,14 @@ import { Prisma } from '@prisma-master/client';
 import { CreateInstituteDto } from './dto/create-institute.dto';
 import { InstituteQueryOptionsDto } from './dto/institute-query-options.dto';
 import { UpdateInstituteDto } from './dto/update-institute.dto';
+import { TenantProvisioningService } from './tenant-provisioning.service';
 
 @Injectable()
 export class InstitutesService {
-  constructor(private readonly prisma: PrismaMasterService) {}
+  constructor(
+    private readonly prisma: PrismaMasterService,
+    private readonly tenantProvisioningService: TenantProvisioningService
+  ) {}
 
   async create(createInstituteDto: CreateInstituteDto) {
     if (createInstituteDto.domain) {
@@ -48,6 +52,24 @@ export class InstitutesService {
           }
         });
       }
+    }
+
+    // Trigger tenant provisioning if a databaseUrl and admin email are provided
+    if (createInstituteDto.databaseUrl && profile && (profile as any).contactEmail) {
+      // Run asynchronously so it doesn't block the API response immediately
+      // In production, this should be done via a message queue (e.g. BullMQ)
+      const adminEmail = (profile as any).contactEmail;
+      const adminFirstName = (profile as any).adminName?.split(' ')[0] || 'Admin';
+      const adminLastName = (profile as any).adminName?.split(' ').slice(1).join(' ') || '';
+      
+      this.tenantProvisioningService.provisionTenant(
+        createInstituteDto.databaseUrl, 
+        adminEmail, 
+        adminFirstName, 
+        adminLastName
+      ).then(success => {
+        if (!success) console.error(`Failed to provision tenant DB: ${createInstituteDto.databaseUrl}`);
+      });
     }
 
     return institute;

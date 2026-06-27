@@ -7,9 +7,9 @@ export declare class LicenseManagementService {
     constructor(prisma: PrismaService, saasEnforcement: SaasEnforcementService);
     registerDevice(instituteId: string, userId: string, dto: RegisterDeviceDto): Promise<{
         id: string;
+        isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
-        isActive: boolean;
         userId: string;
         deviceIdentifier: string;
         deviceName: string;
@@ -24,9 +24,9 @@ export declare class LicenseManagementService {
         };
     } & {
         id: string;
+        isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
-        isActive: boolean;
         userId: string;
         deviceIdentifier: string;
         deviceName: string;

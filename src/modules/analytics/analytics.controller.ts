@@ -69,9 +69,53 @@ export class AnalyticsController {
   @RequirePermissions('read:analytics')
   @ApiOperation({ summary: 'Get faculty and staff analytics' })
   getFacultyAnalytics(
-    
     @Query() query: AnalyticsQueryDto,
   ) {
     return this.analyticsService.getFacultyAnalytics( query);
+  }
+
+  @Get('leads')
+  @RequirePermissions('read:analytics')
+  @ApiOperation({ summary: 'Get lead and conversion analytics' })
+  getLeadAnalytics(
+    @Query() query: AnalyticsQueryDto,
+  ) {
+    return this.analyticsService.getLeadAnalytics( query);
+  }
+
+  @Get('operations')
+  @RequirePermissions('read:analytics')
+  @ApiOperation({ summary: 'Get operations and tickets analytics' })
+  getOperationsAnalytics(
+    @Query() query: AnalyticsQueryDto,
+  ) {
+    return this.analyticsService.getOperationsAnalytics( query);
+  }
+
+  @Get('system')
+  @RequirePermissions('read:analytics')
+  @ApiOperation({ summary: 'Get system and infrastructure analytics' })
+  getSystemAnalytics(
+    @Query() query: AnalyticsQueryDto,
+  ) {
+    return this.analyticsService.getSystemAnalytics( query);
+  }
+
+  @Get('academic')
+  @RequirePermissions('read:analytics')
+  @ApiOperation({ summary: 'Get academic performance analytics' })
+  getAcademicAnalytics(
+    @Query() query: AnalyticsQueryDto,
+  ) {
+    return this.analyticsService.getAcademicAnalytics( query);
+  }
+
+  @Get('branch')
+  @RequirePermissions('read:analytics')
+  @ApiOperation({ summary: 'Get branch performance analytics' })
+  getBranchAnalytics(
+    @Query() query: AnalyticsQueryDto,
+  ) {
+    return this.analyticsService.getBranchAnalytics( query);
   }
 }

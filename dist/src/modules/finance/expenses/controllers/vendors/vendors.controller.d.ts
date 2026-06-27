@@ -5,9 +5,9 @@ export declare class VendorsController {
     constructor(vendorsService: VendorsService);
     create(createDto: CreateVendorDto): Promise<{
         id: string;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
         email: string | null;
         address: string | null;
         contactName: string | null;
@@ -15,9 +15,9 @@ export declare class VendorsController {
     }>;
     findAll(queryOptions: VendorQueryOptionsDto): Promise<import("../../../../../core/utils/pagination/page.dto").PageDto<{
         id: string;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
         email: string | null;
         address: string | null;
         contactName: string | null;
@@ -25,9 +25,9 @@ export declare class VendorsController {
     }>>;
     findOne(id: string): Promise<{
         id: string;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
         email: string | null;
         address: string | null;
         contactName: string | null;
@@ -35,9 +35,9 @@ export declare class VendorsController {
     }>;
     update(id: string, updateDto: UpdateVendorDto): Promise<{
         id: string;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
         email: string | null;
         address: string | null;
         contactName: string | null;
@@ -45,9 +45,9 @@ export declare class VendorsController {
     }>;
     remove(id: string): Promise<{
         id: string;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
         email: string | null;
         address: string | null;
         contactName: string | null;

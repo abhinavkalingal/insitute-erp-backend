@@ -12,42 +12,42 @@ export declare class ReportsController {
     exportReport(executeDto: ExecuteReportDto, res: Response): Promise<Response<any, Record<string, any>>>;
     saveReport(req: any, createDto: CreateSavedReportDto): Promise<{
         id: string;
-        description: string | null;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
         userId: string;
+        description: string | null;
         module: string;
         filters: import("@prisma/client/runtime/client").JsonValue;
         columns: import("@prisma/client/runtime/client").JsonValue;
     }>;
     getSavedReports(): Promise<{
         id: string;
-        description: string | null;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
         userId: string;
+        description: string | null;
         module: string;
         filters: import("@prisma/client/runtime/client").JsonValue;
         columns: import("@prisma/client/runtime/client").JsonValue;
     }[]>;
     getSavedReportById(id: string): Promise<{
         id: string;
-        description: string | null;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
         userId: string;
+        description: string | null;
         module: string;
         filters: import("@prisma/client/runtime/client").JsonValue;
         columns: import("@prisma/client/runtime/client").JsonValue;
     }>;
     scheduleReport(scheduleDto: ScheduleReportDto): Promise<{
         id: string;
+        isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
-        isActive: boolean;
         format: string;
         savedReportId: string;
         frequency: string;
@@ -58,20 +58,20 @@ export declare class ReportsController {
     getScheduledReports(): Promise<({
         savedReport: {
             id: string;
-            description: string | null;
+            name: string;
             createdAt: Date;
             updatedAt: Date;
-            name: string;
             userId: string;
+            description: string | null;
             module: string;
             filters: import("@prisma/client/runtime/client").JsonValue;
             columns: import("@prisma/client/runtime/client").JsonValue;
         };
     } & {
         id: string;
+        isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
-        isActive: boolean;
         format: string;
         savedReportId: string;
         frequency: string;

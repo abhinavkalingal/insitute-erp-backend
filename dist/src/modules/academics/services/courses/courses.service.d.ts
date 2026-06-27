@@ -20,24 +20,24 @@ export declare class CoursesService {
         })[];
     } & {
         id: string;
-        description: string | null;
-        createdAt: Date;
-        updatedAt: Date;
         name: string;
         isActive: boolean;
+        createdAt: Date;
+        updatedAt: Date;
         deletedAt: Date | null;
+        description: string | null;
         code: string | null;
     }>>;
     findOne(id: string, tx?: any): Promise<any>;
     update(id: string, updateDto: UpdateCourseDto): Promise<any>;
     remove(id: string): Promise<{
         id: string;
-        description: string | null;
-        createdAt: Date;
-        updatedAt: Date;
         name: string;
         isActive: boolean;
+        createdAt: Date;
+        updatedAt: Date;
         deletedAt: Date | null;
+        description: string | null;
         code: string | null;
     }>;
 }

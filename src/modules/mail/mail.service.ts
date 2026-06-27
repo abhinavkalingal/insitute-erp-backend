@@ -77,4 +77,14 @@ export class MailService {
     `;
     return this.sendMail(to, 'Welcome to Institute ERP', html);
   }
+
+  async sendEmailVerification(to: string, token: string) {
+    const verifyUrl = `http://localhost:3000/auth/verify-email?token=${token}`;
+    const html = `
+      <h1>Verify Your Email</h1>
+      <p>Click the link below to verify your email address:</p>
+      <a href="${verifyUrl}">Verify Email</a>
+    `;
+    return this.sendMail(to, 'Verify Your Email', html);
+  }
 }

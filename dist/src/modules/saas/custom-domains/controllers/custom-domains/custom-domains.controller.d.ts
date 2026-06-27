@@ -5,9 +5,9 @@ export declare class CustomDomainsController {
     constructor(customDomainsService: CustomDomainsService);
     getDomain(instituteId: string): Promise<{
         id: string;
+        domain: string;
         createdAt: Date;
         updatedAt: Date;
-        domain: string;
         instituteId: string;
         status: string;
         sslStatus: string | null;
@@ -15,9 +15,9 @@ export declare class CustomDomainsController {
     } | null>;
     registerDomain(instituteId: string, dto: RegisterCustomDomainDto): Promise<{
         id: string;
+        domain: string;
         createdAt: Date;
         updatedAt: Date;
-        domain: string;
         instituteId: string;
         status: string;
         sslStatus: string | null;
@@ -27,9 +27,9 @@ export declare class CustomDomainsController {
         message: string;
         customDomain: {
             id: string;
+            domain: string;
             createdAt: Date;
             updatedAt: Date;
-            domain: string;
             instituteId: string;
             status: string;
             sslStatus: string | null;

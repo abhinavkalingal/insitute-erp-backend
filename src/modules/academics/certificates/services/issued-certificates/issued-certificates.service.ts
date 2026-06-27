@@ -112,9 +112,15 @@ export class IssuedCertificatesService {
     const cert = await this.prisma.issuedCertificate.findUnique({
       where: { certificateNumber },
       include: {
-        
         template: { select: { name: true } },
-        student: { include: { user: { select: { firstName: true, lastName: true } } } }}});
+        student: {
+          include: {
+            user: { select: { firstName: true, lastName: true } },
+            branch: { select: { name: true } },
+          },
+        },
+      },
+    });
 
     if (!cert) {
       throw new NotFoundException(
@@ -124,7 +130,7 @@ export class IssuedCertificatesService {
 
     return {
       isValid: true,
-      issuedBy: 'Institute', // TODO: Get from context
+      issuedBy: cert.student?.branch?.name || 'Institute',
       awardedTo: `${cert.student.user.firstName} ${cert.student.user.lastName}`,
       certificateName: cert.template?.name || 'Certificate',
       issueDate: cert.issueDate,

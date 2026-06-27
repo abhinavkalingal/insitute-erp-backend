@@ -62,7 +62,21 @@ export class UsersService {
         isActive: true,
         
         createdAt: true,
-        deletedAt: true}});
+        deletedAt: true,
+        roles: {
+          include: {
+            role: {
+              include: {
+                permissions: {
+                  include: {
+                    permission: true,
+                  },
+                },
+              },
+            },
+          },
+        },
+      }});
 
     if (!user || user.deletedAt) {
       throw new NotFoundException(`User with ID ${id} not found`);

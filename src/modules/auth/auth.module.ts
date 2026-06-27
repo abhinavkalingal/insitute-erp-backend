@@ -4,6 +4,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 
 import { ApiKeysModule } from '../saas/api-keys/api-keys.module';
+import { MailModule } from '../mail/mail.module';
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 import { ApiKeyStrategy } from './strategies/api-key.strategy';
@@ -23,6 +24,7 @@ import { JwtStrategy } from './strategies/jwt.strategy';
             expiresIn: expiresIn as any}};
       }}),
     ApiKeysModule,
+    MailModule,
   ],
   controllers: [AuthController],
   providers: [AuthService, JwtStrategy, ApiKeyStrategy],

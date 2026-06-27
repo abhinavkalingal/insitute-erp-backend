@@ -12,6 +12,7 @@ const config_1 = require("@nestjs/config");
 const jwt_1 = require("@nestjs/jwt");
 const passport_1 = require("@nestjs/passport");
 const api_keys_module_1 = require("../saas/api-keys/api-keys.module");
+const mail_module_1 = require("../mail/mail.module");
 const auth_controller_1 = require("./auth.controller");
 const auth_service_1 = require("./auth.service");
 const api_key_strategy_1 = require("./strategies/api-key.strategy");
@@ -37,6 +38,7 @@ exports.AuthModule = AuthModule = __decorate([
                 }
             }),
             api_keys_module_1.ApiKeysModule,
+            mail_module_1.MailModule,
         ],
         controllers: [auth_controller_1.AuthController],
         providers: [auth_service_1.AuthService, jwt_strategy_1.JwtStrategy, api_key_strategy_1.ApiKeyStrategy],

@@ -5,9 +5,9 @@ export declare class EventCategoriesController {
     constructor(eventCategoriesService: EventCategoriesService);
     create(createDto: CreateEventCategoryDto): Promise<{
         id: string;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
     }>;
     findAll(queryOptions: EventCategoryQueryOptionsDto): Promise<import("../../../../core/utils/pagination/page.dto").PageDto<{
         _count: {
@@ -15,26 +15,26 @@ export declare class EventCategoriesController {
         };
     } & {
         id: string;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
     }>>;
     findOne(id: string): Promise<{
         id: string;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
     }>;
     update(id: string, updateDto: UpdateEventCategoryDto): Promise<{
         id: string;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
     }>;
     remove(id: string): Promise<{
         id: string;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
     }>;
 }

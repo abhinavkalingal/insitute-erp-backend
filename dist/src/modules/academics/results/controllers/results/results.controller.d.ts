@@ -15,18 +15,18 @@ export declare class ResultsController {
             };
         } & {
             id: string;
+            profile: import("@prisma/client/runtime/client").JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
-            profile: import("@prisma/client/runtime/client").JsonValue | null;
             status: string;
             courseId: string | null;
             batchId: string | null;
             branchId: string | null;
+            documents: import("@prisma/client/runtime/client").JsonValue | null;
             enrollmentNo: string | null;
             admissionDate: Date | null;
-            documents: import("@prisma/client/runtime/client").JsonValue | null;
         };
     } & {
         id: string;
@@ -51,24 +51,24 @@ export declare class ResultsController {
                 };
             } & {
                 id: string;
+                profile: import("@prisma/client/runtime/client").JsonValue | null;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 userId: string;
-                profile: import("@prisma/client/runtime/client").JsonValue | null;
                 status: string;
                 courseId: string | null;
                 batchId: string | null;
                 branchId: string | null;
+                documents: import("@prisma/client/runtime/client").JsonValue | null;
                 enrollmentNo: string | null;
                 admissionDate: Date | null;
-                documents: import("@prisma/client/runtime/client").JsonValue | null;
             };
             term: {
                 id: string;
+                name: string;
                 createdAt: Date;
                 updatedAt: Date;
-                name: string;
                 startDate: Date;
                 endDate: Date;
                 isPublished: boolean;

@@ -17,8 +17,14 @@ export class PrismaTenantService implements OnModuleDestroy {
       return this.clients.get(databaseUrl)!;
     }
 
-    const pool = new Pool({ connectionString: databaseUrl });
-    const adapter = new PrismaPg(pool);
+    const urlObj = new URL(databaseUrl);
+    const schema = urlObj.searchParams.get('schema') || 'public';
+    
+    // Pass the raw connection string without modifying search_path
+    const poolConfig: any = { connectionString: databaseUrl };
+    
+    const pool = new Pool(poolConfig);
+    const adapter = new PrismaPg(pool, { schema });
     const client = new PrismaClient({ adapter } as any);
 
     // Register Prisma Client Extensions for Audit Logging

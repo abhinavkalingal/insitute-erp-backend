@@ -1,0 +1,104 @@
+import { PrismaService } from "../../infrastructure/database/prisma.service";
+import { Prisma } from '@prisma/client';
+export declare class MarketingService {
+    private prisma;
+    constructor(prisma: PrismaService);
+    createCampaign(data: Prisma.CampaignCreateInput): Promise<{
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        type: string;
+        title: string;
+        status: string;
+        content: string | null;
+        branchId: string | null;
+        targetCount: number;
+        sentCount: number;
+        openCount: number;
+        scheduledAt: Date | null;
+    }>;
+    getCampaigns(): Promise<{
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        type: string;
+        title: string;
+        status: string;
+        content: string | null;
+        branchId: string | null;
+        targetCount: number;
+        sentCount: number;
+        openCount: number;
+        scheduledAt: Date | null;
+    }[]>;
+    updateCampaign(id: string, data: Prisma.CampaignUpdateInput): Promise<{
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        type: string;
+        title: string;
+        status: string;
+        content: string | null;
+        branchId: string | null;
+        targetCount: number;
+        sentCount: number;
+        openCount: number;
+        scheduledAt: Date | null;
+    }>;
+    deleteCampaign(id: string): Promise<{
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        type: string;
+        title: string;
+        status: string;
+        content: string | null;
+        branchId: string | null;
+        targetCount: number;
+        sentCount: number;
+        openCount: number;
+        scheduledAt: Date | null;
+    }>;
+    createLead(data: Prisma.LeadCreateInput): Promise<{
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        email: string | null;
+        firstName: string;
+        lastName: string | null;
+        status: string;
+        courseId: string | null;
+        phone: string;
+        source: string;
+        notes: string | null;
+        assignedTo: string | null;
+    }>;
+    getLeads(): Promise<{
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        email: string | null;
+        firstName: string;
+        lastName: string | null;
+        status: string;
+        courseId: string | null;
+        phone: string;
+        source: string;
+        notes: string | null;
+        assignedTo: string | null;
+    }[]>;
+    updateLead(id: string, data: Prisma.LeadUpdateInput): Promise<{
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        email: string | null;
+        firstName: string;
+        lastName: string | null;
+        status: string;
+        courseId: string | null;
+        phone: string;
+        source: string;
+        notes: string | null;
+        assignedTo: string | null;
+    }>;
+}

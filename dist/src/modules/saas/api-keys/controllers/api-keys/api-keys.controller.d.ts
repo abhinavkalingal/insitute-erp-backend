@@ -12,9 +12,9 @@ export declare class ApiKeysController {
     }>;
     listKeys(instituteId: string): Promise<{
         id: string;
-        createdAt: Date;
         name: string;
         isActive: boolean;
+        createdAt: Date;
         prefix: string | null;
         lastUsedAt: Date | null;
         expiresAt: Date | null;

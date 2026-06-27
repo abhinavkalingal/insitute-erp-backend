@@ -11,43 +11,46 @@ export declare class StudentsService {
     create(createStudentDto: CreateStudentDto): Promise<{
         user: {
             id: string;
+            isActive: boolean;
             createdAt: Date;
             updatedAt: Date;
+            deletedAt: Date | null;
             email: string;
             passwordHash: string;
             firstName: string;
             lastName: string | null;
-            isActive: boolean;
             isEmailVerified: boolean;
-            deletedAt: Date | null;
+            resetPasswordToken: string | null;
+            resetPasswordExpires: Date | null;
+            emailVerificationToken: string | null;
         };
     } & {
         id: string;
+        profile: Prisma.JsonValue | null;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         userId: string;
-        profile: Prisma.JsonValue | null;
         status: string;
         courseId: string | null;
         batchId: string | null;
         branchId: string | null;
+        documents: Prisma.JsonValue | null;
         enrollmentNo: string | null;
         admissionDate: Date | null;
-        documents: Prisma.JsonValue | null;
     }>;
     findAll(queryOptions: StudentQueryOptionsDto): Promise<PageDto<{
-        user: {
-            id: string;
-            email: string;
-            firstName: string;
-            lastName: string | null;
-            isActive: boolean;
-        };
         branch: {
             id: string;
             name: string;
         } | null;
+        user: {
+            id: string;
+            isActive: boolean;
+            email: string;
+            firstName: string;
+            lastName: string | null;
+        };
         guardians: ({
             guardian: {
                 user: {
@@ -57,11 +60,11 @@ export declare class StudentsService {
                 };
             } & {
                 id: string;
+                profile: Prisma.JsonValue | null;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 userId: string;
-                profile: Prisma.JsonValue | null;
             };
         } & {
             createdAt: Date;
@@ -72,31 +75,31 @@ export declare class StudentsService {
         })[];
     } & {
         id: string;
+        profile: Prisma.JsonValue | null;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         userId: string;
-        profile: Prisma.JsonValue | null;
         status: string;
         courseId: string | null;
         batchId: string | null;
         branchId: string | null;
+        documents: Prisma.JsonValue | null;
         enrollmentNo: string | null;
         admissionDate: Date | null;
-        documents: Prisma.JsonValue | null;
     }>>;
     findOne(id: string): Promise<{
-        user: {
-            id: string;
-            email: string;
-            firstName: string;
-            lastName: string | null;
-            isActive: boolean;
-        };
         branch: {
             id: string;
             name: string;
         } | null;
+        user: {
+            id: string;
+            isActive: boolean;
+            email: string;
+            firstName: string;
+            lastName: string | null;
+        };
         guardians: ({
             guardian: {
                 user: {
@@ -106,11 +109,11 @@ export declare class StudentsService {
                 };
             } & {
                 id: string;
+                profile: Prisma.JsonValue | null;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 userId: string;
-                profile: Prisma.JsonValue | null;
             };
         } & {
             createdAt: Date;
@@ -121,18 +124,18 @@ export declare class StudentsService {
         })[];
     } & {
         id: string;
+        profile: Prisma.JsonValue | null;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         userId: string;
-        profile: Prisma.JsonValue | null;
         status: string;
         courseId: string | null;
         batchId: string | null;
         branchId: string | null;
+        documents: Prisma.JsonValue | null;
         enrollmentNo: string | null;
         admissionDate: Date | null;
-        documents: Prisma.JsonValue | null;
     }>;
     update(id: string, updateStudentDto: UpdateStudentDto): Promise<{
         user: {
@@ -142,18 +145,18 @@ export declare class StudentsService {
         };
     } & {
         id: string;
+        profile: Prisma.JsonValue | null;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         userId: string;
-        profile: Prisma.JsonValue | null;
         status: string;
         courseId: string | null;
         batchId: string | null;
         branchId: string | null;
+        documents: Prisma.JsonValue | null;
         enrollmentNo: string | null;
         admissionDate: Date | null;
-        documents: Prisma.JsonValue | null;
     }>;
     linkGuardian(id: string, linkDto: LinkGuardianDto): Promise<{
         message: string;
@@ -167,18 +170,18 @@ export declare class StudentsService {
     }>;
     uploadDocument(id: string, documentUrl: string, originalName: string, mimetype: string): Promise<{
         id: string;
+        profile: Prisma.JsonValue | null;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         userId: string;
-        profile: Prisma.JsonValue | null;
         status: string;
         courseId: string | null;
         batchId: string | null;
         branchId: string | null;
+        documents: Prisma.JsonValue | null;
         enrollmentNo: string | null;
         admissionDate: Date | null;
-        documents: Prisma.JsonValue | null;
     }>;
     remove(id: string): Promise<{
         message: string;

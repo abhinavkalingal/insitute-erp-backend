@@ -6,9 +6,9 @@ export declare class ExpensesController {
     create(createDto: CreateExpenseDto): Promise<{
         vendor: {
             id: string;
+            name: string;
             createdAt: Date;
             updatedAt: Date;
-            name: string;
             email: string | null;
             address: string | null;
             contactName: string | null;
@@ -16,16 +16,16 @@ export declare class ExpensesController {
         } | null;
         category: {
             id: string;
-            description: string | null;
+            name: string;
             createdAt: Date;
             updatedAt: Date;
-            name: string;
+            description: string | null;
         };
     } & {
         id: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
+        description: string | null;
         title: string;
         status: string;
         categoryId: string;
@@ -56,9 +56,9 @@ export declare class ExpensesController {
         };
     } & {
         id: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
+        description: string | null;
         title: string;
         status: string;
         categoryId: string;
@@ -71,9 +71,9 @@ export declare class ExpensesController {
     findOne(id: string): Promise<{
         vendor: {
             id: string;
+            name: string;
             createdAt: Date;
             updatedAt: Date;
-            name: string;
             email: string | null;
             address: string | null;
             contactName: string | null;
@@ -81,16 +81,16 @@ export declare class ExpensesController {
         } | null;
         category: {
             id: string;
-            description: string | null;
+            name: string;
             createdAt: Date;
             updatedAt: Date;
-            name: string;
+            description: string | null;
         };
     } & {
         id: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
+        description: string | null;
         title: string;
         status: string;
         categoryId: string;
@@ -103,9 +103,9 @@ export declare class ExpensesController {
     update(id: string, updateDto: UpdateExpenseDto): Promise<{
         vendor: {
             id: string;
+            name: string;
             createdAt: Date;
             updatedAt: Date;
-            name: string;
             email: string | null;
             address: string | null;
             contactName: string | null;
@@ -113,16 +113,16 @@ export declare class ExpensesController {
         } | null;
         category: {
             id: string;
-            description: string | null;
+            name: string;
             createdAt: Date;
             updatedAt: Date;
-            name: string;
+            description: string | null;
         };
     } & {
         id: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
+        description: string | null;
         title: string;
         status: string;
         categoryId: string;
@@ -134,9 +134,9 @@ export declare class ExpensesController {
     }>;
     remove(id: string): Promise<{
         id: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
+        description: string | null;
         title: string;
         status: string;
         categoryId: string;

@@ -49,16 +49,20 @@ const common_1 = require("@nestjs/common");
 const config_1 = require("@nestjs/config");
 const jwt_1 = require("@nestjs/jwt");
 const bcrypt = __importStar(require("bcrypt"));
+const crypto = __importStar(require("crypto"));
+const mail_service_1 = require("../mail/mail.service");
 let AuthService = class AuthService {
     prisma;
     prismaMaster;
     jwtService;
     configService;
-    constructor(prisma, prismaMaster, jwtService, configService) {
+    mailService;
+    constructor(prisma, prismaMaster, jwtService, configService, mailService) {
         this.prisma = prisma;
         this.prismaMaster = prismaMaster;
         this.jwtService = jwtService;
         this.configService = configService;
+        this.mailService = mailService;
     }
     async login(loginDto) {
         const user = await this.prisma.user.findUnique({
@@ -160,14 +164,58 @@ let AuthService = class AuthService {
                 message: 'If that email address is in our database, we will send you an email to reset your password.'
             };
         }
+        const resetToken = crypto.randomBytes(32).toString('hex');
+        const resetPasswordExpires = new Date(Date.now() + 3600000);
+        await this.prisma.user.update({
+            where: { id: user.id },
+            data: {
+                resetPasswordToken: resetToken,
+                resetPasswordExpires,
+            },
+        });
+        await this.mailService.sendPasswordReset(user.email, resetToken);
         return {
             message: 'If that email address is in our database, we will send you an email to reset your password.'
         };
     }
     async resetPassword(token, newPassword) {
+        const user = await this.prisma.user.findFirst({
+            where: {
+                resetPasswordToken: token,
+                resetPasswordExpires: { gt: new Date() },
+            },
+        });
+        if (!user) {
+            throw new common_1.BadRequestException('Password reset token is invalid or has expired.');
+        }
+        const saltRounds = 10;
+        const newPasswordHash = await bcrypt.hash(newPassword, saltRounds);
+        await this.prisma.user.update({
+            where: { id: user.id },
+            data: {
+                passwordHash: newPasswordHash,
+                resetPasswordToken: null,
+                resetPasswordExpires: null,
+            },
+        });
         return { message: 'Password successfully reset' };
     }
     async verifyEmail(token) {
+        const user = await this.prisma.user.findFirst({
+            where: {
+                emailVerificationToken: token,
+            },
+        });
+        if (!user) {
+            throw new common_1.BadRequestException('Email verification token is invalid.');
+        }
+        await this.prisma.user.update({
+            where: { id: user.id },
+            data: {
+                isEmailVerified: true,
+                emailVerificationToken: null,
+            },
+        });
         return { message: 'Email successfully verified' };
     }
 };
@@ -177,6 +225,7 @@ exports.AuthService = AuthService = __decorate([
     __metadata("design:paramtypes", [prisma_service_1.PrismaService,
         prisma_master_service_1.PrismaMasterService,
         jwt_1.JwtService,
-        config_1.ConfigService])
+        config_1.ConfigService,
+        mail_service_1.MailService])
 ], AuthService);
 //# sourceMappingURL=auth.service.js.map

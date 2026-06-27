@@ -14,10 +14,13 @@ const page_dto_1 = require("../../core/utils/pagination/page.dto");
 const page_meta_dto_1 = require("../../core/utils/pagination/page-meta.dto");
 const prisma_master_service_1 = require("../../infrastructure/database/prisma-master.service");
 const common_1 = require("@nestjs/common");
+const tenant_provisioning_service_1 = require("./tenant-provisioning.service");
 let InstitutesService = class InstitutesService {
     prisma;
-    constructor(prisma) {
+    tenantProvisioningService;
+    constructor(prisma, tenantProvisioningService) {
         this.prisma = prisma;
+        this.tenantProvisioningService = tenantProvisioningService;
     }
     async create(createInstituteDto) {
         if (createInstituteDto.domain) {
@@ -53,6 +56,15 @@ let InstitutesService = class InstitutesService {
                     }
                 });
             }
+        }
+        if (createInstituteDto.databaseUrl && profile && profile.contactEmail) {
+            const adminEmail = profile.contactEmail;
+            const adminFirstName = profile.adminName?.split(' ')[0] || 'Admin';
+            const adminLastName = profile.adminName?.split(' ').slice(1).join(' ') || '';
+            this.tenantProvisioningService.provisionTenant(createInstituteDto.databaseUrl, adminEmail, adminFirstName, adminLastName).then(success => {
+                if (!success)
+                    console.error(`Failed to provision tenant DB: ${createInstituteDto.databaseUrl}`);
+            });
         }
         return institute;
     }
@@ -185,6 +197,7 @@ let InstitutesService = class InstitutesService {
 exports.InstitutesService = InstitutesService;
 exports.InstitutesService = InstitutesService = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [prisma_master_service_1.PrismaMasterService])
+    __metadata("design:paramtypes", [prisma_master_service_1.PrismaMasterService,
+        tenant_provisioning_service_1.TenantProvisioningService])
 ], InstitutesService);
 //# sourceMappingURL=institutes.service.js.map

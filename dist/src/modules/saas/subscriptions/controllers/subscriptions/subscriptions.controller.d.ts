@@ -6,19 +6,19 @@ export declare class SubscriptionsController {
     getMySubscription(instituteId: string): Promise<{
         plan: {
             id: string;
-            description: string | null;
-            createdAt: Date;
-            updatedAt: Date;
             name: string;
             isActive: boolean;
+            createdAt: Date;
+            updatedAt: Date;
+            description: string | null;
             monthlyPrice: number;
             yearlyPrice: number;
             trialDays: number;
         };
         history: {
             id: string;
-            action: string;
             createdAt: Date;
+            action: string;
             instituteId: string;
             metadata: import("@prisma-master/client/runtime/client").JsonValue | null;
             subscriptionId: string;

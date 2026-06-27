@@ -2,6 +2,7 @@ import { PrismaService } from "../../infrastructure/database/prisma.service";
 import { PrismaMasterService } from "../../infrastructure/database/prisma-master.service";
 import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
+import { MailService } from '../mail/mail.service';
 import { ChangePasswordDto } from './dto/change-password.dto';
 import { LoginDto } from './dto/login.dto';
 export declare class AuthService {
@@ -9,7 +10,8 @@ export declare class AuthService {
     private readonly prismaMaster;
     private readonly jwtService;
     private readonly configService;
-    constructor(prisma: PrismaService, prismaMaster: PrismaMasterService, jwtService: JwtService, configService: ConfigService);
+    private readonly mailService;
+    constructor(prisma: PrismaService, prismaMaster: PrismaMasterService, jwtService: JwtService, configService: ConfigService, mailService: MailService);
     login(loginDto: LoginDto): Promise<{
         accessToken: string;
         user: {

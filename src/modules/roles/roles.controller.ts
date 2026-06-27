@@ -1,8 +1,8 @@
 import { RequirePermissions } from '@core/decorators/permissions.decorator';
 import { PermissionsGuard } from '@core/guards/permissions.guard';
-import { Body, Controller, Delete, Get, Param, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiOperation, ApiTags, ApiBody } from '@nestjs/swagger';
 
 import { CreateRoleDto } from './dto/create-role.dto';
 import { RolesService } from './roles.service';
@@ -26,6 +26,14 @@ export class RolesController {
   @ApiOperation({ summary: 'Get all roles' })
   findAll() {
     return this.rolesService.findAll();
+  }
+
+  @Patch(':id')
+  @RequirePermissions('update:roles')
+  @ApiOperation({ summary: 'Update a role and its permissions' })
+  @ApiBody({ schema: { type: 'object', properties: { name: { type: 'string' }, permissionIds: { type: 'array', items: { type: 'string' } } } } })
+  update(@Param('id') id: string, @Body() updateRoleDto: { name?: string; permissionIds?: string[] }) {
+    return this.rolesService.update(id, updateRoleDto);
   }
 
   @Delete(':id')

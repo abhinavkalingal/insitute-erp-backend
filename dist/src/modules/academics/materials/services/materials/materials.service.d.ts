@@ -7,10 +7,10 @@ export declare class MaterialsService {
     constructor(prisma: PrismaService);
     create(createDto: CreateMaterialDto): Promise<{
         id: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
+        description: string | null;
         type: string;
         title: string;
         staffId: string;
@@ -29,18 +29,18 @@ export declare class MaterialsService {
             };
         } & {
             id: string;
+            profile: Prisma.JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
-            profile: Prisma.JsonValue | null;
             status: string;
             branchId: string | null;
-            documents: Prisma.JsonValue | null;
             employeeId: string | null;
             department: string | null;
             designation: string | null;
             joiningDate: Date | null;
+            documents: Prisma.JsonValue | null;
         };
         subject: {
             name: string;
@@ -50,10 +50,10 @@ export declare class MaterialsService {
         };
     } & {
         id: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
+        description: string | null;
         type: string;
         title: string;
         staffId: string;
@@ -72,18 +72,18 @@ export declare class MaterialsService {
             };
         } & {
             id: string;
+            profile: Prisma.JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
-            profile: Prisma.JsonValue | null;
             status: string;
             branchId: string | null;
-            documents: Prisma.JsonValue | null;
             employeeId: string | null;
             department: string | null;
             designation: string | null;
             joiningDate: Date | null;
+            documents: Prisma.JsonValue | null;
         };
         subject: {
             name: string;
@@ -97,17 +97,17 @@ export declare class MaterialsService {
         } | null;
         category: {
             id: string;
-            description: string | null;
+            name: string;
             createdAt: Date;
             updatedAt: Date;
-            name: string;
+            description: string | null;
         };
     } & {
         id: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
+        description: string | null;
         type: string;
         title: string;
         staffId: string;
@@ -120,10 +120,10 @@ export declare class MaterialsService {
     }>;
     update(id: string, updateDto: UpdateMaterialDto): Promise<{
         id: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
+        description: string | null;
         type: string;
         title: string;
         staffId: string;
@@ -136,10 +136,10 @@ export declare class MaterialsService {
     }>;
     remove(id: string): Promise<{
         id: string;
-        description: string | null;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
+        description: string | null;
         type: string;
         title: string;
         staffId: string;

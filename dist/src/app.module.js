@@ -25,6 +25,8 @@ const config_1 = require("@nestjs/config");
 const jwt_1 = require("@nestjs/jwt");
 const serve_static_1 = require("@nestjs/serve-static");
 const nestjs_pino_1 = require("nestjs-pino");
+const throttler_1 = require("@nestjs/throttler");
+const core_1 = require("@nestjs/core");
 const path_1 = require("path");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
@@ -50,6 +52,14 @@ const reports_module_1 = require("./modules/reports/reports.module");
 const automation_module_1 = require("./modules/automation/automation.module");
 const search_module_1 = require("./modules/search/search.module");
 const data_import_export_module_1 = require("./modules/data-import-export/data-import-export.module");
+const telecaller_module_1 = require("./modules/telecaller/telecaller.module");
+const placements_module_1 = require("./modules/placements/placements.module");
+const leave_requests_module_1 = require("./modules/hr/leave-requests/leave-requests.module");
+const reception_module_1 = require("./modules/reception/reception.module");
+const marketing_module_1 = require("./modules/marketing/marketing.module");
+const operations_module_1 = require("./modules/operations/operations.module");
+const director_module_1 = require("./modules/director/director.module");
+const dashboard_module_1 = require("./modules/dashboard/dashboard.module");
 let AppModule = class AppModule {
     configure(consumer) {
         consumer.apply(request_context_middleware_1.RequestContextMiddleware).forRoutes('*');
@@ -68,6 +78,10 @@ exports.AppModule = AppModule = __decorate([
                 rootPath: (0, path_1.join)(__dirname, '..', 'uploads'),
                 serveRoot: '/uploads'
             }),
+            throttler_1.ThrottlerModule.forRoot([{
+                    ttl: 60000,
+                    limit: 60,
+                }]),
             database_module_1.DatabaseModule,
             auth_module_1.AuthModule,
             users_module_1.UsersModule,
@@ -109,9 +123,23 @@ exports.AppModule = AppModule = __decorate([
             automation_module_1.AutomationModule,
             search_module_1.SearchModule,
             data_import_export_module_1.DataImportExportModule,
+            telecaller_module_1.TelecallerModule,
+            placements_module_1.PlacementsModule,
+            leave_requests_module_1.LeaveRequestsModule,
+            reception_module_1.ReceptionModule,
+            marketing_module_1.MarketingModule,
+            operations_module_1.OperationsModule,
+            director_module_1.DirectorModule,
+            dashboard_module_1.DashboardModule,
         ],
         controllers: [app_controller_1.AppController],
-        providers: [app_service_1.AppService]
+        providers: [
+            app_service_1.AppService,
+            {
+                provide: core_1.APP_GUARD,
+                useClass: throttler_1.ThrottlerGuard,
+            },
+        ]
     })
 ], AppModule);
 //# sourceMappingURL=app.module.js.map

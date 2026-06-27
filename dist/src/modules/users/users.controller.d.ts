@@ -6,64 +6,124 @@ export declare class UsersController {
     constructor(usersService: UsersService);
     create(createUserDto: CreateUserDto): Promise<{
         id: string;
+        isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
+        deletedAt: Date | null;
         email: string;
         firstName: string;
         lastName: string | null;
-        isActive: boolean;
         isEmailVerified: boolean;
-        deletedAt: Date | null;
+        resetPasswordToken: string | null;
+        resetPasswordExpires: Date | null;
+        emailVerificationToken: string | null;
     }>;
     getProfile(req: any): Promise<{
         id: string;
+        isActive: boolean;
         createdAt: Date;
+        deletedAt: Date | null;
         email: string;
         firstName: string;
         lastName: string | null;
-        isActive: boolean;
-        deletedAt: Date | null;
-    }>;
-    findAll(): Promise<{
-        id: string;
-        createdAt: Date;
         roles: ({
             role: {
+                permissions: ({
+                    permission: {
+                        id: string;
+                        createdAt: Date;
+                        updatedAt: Date;
+                        description: string | null;
+                        action: string;
+                    };
+                } & {
+                    createdAt: Date;
+                    roleId: string;
+                    permissionId: string;
+                })[];
+            } & {
                 id: string;
-                description: string | null;
+                name: string;
                 createdAt: Date;
                 updatedAt: Date;
-                name: string;
+                description: string | null;
             };
         } & {
             createdAt: Date;
-            roleId: string;
             userId: string;
+            roleId: string;
         })[];
+    }>;
+    findAll(): Promise<{
+        id: string;
+        isActive: boolean;
+        createdAt: Date;
         email: string;
         firstName: string;
         lastName: string | null;
-        isActive: boolean;
+        roles: ({
+            role: {
+                id: string;
+                name: string;
+                createdAt: Date;
+                updatedAt: Date;
+                description: string | null;
+            };
+        } & {
+            createdAt: Date;
+            userId: string;
+            roleId: string;
+        })[];
     }[]>;
     findOne(id: string): Promise<{
         id: string;
+        isActive: boolean;
         createdAt: Date;
+        deletedAt: Date | null;
         email: string;
         firstName: string;
         lastName: string | null;
-        isActive: boolean;
-        deletedAt: Date | null;
+        roles: ({
+            role: {
+                permissions: ({
+                    permission: {
+                        id: string;
+                        createdAt: Date;
+                        updatedAt: Date;
+                        description: string | null;
+                        action: string;
+                    };
+                } & {
+                    createdAt: Date;
+                    roleId: string;
+                    permissionId: string;
+                })[];
+            } & {
+                id: string;
+                name: string;
+                createdAt: Date;
+                updatedAt: Date;
+                description: string | null;
+            };
+        } & {
+            createdAt: Date;
+            userId: string;
+            roleId: string;
+        })[];
     }>;
     update(id: string, updateUserDto: UpdateUserDto): Promise<{
         id: string;
+        isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
+        deletedAt: Date | null;
         email: string;
         firstName: string;
         lastName: string | null;
-        isActive: boolean;
         isEmailVerified: boolean;
-        deletedAt: Date | null;
+        resetPasswordToken: string | null;
+        resetPasswordExpires: Date | null;
+        emailVerificationToken: string | null;
     }>;
     remove(id: string): Promise<{
         message: string;

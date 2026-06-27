@@ -11,42 +11,42 @@ export declare class BranchesService {
     constructor(prisma: PrismaService, saasEnforcement: SaasEnforcementService);
     create(instituteId: string, createBranchDto: CreateBranchDto): Promise<{
         id: string;
+        name: string;
+        settings: Prisma.JsonValue | null;
+        isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
-        isActive: boolean;
         deletedAt: Date | null;
-        settings: Prisma.JsonValue | null;
         address: Prisma.JsonValue | null;
     }>;
     findAll(queryOptions: BranchQueryOptionsDto): Promise<PageDto<{
         id: string;
+        name: string;
+        settings: Prisma.JsonValue | null;
+        isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
-        isActive: boolean;
         deletedAt: Date | null;
-        settings: Prisma.JsonValue | null;
         address: Prisma.JsonValue | null;
     }>>;
     findOne(id: string): Promise<{
         id: string;
+        name: string;
+        settings: Prisma.JsonValue | null;
+        isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
-        isActive: boolean;
         deletedAt: Date | null;
-        settings: Prisma.JsonValue | null;
         address: Prisma.JsonValue | null;
     }>;
     update(id: string, updateBranchDto: UpdateBranchDto): Promise<{
         id: string;
+        name: string;
+        settings: Prisma.JsonValue | null;
+        isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
-        isActive: boolean;
         deletedAt: Date | null;
-        settings: Prisma.JsonValue | null;
         address: Prisma.JsonValue | null;
     }>;
     remove(id: string): Promise<{

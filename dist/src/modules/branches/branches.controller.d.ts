@@ -7,42 +7,42 @@ export declare class BranchesController {
     constructor(branchesService: BranchesService);
     create(instituteId: string, createBranchDto: CreateBranchDto): Promise<{
         id: string;
+        name: string;
+        settings: import("@prisma/client/runtime/client").JsonValue | null;
+        isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
-        isActive: boolean;
         deletedAt: Date | null;
-        settings: import("@prisma/client/runtime/client").JsonValue | null;
         address: import("@prisma/client/runtime/client").JsonValue | null;
     }>;
     findAll(queryOptions: BranchQueryOptionsDto): Promise<import("../../core/utils/pagination/page.dto").PageDto<{
         id: string;
+        name: string;
+        settings: import("@prisma/client/runtime/client").JsonValue | null;
+        isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
-        isActive: boolean;
         deletedAt: Date | null;
-        settings: import("@prisma/client/runtime/client").JsonValue | null;
         address: import("@prisma/client/runtime/client").JsonValue | null;
     }>>;
     findOne(id: string): Promise<{
         id: string;
+        name: string;
+        settings: import("@prisma/client/runtime/client").JsonValue | null;
+        isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
-        isActive: boolean;
         deletedAt: Date | null;
-        settings: import("@prisma/client/runtime/client").JsonValue | null;
         address: import("@prisma/client/runtime/client").JsonValue | null;
     }>;
     update(id: string, updateBranchDto: UpdateBranchDto): Promise<{
         id: string;
+        name: string;
+        settings: import("@prisma/client/runtime/client").JsonValue | null;
+        isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
-        name: string;
-        isActive: boolean;
         deletedAt: Date | null;
-        settings: import("@prisma/client/runtime/client").JsonValue | null;
         address: import("@prisma/client/runtime/client").JsonValue | null;
     }>;
     remove(id: string): Promise<{

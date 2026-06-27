@@ -31,6 +31,9 @@ let RolesController = class RolesController {
     findAll() {
         return this.rolesService.findAll();
     }
+    update(id, updateRoleDto) {
+        return this.rolesService.update(id, updateRoleDto);
+    }
     remove(id) {
         return this.rolesService.remove(id);
     }
@@ -56,6 +59,17 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], RolesController.prototype, "findAll", null);
+__decorate([
+    (0, common_1.Patch)(':id'),
+    (0, permissions_decorator_1.RequirePermissions)('update:roles'),
+    (0, swagger_1.ApiOperation)({ summary: 'Update a role and its permissions' }),
+    (0, swagger_1.ApiBody)({ schema: { type: 'object', properties: { name: { type: 'string' }, permissionIds: { type: 'array', items: { type: 'string' } } } } }),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, Object]),
+    __metadata("design:returntype", void 0)
+], RolesController.prototype, "update", null);
 __decorate([
     (0, common_1.Delete)(':id'),
     (0, permissions_decorator_1.RequirePermissions)('delete:roles'),
