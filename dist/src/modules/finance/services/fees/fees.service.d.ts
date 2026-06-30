@@ -6,44 +6,44 @@ export declare class FeesService {
     constructor(prisma: PrismaService);
     createCategory(createDto: CreateFeeCategoryDto): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         description: string | null;
     }>;
     findAllCategories(queryOptions: FeeCategoryQueryOptionsDto): Promise<PageDto<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         description: string | null;
     }>>;
     findOneCategory(id: string): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         description: string | null;
     }>;
     updateCategory(id: string, updateDto: UpdateFeeCategoryDto): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         description: string | null;
     }>;
     removeCategory(id: string): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         description: string | null;
     }>;
     createStructure(createDto: CreateFeeStructureDto): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         courseId: string | null;
         batchId: string | null;
         categoryId: string;
@@ -61,9 +61,9 @@ export declare class FeesService {
         };
     } & {
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         courseId: string | null;
         batchId: string | null;
         categoryId: string;
@@ -81,9 +81,9 @@ export declare class FeesService {
         };
     } & {
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         courseId: string | null;
         batchId: string | null;
         categoryId: string;
@@ -91,9 +91,9 @@ export declare class FeesService {
     }>;
     updateStructure(id: string, updateDto: UpdateFeeStructureDto): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         courseId: string | null;
         batchId: string | null;
         categoryId: string;
@@ -101,9 +101,9 @@ export declare class FeesService {
     }>;
     removeStructure(id: string): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         courseId: string | null;
         batchId: string | null;
         categoryId: string;

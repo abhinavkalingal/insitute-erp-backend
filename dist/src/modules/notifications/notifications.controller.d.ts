@@ -4,10 +4,10 @@ export declare class NotificationsController {
     private readonly notificationsService;
     constructor(notificationsService: NotificationsService);
     findAll(req: Request, unreadOnly?: string): import("@prisma/client").Prisma.PrismaPromise<{
-        link: string | null;
         id: string;
         createdAt: Date;
         updatedAt: Date;
+        link: string | null;
         userId: string;
         type: string;
         title: string;
@@ -15,10 +15,10 @@ export declare class NotificationsController {
         isRead: boolean;
     }[]>;
     markAsRead(id: string, req: Request): Promise<{
-        link: string | null;
         id: string;
         createdAt: Date;
         updatedAt: Date;
+        link: string | null;
         userId: string;
         type: string;
         title: string;

@@ -6,37 +6,37 @@ export declare class CategoriesService {
     constructor(prisma: PrismaService);
     create(createDto: CreateMaterialCategoryDto): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         description: string | null;
     }>;
     findAll(queryOptions: MaterialCategoryQueryOptionsDto): Promise<PageDto<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         description: string | null;
     }>>;
     findOne(id: string): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         description: string | null;
     }>;
     update(id: string, updateDto: UpdateMaterialCategoryDto): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         description: string | null;
     }>;
     remove(id: string): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         description: string | null;
     }>;
 }

@@ -6,9 +6,9 @@ export declare class TemplatesService {
     constructor(prisma: PrismaService);
     create(createDto: CreateTemplateDto): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         backgroundUrl: string | null;
         contentHtml: string;
     }>;
@@ -18,33 +18,33 @@ export declare class TemplatesService {
         };
     } & {
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         backgroundUrl: string | null;
         contentHtml: string;
     }>>;
     findOne(id: string): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         backgroundUrl: string | null;
         contentHtml: string;
     }>;
     update(id: string, updateDto: UpdateTemplateDto): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         backgroundUrl: string | null;
         contentHtml: string;
     }>;
     remove(id: string): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         backgroundUrl: string | null;
         contentHtml: string;
     }>;

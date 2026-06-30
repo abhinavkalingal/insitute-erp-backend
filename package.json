@@ -21,6 +21,7 @@
     "seed:all": "ts-node prisma/seed_master.ts && ts-node prisma/seed.ts"
   },
   "dependencies": {
+    "@neondatabase/api-client": "^2.7.2",
     "@nestjs/common": "^11.0.1",
     "@nestjs/config": "^4.0.4",
     "@nestjs/core": "^11.0.1",

@@ -22,6 +22,11 @@ export class CreateInstituteDto {
   @IsOptional()
   isActive?: boolean;
 
+  @ApiPropertyOptional({ example: 'General' })
+  @IsString()
+  @IsOptional()
+  type?: string;
+
   @ApiPropertyOptional({ description: 'Institute profile information (address, phone, etc)' })
   @IsOptional()
   profile?: Record<string, any>;

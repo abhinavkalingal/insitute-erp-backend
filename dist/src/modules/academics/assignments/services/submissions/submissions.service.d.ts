@@ -28,18 +28,18 @@ export declare class SubmissionsService {
             };
         } & {
             id: string;
-            profile: Prisma.JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
             status: string;
+            profile: Prisma.JsonValue | null;
             courseId: string | null;
             batchId: string | null;
             branchId: string | null;
-            documents: Prisma.JsonValue | null;
             enrollmentNo: string | null;
             admissionDate: Date | null;
+            documents: Prisma.JsonValue | null;
         };
         gradedBy: ({
             user: {
@@ -48,18 +48,18 @@ export declare class SubmissionsService {
             };
         } & {
             id: string;
-            profile: Prisma.JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
             status: string;
+            profile: Prisma.JsonValue | null;
             branchId: string | null;
+            documents: Prisma.JsonValue | null;
             employeeId: string | null;
             department: string | null;
             designation: string | null;
             joiningDate: Date | null;
-            documents: Prisma.JsonValue | null;
         }) | null;
     } & {
         id: string;
@@ -84,18 +84,18 @@ export declare class SubmissionsService {
             };
         } & {
             id: string;
-            profile: Prisma.JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
             status: string;
+            profile: Prisma.JsonValue | null;
             courseId: string | null;
             batchId: string | null;
             branchId: string | null;
-            documents: Prisma.JsonValue | null;
             enrollmentNo: string | null;
             admissionDate: Date | null;
+            documents: Prisma.JsonValue | null;
         };
         assignment: {
             title: string;
@@ -108,18 +108,18 @@ export declare class SubmissionsService {
             };
         } & {
             id: string;
-            profile: Prisma.JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
             status: string;
+            profile: Prisma.JsonValue | null;
             branchId: string | null;
+            documents: Prisma.JsonValue | null;
             employeeId: string | null;
             department: string | null;
             designation: string | null;
             joiningDate: Date | null;
-            documents: Prisma.JsonValue | null;
         }) | null;
     } & {
         id: string;
@@ -145,18 +145,18 @@ export declare class SubmissionsService {
             };
         } & {
             id: string;
-            profile: Prisma.JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
             status: string;
+            profile: Prisma.JsonValue | null;
             courseId: string | null;
             batchId: string | null;
             branchId: string | null;
-            documents: Prisma.JsonValue | null;
             enrollmentNo: string | null;
             admissionDate: Date | null;
+            documents: Prisma.JsonValue | null;
         };
         assignment: {
             id: string;
@@ -166,11 +166,11 @@ export declare class SubmissionsService {
             description: string | null;
             title: string;
             dueDate: Date;
+            maxMarks: number | null;
             staffId: string;
-            subjectId: string;
             courseId: string | null;
             batchId: string | null;
-            maxMarks: number | null;
+            subjectId: string;
         };
         gradedBy: ({
             user: {
@@ -179,18 +179,18 @@ export declare class SubmissionsService {
             };
         } & {
             id: string;
-            profile: Prisma.JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
             status: string;
+            profile: Prisma.JsonValue | null;
             branchId: string | null;
+            documents: Prisma.JsonValue | null;
             employeeId: string | null;
             department: string | null;
             designation: string | null;
             joiningDate: Date | null;
-            documents: Prisma.JsonValue | null;
         }) | null;
     } & {
         id: string;

@@ -12,10 +12,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.MarketingService = void 0;
 const common_1 = require("@nestjs/common");
 const prisma_service_1 = require("../../infrastructure/database/prisma.service");
+const students_service_1 = require("../students/students.service");
 let MarketingService = class MarketingService {
     prisma;
-    constructor(prisma) {
+    studentsService;
+    constructor(prisma, studentsService) {
         this.prisma = prisma;
+        this.studentsService = studentsService;
     }
     async createCampaign(data) {
         return this.prisma.campaign.create({ data });
@@ -50,10 +53,37 @@ let MarketingService = class MarketingService {
             data,
         });
     }
+    async convertLeadToStudent(id, data) {
+        const lead = await this.prisma.lead.findUnique({ where: { id } });
+        if (!lead) {
+            throw new Error('Lead not found');
+        }
+        const studentData = {
+            firstName: lead.firstName,
+            lastName: lead.lastName || '',
+            email: lead.email || `${lead.firstName.toLowerCase()}.${Date.now()}@institute.com`,
+            password: 'password123',
+            branchId: data.branchId,
+            courseId: data.courseId,
+            batchId: data.batchId,
+            admissionDate: new Date().toISOString(),
+            profile: {
+                phone: lead.phone,
+                convertedFromLeadId: lead.id,
+            },
+        };
+        const student = await this.studentsService.create(studentData);
+        await this.prisma.lead.update({
+            where: { id },
+            data: { status: 'ENROLLED' },
+        });
+        return student;
+    }
 };
 exports.MarketingService = MarketingService;
 exports.MarketingService = MarketingService = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [prisma_service_1.PrismaService])
+    __metadata("design:paramtypes", [prisma_service_1.PrismaService,
+        students_service_1.StudentsService])
 ], MarketingService);
 //# sourceMappingURL=marketing.service.js.map

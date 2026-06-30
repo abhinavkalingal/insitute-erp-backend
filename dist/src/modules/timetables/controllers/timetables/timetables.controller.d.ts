@@ -5,21 +5,21 @@ export declare class TimetablesController {
     constructor(timetablesService: TimetablesService);
     create(createDto: CreateTimetableDto): Promise<any>;
     findAll(queryOptions: TimetableQueryOptionsDto): Promise<import("../../../../core/utils/pagination/page.dto").PageDto<{
-        _count: {
-            periods: number;
-        };
         batch: {
-            name: string;
             course: {
                 name: string;
             };
+            name: string;
+        };
+        _count: {
+            periods: number;
         };
     } & {
         id: string;
-        name: string;
         isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         batchId: string;
     }>>;
     findTeacherSchedule(staffId: string): Promise<({
@@ -31,13 +31,13 @@ export declare class TimetablesController {
             name: string;
         } | null;
         timetable: {
-            name: string;
             batch: {
-                name: string;
                 course: {
                     name: string;
                 };
+                name: string;
             };
+            name: string;
         };
     } & {
         id: string;
@@ -47,9 +47,9 @@ export declare class TimetablesController {
         startTime: string;
         endTime: string;
         dayOfWeek: number;
+        timetableId: string;
         teacherId: string | null;
         roomId: string | null;
-        timetableId: string;
     })[]>;
     findOne(id: string): Promise<any>;
     update(id: string, updateDto: UpdateTimetableDto): Promise<any>;

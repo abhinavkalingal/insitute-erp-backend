@@ -42,6 +42,9 @@ let MarketingController = class MarketingController {
     updateLead(id, data) {
         return this.marketingService.updateLead(id, data);
     }
+    convertLead(id, data) {
+        return this.marketingService.convertLeadToStudent(id, data);
+    }
 };
 exports.MarketingController = MarketingController;
 __decorate([
@@ -93,6 +96,14 @@ __decorate([
     __metadata("design:paramtypes", [String, Object]),
     __metadata("design:returntype", void 0)
 ], MarketingController.prototype, "updateLead", null);
+__decorate([
+    (0, common_1.Post)('leads/:id/convert'),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, Object]),
+    __metadata("design:returntype", void 0)
+], MarketingController.prototype, "convertLead", null);
 exports.MarketingController = MarketingController = __decorate([
     (0, common_1.Controller)('marketing'),
     __metadata("design:paramtypes", [marketing_service_1.MarketingService])

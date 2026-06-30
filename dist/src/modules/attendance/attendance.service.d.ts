@@ -7,25 +7,25 @@ export declare class AttendanceService {
     constructor(prisma: PrismaService);
     markAttendance(takenById: string, dto: MarkAttendanceDto): Promise<any>;
     findAll(queryOptions: AttendanceQueryOptionsDto): Promise<PageDto<{
-        _count: {
-            records: number;
-        };
         batch: {
-            name: string;
             course: {
                 name: string;
             };
+            name: string;
         } | null;
+        _count: {
+            records: number;
+        };
         takenBy: {
             firstName: string;
             lastName: string | null;
         };
     } & {
-        date: Date;
         id: string;
         createdAt: Date;
         updatedAt: Date;
         type: string;
+        date: Date;
         batchId: string | null;
         branchId: string | null;
         takenById: string;
@@ -33,8 +33,8 @@ export declare class AttendanceService {
     findOne(id: string, tx?: any): Promise<any>;
     getStudentHistory(studentId: string, queryOptions: AttendanceQueryOptionsDto): Promise<({
         attendance: {
-            date: Date;
             type: string;
+            date: Date;
         };
     } & {
         id: string;

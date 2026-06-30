@@ -5,11 +5,11 @@ export declare class BatchesController {
     constructor(batchesService: BatchesService);
     create(createDto: CreateBatchDto): Promise<{
         id: string;
-        name: string;
         isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
+        name: string;
         courseId: string;
         branchId: string | null;
         academicYearId: string;
@@ -28,11 +28,11 @@ export declare class BatchesController {
         };
     } & {
         id: string;
-        name: string;
         isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
+        name: string;
         courseId: string;
         branchId: string | null;
         academicYearId: string;
@@ -51,11 +51,11 @@ export declare class BatchesController {
         };
     } & {
         id: string;
-        name: string;
         isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
+        name: string;
         courseId: string;
         branchId: string | null;
         academicYearId: string;
@@ -63,11 +63,11 @@ export declare class BatchesController {
     }>;
     update(id: string, updateDto: UpdateBatchDto): Promise<{
         id: string;
-        name: string;
         isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
+        name: string;
         courseId: string;
         branchId: string | null;
         academicYearId: string;
@@ -75,11 +75,11 @@ export declare class BatchesController {
     }>;
     remove(id: string): Promise<{
         id: string;
-        name: string;
         isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
+        name: string;
         courseId: string;
         branchId: string | null;
         academicYearId: string;

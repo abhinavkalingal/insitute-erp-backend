@@ -13,6 +13,8 @@ export declare class SubscriptionPlansController {
         monthlyPrice: number;
         yearlyPrice: number;
         trialDays: number;
+        features: import("@prisma-master/client/runtime/client").JsonValue | null;
+        metadata: import("@prisma-master/client/runtime/client").JsonValue | null;
     }>;
     findAll(queryOptions: SubscriptionPlanQueryOptionsDto): Promise<import("../../../../../core/utils/pagination/page.dto").PageDto<{
         id: string;
@@ -24,6 +26,8 @@ export declare class SubscriptionPlansController {
         monthlyPrice: number;
         yearlyPrice: number;
         trialDays: number;
+        features: import("@prisma-master/client/runtime/client").JsonValue | null;
+        metadata: import("@prisma-master/client/runtime/client").JsonValue | null;
     }>>;
     findOne(id: string): Promise<{
         id: string;
@@ -35,6 +39,8 @@ export declare class SubscriptionPlansController {
         monthlyPrice: number;
         yearlyPrice: number;
         trialDays: number;
+        features: import("@prisma-master/client/runtime/client").JsonValue | null;
+        metadata: import("@prisma-master/client/runtime/client").JsonValue | null;
     }>;
     update(id: string, updateDto: UpdateSubscriptionPlanDto): Promise<{
         id: string;
@@ -46,6 +52,8 @@ export declare class SubscriptionPlansController {
         monthlyPrice: number;
         yearlyPrice: number;
         trialDays: number;
+        features: import("@prisma-master/client/runtime/client").JsonValue | null;
+        metadata: import("@prisma-master/client/runtime/client").JsonValue | null;
     }>;
     remove(id: string): Promise<{
         id: string;
@@ -57,5 +65,7 @@ export declare class SubscriptionPlansController {
         monthlyPrice: number;
         yearlyPrice: number;
         trialDays: number;
+        features: import("@prisma-master/client/runtime/client").JsonValue | null;
+        metadata: import("@prisma-master/client/runtime/client").JsonValue | null;
     }>;
 }

@@ -12,18 +12,18 @@ export declare class InvoicesController {
             };
         } & {
             id: string;
-            profile: import("@prisma/client/runtime/client").JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
             status: string;
+            profile: import("@prisma/client/runtime/client").JsonValue | null;
             courseId: string | null;
             batchId: string | null;
             branchId: string | null;
-            documents: import("@prisma/client/runtime/client").JsonValue | null;
             enrollmentNo: string | null;
             admissionDate: Date | null;
+            documents: import("@prisma/client/runtime/client").JsonValue | null;
         };
     } & {
         id: string;

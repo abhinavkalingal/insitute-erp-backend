@@ -61,9 +61,17 @@ let InstitutesService = class InstitutesService {
             const adminEmail = profile.contactEmail;
             const adminFirstName = profile.adminName?.split(' ')[0] || 'Admin';
             const adminLastName = profile.adminName?.split(' ').slice(1).join(' ') || '';
-            this.tenantProvisioningService.provisionTenant(createInstituteDto.databaseUrl, adminEmail, adminFirstName, adminLastName).then(success => {
-                if (!success)
+            this.tenantProvisioningService.provisionTenant(createInstituteDto.databaseUrl, adminEmail, adminFirstName, adminLastName, institute.name).then(async (targetDbUrl) => {
+                if (!targetDbUrl) {
                     console.error(`Failed to provision tenant DB: ${createInstituteDto.databaseUrl}`);
+                }
+                else if (typeof targetDbUrl === 'string' && targetDbUrl !== createInstituteDto.databaseUrl) {
+                    console.log(`Updating institute record with actual cloud DB URL: ${targetDbUrl.split('@')[1]}`);
+                    await this.prisma.institute.update({
+                        where: { id: institute.id },
+                        data: { databaseUrl: targetDbUrl }
+                    });
+                }
             });
         }
         return institute;

@@ -201,4 +201,40 @@ export class AuthService {
 
     return { message: 'Email successfully verified' };
   }
+
+  async getInstituteFeatures(tenantId: string) {
+    if (!tenantId) return { type: 'General', features: [] };
+
+    try {
+      const institute = await this.prismaMaster.institute.findUnique({
+        where: { id: tenantId },
+        include: {
+          subscriptions: {
+            where: { status: 'ACTIVE' },
+            include: {
+              plan: true
+            }
+          }
+        }
+      });
+
+      if (!institute) return { type: 'General', features: [] };
+
+      const type = (institute as any).type || 'General';
+
+      if (!institute.subscriptions || institute.subscriptions.length === 0) {
+        return { type, features: [] };
+      }
+
+      const activePlan = institute.subscriptions[0].plan;
+      if (!activePlan || !activePlan.features) {
+        return { type, features: [] };
+      }
+
+      return { type, features: activePlan.features as string[] };
+    } catch (e) {
+      console.error('Error fetching institute features:', e);
+      return { type: 'General', features: [] };
+    }
+  }
 }

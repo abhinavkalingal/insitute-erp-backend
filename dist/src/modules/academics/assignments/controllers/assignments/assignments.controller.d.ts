@@ -11,16 +11,13 @@ export declare class AssignmentsController {
         description: string | null;
         title: string;
         dueDate: Date;
+        maxMarks: number | null;
         staffId: string;
-        subjectId: string;
         courseId: string | null;
         batchId: string | null;
-        maxMarks: number | null;
+        subjectId: string;
     }>;
     findAll(queryOptions: AssignmentQueryOptionsDto): Promise<import("../../../../../core/utils/pagination/page.dto").PageDto<{
-        _count: {
-            submissions: number;
-        };
         staff: {
             user: {
                 firstName: string;
@@ -28,18 +25,18 @@ export declare class AssignmentsController {
             };
         } & {
             id: string;
-            profile: import("@prisma/client/runtime/client").JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
             status: string;
+            profile: import("@prisma/client/runtime/client").JsonValue | null;
             branchId: string | null;
+            documents: import("@prisma/client/runtime/client").JsonValue | null;
             employeeId: string | null;
             department: string | null;
             designation: string | null;
             joiningDate: Date | null;
-            documents: import("@prisma/client/runtime/client").JsonValue | null;
         };
         subject: {
             name: string;
@@ -48,6 +45,9 @@ export declare class AssignmentsController {
         batch: {
             name: string;
         } | null;
+        _count: {
+            submissions: number;
+        };
     } & {
         id: string;
         createdAt: Date;
@@ -56,11 +56,11 @@ export declare class AssignmentsController {
         description: string | null;
         title: string;
         dueDate: Date;
+        maxMarks: number | null;
         staffId: string;
-        subjectId: string;
         courseId: string | null;
         batchId: string | null;
-        maxMarks: number | null;
+        subjectId: string;
     }>>;
     findOne(id: string): Promise<{
         staff: {
@@ -70,18 +70,18 @@ export declare class AssignmentsController {
             };
         } & {
             id: string;
-            profile: import("@prisma/client/runtime/client").JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
             status: string;
+            profile: import("@prisma/client/runtime/client").JsonValue | null;
             branchId: string | null;
+            documents: import("@prisma/client/runtime/client").JsonValue | null;
             employeeId: string | null;
             department: string | null;
             designation: string | null;
             joiningDate: Date | null;
-            documents: import("@prisma/client/runtime/client").JsonValue | null;
         };
         subject: {
             name: string;
@@ -102,18 +102,18 @@ export declare class AssignmentsController {
                 };
             } & {
                 id: string;
-                profile: import("@prisma/client/runtime/client").JsonValue | null;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 userId: string;
                 status: string;
+                profile: import("@prisma/client/runtime/client").JsonValue | null;
                 courseId: string | null;
                 batchId: string | null;
                 branchId: string | null;
-                documents: import("@prisma/client/runtime/client").JsonValue | null;
                 enrollmentNo: string | null;
                 admissionDate: Date | null;
+                documents: import("@prisma/client/runtime/client").JsonValue | null;
             };
             gradedBy: ({
                 user: {
@@ -122,18 +122,18 @@ export declare class AssignmentsController {
                 };
             } & {
                 id: string;
-                profile: import("@prisma/client/runtime/client").JsonValue | null;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 userId: string;
                 status: string;
+                profile: import("@prisma/client/runtime/client").JsonValue | null;
                 branchId: string | null;
+                documents: import("@prisma/client/runtime/client").JsonValue | null;
                 employeeId: string | null;
                 department: string | null;
                 designation: string | null;
                 joiningDate: Date | null;
-                documents: import("@prisma/client/runtime/client").JsonValue | null;
             }) | null;
         } & {
             id: string;
@@ -158,11 +158,11 @@ export declare class AssignmentsController {
         description: string | null;
         title: string;
         dueDate: Date;
+        maxMarks: number | null;
         staffId: string;
-        subjectId: string;
         courseId: string | null;
         batchId: string | null;
-        maxMarks: number | null;
+        subjectId: string;
     }>;
     update(id: string, updateDto: UpdateAssignmentDto): Promise<{
         id: string;
@@ -172,11 +172,11 @@ export declare class AssignmentsController {
         description: string | null;
         title: string;
         dueDate: Date;
+        maxMarks: number | null;
         staffId: string;
-        subjectId: string;
         courseId: string | null;
         batchId: string | null;
-        maxMarks: number | null;
+        subjectId: string;
     }>;
     remove(id: string): Promise<{
         id: string;
@@ -186,10 +186,10 @@ export declare class AssignmentsController {
         description: string | null;
         title: string;
         dueDate: Date;
+        maxMarks: number | null;
         staffId: string;
-        subjectId: string;
         courseId: string | null;
         batchId: string | null;
-        maxMarks: number | null;
+        subjectId: string;
     }>;
 }

@@ -9,11 +9,11 @@ export declare class SaasInvoicesController {
         updatedAt: Date;
         instituteId: string;
         status: string;
-        dueDate: Date | null;
         amount: number;
         subscriptionId: string | null;
         pdfUrl: string | null;
         issuedAt: Date;
+        dueDate: Date | null;
         paidAt: Date | null;
     }>;
     findAll(req: any, queryOptions: SaasInvoiceQueryOptionsDto): Promise<import("../../../../../core/utils/pagination/page.dto").PageDto<{
@@ -26,11 +26,11 @@ export declare class SaasInvoicesController {
         updatedAt: Date;
         instituteId: string;
         status: string;
-        dueDate: Date | null;
         amount: number;
         subscriptionId: string | null;
         pdfUrl: string | null;
         issuedAt: Date;
+        dueDate: Date | null;
         paidAt: Date | null;
     }>>;
     findOne(id: string): Promise<{
@@ -38,6 +38,7 @@ export declare class SaasInvoicesController {
             id: string;
             name: string;
             databaseUrl: string | null;
+            type: string;
             domain: string | null;
             logoUrl: string | null;
             profile: import("@prisma-master/client/runtime/client").JsonValue | null;
@@ -63,13 +64,13 @@ export declare class SaasInvoicesController {
             createdAt: Date;
             instituteId: string;
             status: string;
-            amount: number;
-            invoiceId: string | null;
-            paymentMethod: string | null;
-            gatewayOrderId: string | null;
-            currency: string;
-            transactionId: string | null;
             metadata: import("@prisma-master/client/runtime/client").JsonValue | null;
+            invoiceId: string | null;
+            gatewayOrderId: string | null;
+            amount: number;
+            currency: string;
+            paymentMethod: string | null;
+            transactionId: string | null;
         }[];
     } & {
         id: string;
@@ -77,11 +78,11 @@ export declare class SaasInvoicesController {
         updatedAt: Date;
         instituteId: string;
         status: string;
-        dueDate: Date | null;
         amount: number;
         subscriptionId: string | null;
         pdfUrl: string | null;
         issuedAt: Date;
+        dueDate: Date | null;
         paidAt: Date | null;
     }>;
     voidInvoice(id: string): Promise<{
@@ -90,11 +91,11 @@ export declare class SaasInvoicesController {
         updatedAt: Date;
         instituteId: string;
         status: string;
-        dueDate: Date | null;
         amount: number;
         subscriptionId: string | null;
         pdfUrl: string | null;
         issuedAt: Date;
+        dueDate: Date | null;
         paidAt: Date | null;
     }>;
 }

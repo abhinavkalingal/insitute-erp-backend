@@ -45,6 +45,9 @@ let AuthController = class AuthController {
     async verifyEmail(token) {
         return this.authService.verifyEmail(token);
     }
+    async getInstituteFeatures(tenantId) {
+        return this.authService.getInstituteFeatures(tenantId);
+    }
 };
 exports.AuthController = AuthController;
 __decorate([
@@ -116,6 +119,16 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], AuthController.prototype, "verifyEmail", null);
+__decorate([
+    (0, common_1.Get)('institute-features'),
+    (0, common_1.HttpCode)(common_1.HttpStatus.OK),
+    (0, swagger_1.ApiOperation)({ summary: 'Get enabled subscription features for the current institute' }),
+    (0, swagger_1.ApiHeader)({ name: 'x-institute-id', required: true }),
+    __param(0, (0, common_1.Headers)('x-institute-id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], AuthController.prototype, "getInstituteFeatures", null);
 exports.AuthController = AuthController = __decorate([
     (0, swagger_1.ApiTags)('Authentication'),
     (0, common_1.Controller)('auth'),

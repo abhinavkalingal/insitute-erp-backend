@@ -12,8 +12,8 @@ export declare class MarksService {
         studentId: string;
         marksObtained: number | null;
         remarks: string | null;
-        isAbsent: boolean;
         examId: string;
+        isAbsent: boolean;
     }[]>;
     findAll(queryOptions: MarkQueryOptionsDto): Promise<PageDto<{
         student: {
@@ -23,18 +23,18 @@ export declare class MarksService {
             };
         } & {
             id: string;
-            profile: Prisma.JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
             status: string;
+            profile: Prisma.JsonValue | null;
             courseId: string | null;
             batchId: string | null;
             branchId: string | null;
-            documents: Prisma.JsonValue | null;
             enrollmentNo: string | null;
             admissionDate: Date | null;
+            documents: Prisma.JsonValue | null;
         };
         exam: {
             subject: {
@@ -50,7 +50,7 @@ export declare class MarksService {
         studentId: string;
         marksObtained: number | null;
         remarks: string | null;
-        isAbsent: boolean;
         examId: string;
+        isAbsent: boolean;
     }>>;
 }

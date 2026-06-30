@@ -8,9 +8,9 @@ export declare class MarketingController {
         createdAt: Date;
         updatedAt: Date;
         type: string;
-        title: string;
         status: string;
         content: string | null;
+        title: string;
         branchId: string | null;
         targetCount: number;
         sentCount: number;
@@ -22,9 +22,9 @@ export declare class MarketingController {
         createdAt: Date;
         updatedAt: Date;
         type: string;
-        title: string;
         status: string;
         content: string | null;
+        title: string;
         branchId: string | null;
         targetCount: number;
         sentCount: number;
@@ -36,9 +36,9 @@ export declare class MarketingController {
         createdAt: Date;
         updatedAt: Date;
         type: string;
-        title: string;
         status: string;
         content: string | null;
+        title: string;
         branchId: string | null;
         targetCount: number;
         sentCount: number;
@@ -50,9 +50,9 @@ export declare class MarketingController {
         createdAt: Date;
         updatedAt: Date;
         type: string;
-        title: string;
         status: string;
         content: string | null;
+        title: string;
         branchId: string | null;
         targetCount: number;
         sentCount: number;
@@ -61,11 +61,11 @@ export declare class MarketingController {
     }>;
     createLead(data: Prisma.LeadCreateInput): Promise<{
         id: string;
-        createdAt: Date;
-        updatedAt: Date;
         email: string | null;
         firstName: string;
         lastName: string | null;
+        createdAt: Date;
+        updatedAt: Date;
         status: string;
         courseId: string | null;
         phone: string;
@@ -75,11 +75,11 @@ export declare class MarketingController {
     }>;
     getLeads(): Promise<{
         id: string;
-        createdAt: Date;
-        updatedAt: Date;
         email: string | null;
         firstName: string;
         lastName: string | null;
+        createdAt: Date;
+        updatedAt: Date;
         status: string;
         courseId: string | null;
         phone: string;
@@ -89,16 +89,47 @@ export declare class MarketingController {
     }[]>;
     updateLead(id: string, data: Prisma.LeadUpdateInput): Promise<{
         id: string;
-        createdAt: Date;
-        updatedAt: Date;
         email: string | null;
         firstName: string;
         lastName: string | null;
+        createdAt: Date;
+        updatedAt: Date;
         status: string;
         courseId: string | null;
         phone: string;
         source: string;
         notes: string | null;
         assignedTo: string | null;
+    }>;
+    convertLead(id: string, data: any): Promise<{
+        user: {
+            id: string;
+            email: string;
+            passwordHash: string;
+            firstName: string;
+            lastName: string | null;
+            isActive: boolean;
+            isEmailVerified: boolean;
+            resetPasswordToken: string | null;
+            resetPasswordExpires: Date | null;
+            emailVerificationToken: string | null;
+            createdAt: Date;
+            updatedAt: Date;
+            deletedAt: Date | null;
+        };
+    } & {
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        deletedAt: Date | null;
+        userId: string;
+        status: string;
+        profile: Prisma.JsonValue | null;
+        courseId: string | null;
+        batchId: string | null;
+        branchId: string | null;
+        enrollmentNo: string | null;
+        admissionDate: Date | null;
+        documents: Prisma.JsonValue | null;
     }>;
 }

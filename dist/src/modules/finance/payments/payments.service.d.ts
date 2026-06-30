@@ -12,11 +12,11 @@ export declare class PaymentsService {
         status: string;
         remarks: string | null;
         amount: number;
-        invoiceId: string;
+        receiptNumber: string;
         paymentDate: Date;
         paymentMethod: string;
         reference: string | null;
-        receiptNumber: string;
+        invoiceId: string;
     }>;
     refundPayment(id: string): Promise<{
         id: string;
@@ -25,11 +25,11 @@ export declare class PaymentsService {
         status: string;
         remarks: string | null;
         amount: number;
-        invoiceId: string;
+        receiptNumber: string;
         paymentDate: Date;
         paymentMethod: string;
         reference: string | null;
-        receiptNumber: string;
+        invoiceId: string;
     }>;
     findAll(queryOptions: PaymentQueryOptionsDto): Promise<PageDto<{
         invoice: {
@@ -43,11 +43,11 @@ export declare class PaymentsService {
         status: string;
         remarks: string | null;
         amount: number;
-        invoiceId: string;
+        receiptNumber: string;
         paymentDate: Date;
         paymentMethod: string;
         reference: string | null;
-        receiptNumber: string;
+        invoiceId: string;
     }>>;
     findOne(id: string): Promise<{
         invoice: {
@@ -58,18 +58,18 @@ export declare class PaymentsService {
                 };
             } & {
                 id: string;
-                profile: Prisma.JsonValue | null;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 userId: string;
                 status: string;
+                profile: Prisma.JsonValue | null;
                 courseId: string | null;
                 batchId: string | null;
                 branchId: string | null;
-                documents: Prisma.JsonValue | null;
                 enrollmentNo: string | null;
                 admissionDate: Date | null;
+                documents: Prisma.JsonValue | null;
             };
         } & {
             id: string;
@@ -92,10 +92,10 @@ export declare class PaymentsService {
         status: string;
         remarks: string | null;
         amount: number;
-        invoiceId: string;
+        receiptNumber: string;
         paymentDate: Date;
         paymentMethod: string;
         reference: string | null;
-        receiptNumber: string;
+        invoiceId: string;
     }>;
 }

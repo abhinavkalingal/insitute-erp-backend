@@ -10,10 +10,10 @@ export declare class WebhookEndpointsService {
         isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
-        description: string | null;
         instituteId: string;
-        url: string;
+        description: string | null;
         secret: string;
+        url: string;
         events: import("@prisma-master/client/runtime/client").JsonValue;
     }>;
     listEndpoints(instituteId: string): Promise<{
@@ -21,10 +21,10 @@ export declare class WebhookEndpointsService {
         isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
-        description: string | null;
         instituteId: string;
-        url: string;
+        description: string | null;
         secret: string;
+        url: string;
         events: import("@prisma-master/client/runtime/client").JsonValue;
     }[]>;
     deleteEndpoint(id: string, instituteId: string): Promise<{

@@ -8,8 +8,8 @@ export declare class StudentFeeAssignmentsController {
             id: string;
             description: string;
             amount: number;
-            feeStructureId: string | null;
             invoiceId: string;
+            feeStructureId: string | null;
         }[];
     } & {
         id: string;
@@ -33,30 +33,30 @@ export declare class StudentFeeAssignmentsController {
             };
         } & {
             id: string;
-            profile: import("@prisma/client/runtime/client").JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
             status: string;
+            profile: import("@prisma/client/runtime/client").JsonValue | null;
             courseId: string | null;
             batchId: string | null;
             branchId: string | null;
-            documents: import("@prisma/client/runtime/client").JsonValue | null;
             enrollmentNo: string | null;
             admissionDate: Date | null;
+            documents: import("@prisma/client/runtime/client").JsonValue | null;
         };
         feeDiscount: {
-            value: number;
             name: string;
             type: string;
+            value: number;
         } | null;
         items: {
             id: string;
             description: string;
             amount: number;
-            feeStructureId: string | null;
             invoiceId: string;
+            feeStructureId: string | null;
         }[];
     } & {
         id: string;
@@ -80,24 +80,24 @@ export declare class StudentFeeAssignmentsController {
             };
         } & {
             id: string;
-            profile: import("@prisma/client/runtime/client").JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
             status: string;
+            profile: import("@prisma/client/runtime/client").JsonValue | null;
             courseId: string | null;
             batchId: string | null;
             branchId: string | null;
-            documents: import("@prisma/client/runtime/client").JsonValue | null;
             enrollmentNo: string | null;
             admissionDate: Date | null;
+            documents: import("@prisma/client/runtime/client").JsonValue | null;
         };
         feeDiscount: {
-            value: number;
             id: string;
             name: string;
             type: string;
+            value: number;
         } | null;
         items: ({
             feeStructure: {
@@ -107,8 +107,8 @@ export declare class StudentFeeAssignmentsController {
             id: string;
             description: string;
             amount: number;
-            feeStructureId: string | null;
             invoiceId: string;
+            feeStructureId: string | null;
         })[];
         payments: {
             id: string;
@@ -117,11 +117,11 @@ export declare class StudentFeeAssignmentsController {
             status: string;
             remarks: string | null;
             amount: number;
-            invoiceId: string;
+            receiptNumber: string;
             paymentDate: Date;
             paymentMethod: string;
             reference: string | null;
-            receiptNumber: string;
+            invoiceId: string;
         }[];
     } & {
         id: string;

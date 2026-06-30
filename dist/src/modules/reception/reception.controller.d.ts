@@ -5,10 +5,10 @@ export declare class ReceptionController {
     constructor(receptionService: ReceptionService);
     createVisitor(data: Prisma.VisitorCreateInput): Promise<{
         id: string;
-        name: string;
+        email: string | null;
         createdAt: Date;
         updatedAt: Date;
-        email: string | null;
+        name: string;
         status: string;
         branchId: string | null;
         phone: string | null;
@@ -21,10 +21,10 @@ export declare class ReceptionController {
     }>;
     getVisitors(): Promise<{
         id: string;
-        name: string;
+        email: string | null;
         createdAt: Date;
         updatedAt: Date;
-        email: string | null;
+        name: string;
         status: string;
         branchId: string | null;
         phone: string | null;
@@ -37,10 +37,10 @@ export declare class ReceptionController {
     }[]>;
     updateVisitor(id: string, data: Prisma.VisitorUpdateInput): Promise<{
         id: string;
-        name: string;
+        email: string | null;
         createdAt: Date;
         updatedAt: Date;
-        email: string | null;
+        name: string;
         status: string;
         branchId: string | null;
         phone: string | null;
@@ -53,10 +53,10 @@ export declare class ReceptionController {
     }>;
     deleteVisitor(id: string): Promise<{
         id: string;
-        name: string;
+        email: string | null;
         createdAt: Date;
         updatedAt: Date;
-        email: string | null;
+        name: string;
         status: string;
         branchId: string | null;
         phone: string | null;
@@ -69,10 +69,10 @@ export declare class ReceptionController {
     }>;
     createEnquiry(data: Prisma.EnquiryCreateInput): Promise<{
         id: string;
-        name: string;
+        email: string | null;
         createdAt: Date;
         updatedAt: Date;
-        email: string | null;
+        name: string;
         status: string;
         courseId: string | null;
         branchId: string | null;
@@ -83,20 +83,20 @@ export declare class ReceptionController {
     getEnquiries(): Promise<({
         course: {
             id: string;
-            name: string;
             isActive: boolean;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
+            name: string;
             description: string | null;
             code: string | null;
         } | null;
     } & {
         id: string;
-        name: string;
+        email: string | null;
         createdAt: Date;
         updatedAt: Date;
-        email: string | null;
+        name: string;
         status: string;
         courseId: string | null;
         branchId: string | null;
@@ -106,10 +106,10 @@ export declare class ReceptionController {
     })[]>;
     updateEnquiry(id: string, data: Prisma.EnquiryUpdateInput): Promise<{
         id: string;
-        name: string;
+        email: string | null;
         createdAt: Date;
         updatedAt: Date;
-        email: string | null;
+        name: string;
         status: string;
         courseId: string | null;
         branchId: string | null;
@@ -119,10 +119,10 @@ export declare class ReceptionController {
     }>;
     deleteEnquiry(id: string): Promise<{
         id: string;
-        name: string;
+        email: string | null;
         createdAt: Date;
         updatedAt: Date;
-        email: string | null;
+        name: string;
         status: string;
         courseId: string | null;
         branchId: string | null;
@@ -131,13 +131,13 @@ export declare class ReceptionController {
         notes: string | null;
     }>;
     createAppointment(data: Prisma.AppointmentCreateInput): Promise<{
-        date: Date;
         id: string;
         createdAt: Date;
         updatedAt: Date;
         description: string | null;
-        title: string;
         status: string;
+        date: Date;
+        title: string;
         branchId: string | null;
         startTime: string | null;
         endTime: string | null;
@@ -145,13 +145,13 @@ export declare class ReceptionController {
         visitorName: string;
     }>;
     getAppointments(): Promise<{
-        date: Date;
         id: string;
         createdAt: Date;
         updatedAt: Date;
         description: string | null;
-        title: string;
         status: string;
+        date: Date;
+        title: string;
         branchId: string | null;
         startTime: string | null;
         endTime: string | null;
@@ -159,13 +159,13 @@ export declare class ReceptionController {
         visitorName: string;
     }[]>;
     updateAppointment(id: string, data: Prisma.AppointmentUpdateInput): Promise<{
-        date: Date;
         id: string;
         createdAt: Date;
         updatedAt: Date;
         description: string | null;
-        title: string;
         status: string;
+        date: Date;
+        title: string;
         branchId: string | null;
         startTime: string | null;
         endTime: string | null;
@@ -173,13 +173,13 @@ export declare class ReceptionController {
         visitorName: string;
     }>;
     deleteAppointment(id: string): Promise<{
-        date: Date;
         id: string;
         createdAt: Date;
         updatedAt: Date;
         description: string | null;
-        title: string;
         status: string;
+        date: Date;
+        title: string;
         branchId: string | null;
         startTime: string | null;
         endTime: string | null;

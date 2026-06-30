@@ -13,16 +13,13 @@ export declare class AssignmentsService {
         description: string | null;
         title: string;
         dueDate: Date;
+        maxMarks: number | null;
         staffId: string;
-        subjectId: string;
         courseId: string | null;
         batchId: string | null;
-        maxMarks: number | null;
+        subjectId: string;
     }>;
     findAll(queryOptions: AssignmentQueryOptionsDto): Promise<PageDto<{
-        _count: {
-            submissions: number;
-        };
         staff: {
             user: {
                 firstName: string;
@@ -30,18 +27,18 @@ export declare class AssignmentsService {
             };
         } & {
             id: string;
-            profile: Prisma.JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
             status: string;
+            profile: Prisma.JsonValue | null;
             branchId: string | null;
+            documents: Prisma.JsonValue | null;
             employeeId: string | null;
             department: string | null;
             designation: string | null;
             joiningDate: Date | null;
-            documents: Prisma.JsonValue | null;
         };
         subject: {
             name: string;
@@ -50,6 +47,9 @@ export declare class AssignmentsService {
         batch: {
             name: string;
         } | null;
+        _count: {
+            submissions: number;
+        };
     } & {
         id: string;
         createdAt: Date;
@@ -58,11 +58,11 @@ export declare class AssignmentsService {
         description: string | null;
         title: string;
         dueDate: Date;
+        maxMarks: number | null;
         staffId: string;
-        subjectId: string;
         courseId: string | null;
         batchId: string | null;
-        maxMarks: number | null;
+        subjectId: string;
     }>>;
     findOne(id: string): Promise<{
         staff: {
@@ -72,18 +72,18 @@ export declare class AssignmentsService {
             };
         } & {
             id: string;
-            profile: Prisma.JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
             status: string;
+            profile: Prisma.JsonValue | null;
             branchId: string | null;
+            documents: Prisma.JsonValue | null;
             employeeId: string | null;
             department: string | null;
             designation: string | null;
             joiningDate: Date | null;
-            documents: Prisma.JsonValue | null;
         };
         subject: {
             name: string;
@@ -104,18 +104,18 @@ export declare class AssignmentsService {
                 };
             } & {
                 id: string;
-                profile: Prisma.JsonValue | null;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 userId: string;
                 status: string;
+                profile: Prisma.JsonValue | null;
                 courseId: string | null;
                 batchId: string | null;
                 branchId: string | null;
-                documents: Prisma.JsonValue | null;
                 enrollmentNo: string | null;
                 admissionDate: Date | null;
+                documents: Prisma.JsonValue | null;
             };
             gradedBy: ({
                 user: {
@@ -124,18 +124,18 @@ export declare class AssignmentsService {
                 };
             } & {
                 id: string;
-                profile: Prisma.JsonValue | null;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 userId: string;
                 status: string;
+                profile: Prisma.JsonValue | null;
                 branchId: string | null;
+                documents: Prisma.JsonValue | null;
                 employeeId: string | null;
                 department: string | null;
                 designation: string | null;
                 joiningDate: Date | null;
-                documents: Prisma.JsonValue | null;
             }) | null;
         } & {
             id: string;
@@ -160,11 +160,11 @@ export declare class AssignmentsService {
         description: string | null;
         title: string;
         dueDate: Date;
+        maxMarks: number | null;
         staffId: string;
-        subjectId: string;
         courseId: string | null;
         batchId: string | null;
-        maxMarks: number | null;
+        subjectId: string;
     }>;
     update(id: string, updateDto: UpdateAssignmentDto): Promise<{
         id: string;
@@ -174,11 +174,11 @@ export declare class AssignmentsService {
         description: string | null;
         title: string;
         dueDate: Date;
+        maxMarks: number | null;
         staffId: string;
-        subjectId: string;
         courseId: string | null;
         batchId: string | null;
-        maxMarks: number | null;
+        subjectId: string;
     }>;
     remove(id: string): Promise<{
         id: string;
@@ -188,10 +188,10 @@ export declare class AssignmentsService {
         description: string | null;
         title: string;
         dueDate: Date;
+        maxMarks: number | null;
         staffId: string;
-        subjectId: string;
         courseId: string | null;
         batchId: string | null;
-        maxMarks: number | null;
+        subjectId: string;
     }>;
 }

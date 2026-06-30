@@ -52,6 +52,7 @@ import { MarketingModule } from './modules/marketing/marketing.module';
 import { OperationsModule } from './modules/operations/operations.module';
 import { DirectorModule } from './modules/director/director.module';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
+import { WorkshopModule } from './modules/workshop/workshop.module';
 
 @Module({
   imports: [
@@ -114,6 +115,7 @@ import { DashboardModule } from './modules/dashboard/dashboard.module';
     OperationsModule,
     DirectorModule,
     DashboardModule,
+    WorkshopModule,
   ],
   controllers: [AppController],
   providers: [

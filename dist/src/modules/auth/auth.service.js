@@ -218,6 +218,38 @@ let AuthService = class AuthService {
         });
         return { message: 'Email successfully verified' };
     }
+    async getInstituteFeatures(tenantId) {
+        if (!tenantId)
+            return { type: 'General', features: [] };
+        try {
+            const institute = await this.prismaMaster.institute.findUnique({
+                where: { id: tenantId },
+                include: {
+                    subscriptions: {
+                        where: { status: 'ACTIVE' },
+                        include: {
+                            plan: true
+                        }
+                    }
+                }
+            });
+            if (!institute)
+                return { type: 'General', features: [] };
+            const type = institute.type || 'General';
+            if (!institute.subscriptions || institute.subscriptions.length === 0) {
+                return { type, features: [] };
+            }
+            const activePlan = institute.subscriptions[0].plan;
+            if (!activePlan || !activePlan.features) {
+                return { type, features: [] };
+            }
+            return { type, features: activePlan.features };
+        }
+        catch (e) {
+            console.error('Error fetching institute features:', e);
+            return { type: 'General', features: [] };
+        }
+    }
 };
 exports.AuthService = AuthService;
 exports.AuthService = AuthService = __decorate([

@@ -12,26 +12,26 @@ export declare class SaasPaymentsService {
         createdAt: Date;
         instituteId: string;
         status: string;
-        amount: number;
-        invoiceId: string | null;
-        paymentMethod: string | null;
-        gatewayOrderId: string | null;
-        currency: string;
-        transactionId: string | null;
         metadata: Prisma.JsonValue | null;
+        invoiceId: string | null;
+        gatewayOrderId: string | null;
+        amount: number;
+        currency: string;
+        paymentMethod: string | null;
+        transactionId: string | null;
     }>;
     updatePaymentStatus(id: string, updateDto: UpdateSaasPaymentStatusDto): Promise<{
         id: string;
         createdAt: Date;
         instituteId: string;
         status: string;
-        amount: number;
-        invoiceId: string | null;
-        paymentMethod: string | null;
-        gatewayOrderId: string | null;
-        currency: string;
-        transactionId: string | null;
         metadata: Prisma.JsonValue | null;
+        invoiceId: string | null;
+        gatewayOrderId: string | null;
+        amount: number;
+        currency: string;
+        paymentMethod: string | null;
+        transactionId: string | null;
     }>;
     findAll(instituteId: string, queryOptions: SaasPaymentQueryOptionsDto): Promise<PageDto<{
         institute: {
@@ -42,19 +42,20 @@ export declare class SaasPaymentsService {
         createdAt: Date;
         instituteId: string;
         status: string;
-        amount: number;
-        invoiceId: string | null;
-        paymentMethod: string | null;
-        gatewayOrderId: string | null;
-        currency: string;
-        transactionId: string | null;
         metadata: Prisma.JsonValue | null;
+        invoiceId: string | null;
+        gatewayOrderId: string | null;
+        amount: number;
+        currency: string;
+        paymentMethod: string | null;
+        transactionId: string | null;
     }>>;
     findOne(id: string): Promise<{
         institute: {
             id: string;
             name: string;
             databaseUrl: string | null;
+            type: string;
             domain: string | null;
             logoUrl: string | null;
             profile: Prisma.JsonValue | null;
@@ -70,11 +71,11 @@ export declare class SaasPaymentsService {
             updatedAt: Date;
             instituteId: string;
             status: string;
-            dueDate: Date | null;
             amount: number;
             subscriptionId: string | null;
             pdfUrl: string | null;
             issuedAt: Date;
+            dueDate: Date | null;
             paidAt: Date | null;
         } | null;
     } & {
@@ -82,12 +83,12 @@ export declare class SaasPaymentsService {
         createdAt: Date;
         instituteId: string;
         status: string;
-        amount: number;
-        invoiceId: string | null;
-        paymentMethod: string | null;
-        gatewayOrderId: string | null;
-        currency: string;
-        transactionId: string | null;
         metadata: Prisma.JsonValue | null;
+        invoiceId: string | null;
+        gatewayOrderId: string | null;
+        amount: number;
+        currency: string;
+        paymentMethod: string | null;
+        transactionId: string | null;
     }>;
 }

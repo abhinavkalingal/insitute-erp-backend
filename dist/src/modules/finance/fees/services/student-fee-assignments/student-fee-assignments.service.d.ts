@@ -10,8 +10,8 @@ export declare class StudentFeeAssignmentsService {
             id: string;
             description: string;
             amount: number;
-            feeStructureId: string | null;
             invoiceId: string;
+            feeStructureId: string | null;
         }[];
     } & {
         id: string;
@@ -35,30 +35,30 @@ export declare class StudentFeeAssignmentsService {
             };
         } & {
             id: string;
-            profile: Prisma.JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
             status: string;
+            profile: Prisma.JsonValue | null;
             courseId: string | null;
             batchId: string | null;
             branchId: string | null;
-            documents: Prisma.JsonValue | null;
             enrollmentNo: string | null;
             admissionDate: Date | null;
+            documents: Prisma.JsonValue | null;
         };
         feeDiscount: {
-            value: number;
             name: string;
             type: string;
+            value: number;
         } | null;
         items: {
             id: string;
             description: string;
             amount: number;
-            feeStructureId: string | null;
             invoiceId: string;
+            feeStructureId: string | null;
         }[];
     } & {
         id: string;
@@ -82,24 +82,24 @@ export declare class StudentFeeAssignmentsService {
             };
         } & {
             id: string;
-            profile: Prisma.JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
             status: string;
+            profile: Prisma.JsonValue | null;
             courseId: string | null;
             batchId: string | null;
             branchId: string | null;
-            documents: Prisma.JsonValue | null;
             enrollmentNo: string | null;
             admissionDate: Date | null;
+            documents: Prisma.JsonValue | null;
         };
         feeDiscount: {
-            value: number;
             id: string;
             name: string;
             type: string;
+            value: number;
         } | null;
         items: ({
             feeStructure: {
@@ -109,8 +109,8 @@ export declare class StudentFeeAssignmentsService {
             id: string;
             description: string;
             amount: number;
-            feeStructureId: string | null;
             invoiceId: string;
+            feeStructureId: string | null;
         })[];
         payments: {
             id: string;
@@ -119,11 +119,11 @@ export declare class StudentFeeAssignmentsService {
             status: string;
             remarks: string | null;
             amount: number;
-            invoiceId: string;
+            receiptNumber: string;
             paymentDate: Date;
             paymentMethod: string;
             reference: string | null;
-            receiptNumber: string;
+            invoiceId: string;
         }[];
     } & {
         id: string;

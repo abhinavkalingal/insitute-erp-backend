@@ -1,6 +1,6 @@
-import { Body, Controller, HttpCode, HttpStatus, Post, Request, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Headers, HttpCode, HttpStatus, Post, Request, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiHeader, ApiOperation, ApiTags } from '@nestjs/swagger';
 
 import { AuthService } from './auth.service';
 import { ChangePasswordDto } from './dto/change-password.dto';
@@ -62,5 +62,13 @@ export class AuthController {
   @ApiOperation({ summary: 'Verify user email' })
   async verifyEmail(@Body('token') token: string) {
     return this.authService.verifyEmail(token);
+  }
+
+  @Get('institute-features')
+  @HttpCode(HttpStatus.OK)
+  @ApiOperation({ summary: 'Get enabled subscription features for the current institute' })
+  @ApiHeader({ name: 'x-institute-id', required: true })
+  async getInstituteFeatures(@Headers('x-institute-id') tenantId: string) {
+    return this.authService.getInstituteFeatures(tenantId);
   }
 }

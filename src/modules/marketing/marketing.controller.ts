@@ -40,4 +40,9 @@ export class MarketingController {
   updateLead(@Param('id') id: string, @Body() data: Prisma.LeadUpdateInput) {
     return this.marketingService.updateLead(id, data);
   }
+
+  @Post('leads/:id/convert')
+  convertLead(@Param('id') id: string, @Body() data: any) {
+    return this.marketingService.convertLeadToStudent(id, data);
+  }
 }

@@ -5,9 +5,9 @@ export declare class FeeCategoriesController {
     constructor(feeCategoriesService: FeeCategoriesService);
     create(createDto: CreateFeeCategoryDto): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         description: string | null;
     }>;
     findAll(queryOptions: FeeCategoryQueryOptionsDto): Promise<import("../../../../../core/utils/pagination/page.dto").PageDto<{
@@ -16,30 +16,30 @@ export declare class FeeCategoriesController {
         };
     } & {
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         description: string | null;
     }>>;
     findOne(id: string): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         description: string | null;
     }>;
     update(id: string, updateDto: UpdateFeeCategoryDto): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         description: string | null;
     }>;
     remove(id: string): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         description: string | null;
     }>;
 }

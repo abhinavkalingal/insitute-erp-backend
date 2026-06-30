@@ -4,33 +4,33 @@ export declare class FeeDiscountsController {
     private readonly feeDiscountsService;
     constructor(feeDiscountsService: FeeDiscountsService);
     create(createDto: CreateFeeDiscountDto): Promise<{
-        value: number;
         id: string;
         name: string;
         type: string;
+        value: number;
     }>;
     findAll(queryOptions: FeeDiscountQueryOptionsDto): Promise<import("../../../../../core/utils/pagination/page.dto").PageDto<{
-        value: number;
         id: string;
         name: string;
         type: string;
+        value: number;
     }>>;
     findOne(id: string): Promise<{
-        value: number;
         id: string;
         name: string;
         type: string;
+        value: number;
     }>;
     update(id: string, updateDto: UpdateFeeDiscountDto): Promise<{
-        value: number;
         id: string;
         name: string;
         type: string;
+        value: number;
     }>;
     remove(id: string): Promise<{
-        value: number;
         id: string;
         name: string;
         type: string;
+        value: number;
     }>;
 }

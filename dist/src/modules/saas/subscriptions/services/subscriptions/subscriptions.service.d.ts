@@ -60,13 +60,15 @@ export declare class SubscriptionsService {
             monthlyPrice: number;
             yearlyPrice: number;
             trialDays: number;
+            features: Prisma.JsonValue | null;
+            metadata: Prisma.JsonValue | null;
         };
         history: {
             id: string;
             createdAt: Date;
-            action: string;
             instituteId: string;
             metadata: Prisma.JsonValue | null;
+            action: string;
             subscriptionId: string;
             details: Prisma.JsonValue | null;
             previousPlanId: string | null;

@@ -13,11 +13,11 @@ export declare class SaasInvoicesService {
         updatedAt: Date;
         instituteId: string;
         status: string;
-        dueDate: Date | null;
         amount: number;
         subscriptionId: string | null;
         pdfUrl: string | null;
         issuedAt: Date;
+        dueDate: Date | null;
         paidAt: Date | null;
     }>;
     findAll(instituteId: string | null, queryOptions: SaasInvoiceQueryOptionsDto): Promise<PageDto<{
@@ -30,11 +30,11 @@ export declare class SaasInvoicesService {
         updatedAt: Date;
         instituteId: string;
         status: string;
-        dueDate: Date | null;
         amount: number;
         subscriptionId: string | null;
         pdfUrl: string | null;
         issuedAt: Date;
+        dueDate: Date | null;
         paidAt: Date | null;
     }>>;
     findOne(id: string): Promise<{
@@ -42,6 +42,7 @@ export declare class SaasInvoicesService {
             id: string;
             name: string;
             databaseUrl: string | null;
+            type: string;
             domain: string | null;
             logoUrl: string | null;
             profile: Prisma.JsonValue | null;
@@ -67,13 +68,13 @@ export declare class SaasInvoicesService {
             createdAt: Date;
             instituteId: string;
             status: string;
-            amount: number;
-            invoiceId: string | null;
-            paymentMethod: string | null;
-            gatewayOrderId: string | null;
-            currency: string;
-            transactionId: string | null;
             metadata: Prisma.JsonValue | null;
+            invoiceId: string | null;
+            gatewayOrderId: string | null;
+            amount: number;
+            currency: string;
+            paymentMethod: string | null;
+            transactionId: string | null;
         }[];
     } & {
         id: string;
@@ -81,11 +82,11 @@ export declare class SaasInvoicesService {
         updatedAt: Date;
         instituteId: string;
         status: string;
-        dueDate: Date | null;
         amount: number;
         subscriptionId: string | null;
         pdfUrl: string | null;
         issuedAt: Date;
+        dueDate: Date | null;
         paidAt: Date | null;
     }>;
     voidInvoice(id: string): Promise<{
@@ -94,11 +95,11 @@ export declare class SaasInvoicesService {
         updatedAt: Date;
         instituteId: string;
         status: string;
-        dueDate: Date | null;
         amount: number;
         subscriptionId: string | null;
         pdfUrl: string | null;
         issuedAt: Date;
+        dueDate: Date | null;
         paidAt: Date | null;
     }>;
 }

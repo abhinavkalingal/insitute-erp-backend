@@ -6,21 +6,21 @@ export declare class TimetablesService {
     constructor(prisma: PrismaService);
     create(createDto: CreateTimetableDto): Promise<any>;
     findAll(queryOptions: TimetableQueryOptionsDto): Promise<PageDto<{
-        _count: {
-            periods: number;
-        };
         batch: {
-            name: string;
             course: {
                 name: string;
             };
+            name: string;
+        };
+        _count: {
+            periods: number;
         };
     } & {
         id: string;
-        name: string;
         isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         batchId: string;
     }>>;
     findOne(id: string, tx?: any): Promise<any>;
@@ -37,13 +37,13 @@ export declare class TimetablesService {
             name: string;
         } | null;
         timetable: {
-            name: string;
             batch: {
-                name: string;
                 course: {
                     name: string;
                 };
+                name: string;
             };
+            name: string;
         };
     } & {
         id: string;
@@ -53,8 +53,8 @@ export declare class TimetablesService {
         startTime: string;
         endTime: string;
         dayOfWeek: number;
+        timetableId: string;
         teacherId: string | null;
         roomId: string | null;
-        timetableId: string;
     })[]>;
 }

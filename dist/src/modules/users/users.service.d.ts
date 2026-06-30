@@ -6,31 +6,31 @@ export declare class UsersService {
     constructor(prisma: PrismaService);
     create(createUserDto: CreateUserDto): Promise<{
         id: string;
-        isActive: boolean;
-        createdAt: Date;
-        updatedAt: Date;
-        deletedAt: Date | null;
         email: string;
         firstName: string;
         lastName: string | null;
+        isActive: boolean;
         isEmailVerified: boolean;
         resetPasswordToken: string | null;
         resetPasswordExpires: Date | null;
         emailVerificationToken: string | null;
+        createdAt: Date;
+        updatedAt: Date;
+        deletedAt: Date | null;
     }>;
     findAll(): Promise<{
         id: string;
-        isActive: boolean;
-        createdAt: Date;
         email: string;
         firstName: string;
         lastName: string | null;
+        isActive: boolean;
+        createdAt: Date;
         roles: ({
             role: {
                 id: string;
-                name: string;
                 createdAt: Date;
                 updatedAt: Date;
+                name: string;
                 description: string | null;
             };
         } & {
@@ -41,12 +41,12 @@ export declare class UsersService {
     }[]>;
     findOne(id: string): Promise<{
         id: string;
-        isActive: boolean;
-        createdAt: Date;
-        deletedAt: Date | null;
         email: string;
         firstName: string;
         lastName: string | null;
+        isActive: boolean;
+        createdAt: Date;
+        deletedAt: Date | null;
         roles: ({
             role: {
                 permissions: ({
@@ -64,9 +64,9 @@ export declare class UsersService {
                 })[];
             } & {
                 id: string;
-                name: string;
                 createdAt: Date;
                 updatedAt: Date;
+                name: string;
                 description: string | null;
             };
         } & {
@@ -77,17 +77,17 @@ export declare class UsersService {
     }>;
     update(id: string, updateUserDto: UpdateUserDto): Promise<{
         id: string;
-        isActive: boolean;
-        createdAt: Date;
-        updatedAt: Date;
-        deletedAt: Date | null;
         email: string;
         firstName: string;
         lastName: string | null;
+        isActive: boolean;
         isEmailVerified: boolean;
         resetPasswordToken: string | null;
         resetPasswordExpires: Date | null;
         emailVerificationToken: string | null;
+        createdAt: Date;
+        updatedAt: Date;
+        deletedAt: Date | null;
     }>;
     remove(id: string): Promise<{
         message: string;

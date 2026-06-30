@@ -57,6 +57,9 @@ let PlacementsController = class PlacementsController {
     deleteJobPosting(id) {
         return this.placementsService.deleteJobPosting(id);
     }
+    createApplication(data) {
+        return this.placementsService.createApplication(data);
+    }
     getApplications(jobId) {
         return this.placementsService.getApplications(jobId);
     }
@@ -150,6 +153,13 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], PlacementsController.prototype, "deleteJobPosting", null);
+__decorate([
+    (0, common_1.Post)('applications'),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], PlacementsController.prototype, "createApplication", null);
 __decorate([
     (0, common_1.Get)('jobs/:id/applications'),
     __param(0, (0, common_1.Param)('id')),

@@ -10,8 +10,8 @@ export declare class MarksController {
         studentId: string;
         marksObtained: number | null;
         remarks: string | null;
-        isAbsent: boolean;
         examId: string;
+        isAbsent: boolean;
     }[]>;
     findAll(queryOptions: MarkQueryOptionsDto): Promise<import("../../../../../core/utils/pagination/page.dto").PageDto<{
         student: {
@@ -21,18 +21,18 @@ export declare class MarksController {
             };
         } & {
             id: string;
-            profile: import("@prisma/client/runtime/client").JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
             status: string;
+            profile: import("@prisma/client/runtime/client").JsonValue | null;
             courseId: string | null;
             batchId: string | null;
             branchId: string | null;
-            documents: import("@prisma/client/runtime/client").JsonValue | null;
             enrollmentNo: string | null;
             admissionDate: Date | null;
+            documents: import("@prisma/client/runtime/client").JsonValue | null;
         };
         exam: {
             subject: {
@@ -48,7 +48,7 @@ export declare class MarksController {
         studentId: string;
         marksObtained: number | null;
         remarks: string | null;
-        isAbsent: boolean;
         examId: string;
+        isAbsent: boolean;
     }>>;
 }

@@ -14,12 +14,12 @@ export declare class MaterialsService {
         type: string;
         title: string;
         staffId: string;
-        subjectId: string;
         courseId: string | null;
         batchId: string | null;
+        subjectId: string;
         fileUrl: string | null;
-        categoryId: string;
         videoUrl: string | null;
+        categoryId: string;
     }>;
     findAll(queryOptions: MaterialQueryOptionsDto): Promise<PageDto<{
         staff: {
@@ -29,18 +29,18 @@ export declare class MaterialsService {
             };
         } & {
             id: string;
-            profile: Prisma.JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
             status: string;
+            profile: Prisma.JsonValue | null;
             branchId: string | null;
+            documents: Prisma.JsonValue | null;
             employeeId: string | null;
             department: string | null;
             designation: string | null;
             joiningDate: Date | null;
-            documents: Prisma.JsonValue | null;
         };
         subject: {
             name: string;
@@ -57,12 +57,12 @@ export declare class MaterialsService {
         type: string;
         title: string;
         staffId: string;
-        subjectId: string;
         courseId: string | null;
         batchId: string | null;
+        subjectId: string;
         fileUrl: string | null;
-        categoryId: string;
         videoUrl: string | null;
+        categoryId: string;
     }>>;
     findOne(id: string): Promise<{
         staff: {
@@ -72,18 +72,18 @@ export declare class MaterialsService {
             };
         } & {
             id: string;
-            profile: Prisma.JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
             status: string;
+            profile: Prisma.JsonValue | null;
             branchId: string | null;
+            documents: Prisma.JsonValue | null;
             employeeId: string | null;
             department: string | null;
             designation: string | null;
             joiningDate: Date | null;
-            documents: Prisma.JsonValue | null;
         };
         subject: {
             name: string;
@@ -97,9 +97,9 @@ export declare class MaterialsService {
         } | null;
         category: {
             id: string;
-            name: string;
             createdAt: Date;
             updatedAt: Date;
+            name: string;
             description: string | null;
         };
     } & {
@@ -111,12 +111,12 @@ export declare class MaterialsService {
         type: string;
         title: string;
         staffId: string;
-        subjectId: string;
         courseId: string | null;
         batchId: string | null;
+        subjectId: string;
         fileUrl: string | null;
-        categoryId: string;
         videoUrl: string | null;
+        categoryId: string;
     }>;
     update(id: string, updateDto: UpdateMaterialDto): Promise<{
         id: string;
@@ -127,12 +127,12 @@ export declare class MaterialsService {
         type: string;
         title: string;
         staffId: string;
-        subjectId: string;
         courseId: string | null;
         batchId: string | null;
+        subjectId: string;
         fileUrl: string | null;
-        categoryId: string;
         videoUrl: string | null;
+        categoryId: string;
     }>;
     remove(id: string): Promise<{
         id: string;
@@ -143,11 +143,11 @@ export declare class MaterialsService {
         type: string;
         title: string;
         staffId: string;
-        subjectId: string;
         courseId: string | null;
         batchId: string | null;
+        subjectId: string;
         fileUrl: string | null;
-        categoryId: string;
         videoUrl: string | null;
+        categoryId: string;
     }>;
 }

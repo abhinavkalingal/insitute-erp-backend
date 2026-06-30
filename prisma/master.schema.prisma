@@ -11,6 +11,7 @@ model Institute {
   id          String    @id @default(uuid())
   name        String
   databaseUrl String?   // Connection string for the tenant DB
+  type        String    @default("General")
   domain      String?   @unique
   logoUrl     String?
   profile     Json?
@@ -48,6 +49,8 @@ model SubscriptionPlan {
   monthlyPrice Float
   yearlyPrice  Float
   trialDays    Int   @default(14)
+  features     Json?
+  metadata     Json?
   isActive    Boolean @default(true)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt

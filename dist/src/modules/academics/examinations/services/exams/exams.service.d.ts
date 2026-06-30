@@ -6,9 +6,9 @@ export declare class ExamsService {
     constructor(prisma: PrismaService);
     createTerm(createDto: CreateExamTermDto): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         startDate: Date;
         endDate: Date;
         isPublished: boolean;
@@ -19,68 +19,68 @@ export declare class ExamsService {
         };
     } & {
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         startDate: Date;
         endDate: Date;
         isPublished: boolean;
     }>>;
     findOneTerm(id: string): Promise<{
         exams: {
-            date: Date;
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            subjectId: string;
+            date: Date;
+            maxMarks: number;
             courseId: string | null;
             batchId: string | null;
-            maxMarks: number;
-            examTermId: string;
+            subjectId: string;
             startTime: string;
             endTime: string;
             passingMarks: number;
+            examTermId: string;
         }[];
     } & {
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         startDate: Date;
         endDate: Date;
         isPublished: boolean;
     }>;
     updateTerm(id: string, updateDto: UpdateExamTermDto): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         startDate: Date;
         endDate: Date;
         isPublished: boolean;
     }>;
     removeTerm(id: string): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         startDate: Date;
         endDate: Date;
         isPublished: boolean;
     }>;
     createExam(createDto: CreateExamDto): Promise<{
-        date: Date;
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        subjectId: string;
+        date: Date;
+        maxMarks: number;
         courseId: string | null;
         batchId: string | null;
-        maxMarks: number;
-        examTermId: string;
+        subjectId: string;
         startTime: string;
         endTime: string;
         passingMarks: number;
+        examTermId: string;
     }>;
     findAllExams(queryOptions: ExamQueryOptionsDto): Promise<PageDto<{
         subject: {
@@ -98,47 +98,47 @@ export declare class ExamsService {
             isPublished: boolean;
         };
     } & {
-        date: Date;
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        subjectId: string;
+        date: Date;
+        maxMarks: number;
         courseId: string | null;
         batchId: string | null;
-        maxMarks: number;
-        examTermId: string;
+        subjectId: string;
         startTime: string;
         endTime: string;
         passingMarks: number;
+        examTermId: string;
     }>>;
     findOneExam(id: string): Promise<{
         subject: {
             id: string;
-            name: string;
             isActive: boolean;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
+            name: string;
             code: string | null;
             credits: number | null;
         };
         course: {
             id: string;
-            name: string;
             isActive: boolean;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
+            name: string;
             description: string | null;
             code: string | null;
         } | null;
         batch: {
             id: string;
-            name: string;
             isActive: boolean;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
+            name: string;
             courseId: string;
             branchId: string | null;
             academicYearId: string;
@@ -146,53 +146,53 @@ export declare class ExamsService {
         } | null;
         term: {
             id: string;
-            name: string;
             createdAt: Date;
             updatedAt: Date;
+            name: string;
             startDate: Date;
             endDate: Date;
             isPublished: boolean;
         };
     } & {
-        date: Date;
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        subjectId: string;
+        date: Date;
+        maxMarks: number;
         courseId: string | null;
         batchId: string | null;
-        maxMarks: number;
-        examTermId: string;
+        subjectId: string;
         startTime: string;
         endTime: string;
         passingMarks: number;
+        examTermId: string;
     }>;
     updateExam(id: string, updateDto: UpdateExamDto): Promise<{
-        date: Date;
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        subjectId: string;
+        date: Date;
+        maxMarks: number;
         courseId: string | null;
         batchId: string | null;
-        maxMarks: number;
-        examTermId: string;
+        subjectId: string;
         startTime: string;
         endTime: string;
         passingMarks: number;
+        examTermId: string;
     }>;
     removeExam(id: string): Promise<{
-        date: Date;
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        subjectId: string;
+        date: Date;
+        maxMarks: number;
         courseId: string | null;
         batchId: string | null;
-        maxMarks: number;
-        examTermId: string;
+        subjectId: string;
         startTime: string;
         endTime: string;
         passingMarks: number;
+        examTermId: string;
     }>;
 }

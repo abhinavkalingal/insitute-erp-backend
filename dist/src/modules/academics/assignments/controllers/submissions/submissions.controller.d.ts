@@ -26,18 +26,18 @@ export declare class SubmissionsController {
             };
         } & {
             id: string;
-            profile: import("@prisma/client/runtime/client").JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
             status: string;
+            profile: import("@prisma/client/runtime/client").JsonValue | null;
             courseId: string | null;
             batchId: string | null;
             branchId: string | null;
-            documents: import("@prisma/client/runtime/client").JsonValue | null;
             enrollmentNo: string | null;
             admissionDate: Date | null;
+            documents: import("@prisma/client/runtime/client").JsonValue | null;
         };
         gradedBy: ({
             user: {
@@ -46,18 +46,18 @@ export declare class SubmissionsController {
             };
         } & {
             id: string;
-            profile: import("@prisma/client/runtime/client").JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
             status: string;
+            profile: import("@prisma/client/runtime/client").JsonValue | null;
             branchId: string | null;
+            documents: import("@prisma/client/runtime/client").JsonValue | null;
             employeeId: string | null;
             department: string | null;
             designation: string | null;
             joiningDate: Date | null;
-            documents: import("@prisma/client/runtime/client").JsonValue | null;
         }) | null;
     } & {
         id: string;
@@ -82,18 +82,18 @@ export declare class SubmissionsController {
             };
         } & {
             id: string;
-            profile: import("@prisma/client/runtime/client").JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
             status: string;
+            profile: import("@prisma/client/runtime/client").JsonValue | null;
             courseId: string | null;
             batchId: string | null;
             branchId: string | null;
-            documents: import("@prisma/client/runtime/client").JsonValue | null;
             enrollmentNo: string | null;
             admissionDate: Date | null;
+            documents: import("@prisma/client/runtime/client").JsonValue | null;
         };
         assignment: {
             title: string;
@@ -106,18 +106,18 @@ export declare class SubmissionsController {
             };
         } & {
             id: string;
-            profile: import("@prisma/client/runtime/client").JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
             status: string;
+            profile: import("@prisma/client/runtime/client").JsonValue | null;
             branchId: string | null;
+            documents: import("@prisma/client/runtime/client").JsonValue | null;
             employeeId: string | null;
             department: string | null;
             designation: string | null;
             joiningDate: Date | null;
-            documents: import("@prisma/client/runtime/client").JsonValue | null;
         }) | null;
     } & {
         id: string;
@@ -143,18 +143,18 @@ export declare class SubmissionsController {
             };
         } & {
             id: string;
-            profile: import("@prisma/client/runtime/client").JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
             status: string;
+            profile: import("@prisma/client/runtime/client").JsonValue | null;
             courseId: string | null;
             batchId: string | null;
             branchId: string | null;
-            documents: import("@prisma/client/runtime/client").JsonValue | null;
             enrollmentNo: string | null;
             admissionDate: Date | null;
+            documents: import("@prisma/client/runtime/client").JsonValue | null;
         };
         assignment: {
             id: string;
@@ -164,11 +164,11 @@ export declare class SubmissionsController {
             description: string | null;
             title: string;
             dueDate: Date;
+            maxMarks: number | null;
             staffId: string;
-            subjectId: string;
             courseId: string | null;
             batchId: string | null;
-            maxMarks: number | null;
+            subjectId: string;
         };
         gradedBy: ({
             user: {
@@ -177,18 +177,18 @@ export declare class SubmissionsController {
             };
         } & {
             id: string;
-            profile: import("@prisma/client/runtime/client").JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
             status: string;
+            profile: import("@prisma/client/runtime/client").JsonValue | null;
             branchId: string | null;
+            documents: import("@prisma/client/runtime/client").JsonValue | null;
             employeeId: string | null;
             department: string | null;
             designation: string | null;
             joiningDate: Date | null;
-            documents: import("@prisma/client/runtime/client").JsonValue | null;
         }) | null;
     } & {
         id: string;

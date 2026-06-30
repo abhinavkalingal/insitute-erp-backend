@@ -70,6 +70,11 @@ export class PlacementsController {
   }
 
   // --- Applications ---
+  @Post('applications')
+  createApplication(@Body() data: Prisma.JobApplicationCreateInput) {
+    return this.placementsService.createApplication(data);
+  }
+
   @Get('jobs/:id/applications')
   getApplications(@Param('id') jobId: string) {
     return this.placementsService.getApplications(jobId);

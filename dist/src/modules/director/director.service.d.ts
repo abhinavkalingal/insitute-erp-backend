@@ -9,8 +9,8 @@ export declare class DirectorService {
         updatedAt: Date;
         description: string | null;
         type: string;
-        title: string;
         status: string;
+        title: string;
         branchId: string | null;
         remarks: string | null;
         amount: number | null;
@@ -34,8 +34,8 @@ export declare class DirectorService {
         updatedAt: Date;
         description: string | null;
         type: string;
-        title: string;
         status: string;
+        title: string;
         branchId: string | null;
         remarks: string | null;
         amount: number | null;
@@ -48,8 +48,8 @@ export declare class DirectorService {
         updatedAt: Date;
         description: string | null;
         type: string;
-        title: string;
         status: string;
+        title: string;
         branchId: string | null;
         remarks: string | null;
         amount: number | null;
@@ -62,8 +62,8 @@ export declare class DirectorService {
         updatedAt: Date;
         description: string | null;
         type: string;
-        title: string;
         status: string;
+        title: string;
         branchId: string | null;
         remarks: string | null;
         amount: number | null;

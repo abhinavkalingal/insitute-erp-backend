@@ -60,6 +60,7 @@ const marketing_module_1 = require("./modules/marketing/marketing.module");
 const operations_module_1 = require("./modules/operations/operations.module");
 const director_module_1 = require("./modules/director/director.module");
 const dashboard_module_1 = require("./modules/dashboard/dashboard.module");
+const workshop_module_1 = require("./modules/workshop/workshop.module");
 let AppModule = class AppModule {
     configure(consumer) {
         consumer.apply(request_context_middleware_1.RequestContextMiddleware).forRoutes('*');
@@ -131,6 +132,7 @@ exports.AppModule = AppModule = __decorate([
             operations_module_1.OperationsModule,
             director_module_1.DirectorModule,
             dashboard_module_1.DashboardModule,
+            workshop_module_1.WorkshopModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [

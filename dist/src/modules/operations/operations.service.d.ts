@@ -4,15 +4,15 @@ export declare class OperationsService {
     private prisma;
     constructor(prisma: PrismaService);
     createTicket(data: Prisma.SupportTicketCreateInput): Promise<{
+        subject: string;
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        subject: string;
         description: string | null;
         status: string;
-        priority: string;
         branchId: string | null;
         category: string;
+        priority: string;
         resolution: string | null;
         raisedById: string | null;
         assignedToId: string | null;
@@ -29,43 +29,43 @@ export declare class OperationsService {
             lastName: string | null;
         } | null;
     } & {
+        subject: string;
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        subject: string;
         description: string | null;
         status: string;
-        priority: string;
         branchId: string | null;
         category: string;
+        priority: string;
         resolution: string | null;
         raisedById: string | null;
         assignedToId: string | null;
     })[]>;
     updateTicket(id: string, data: Prisma.SupportTicketUpdateInput): Promise<{
+        subject: string;
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        subject: string;
         description: string | null;
         status: string;
-        priority: string;
         branchId: string | null;
         category: string;
+        priority: string;
         resolution: string | null;
         raisedById: string | null;
         assignedToId: string | null;
     }>;
     deleteTicket(id: string): Promise<{
+        subject: string;
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        subject: string;
         description: string | null;
         status: string;
-        priority: string;
         branchId: string | null;
         category: string;
+        priority: string;
         resolution: string | null;
         raisedById: string | null;
         assignedToId: string | null;

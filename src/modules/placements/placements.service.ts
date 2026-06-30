@@ -88,10 +88,20 @@ export class PlacementsService {
   }
 
   // --- Applications ---
+  async createApplication(data: Prisma.JobApplicationCreateInput) {
+    return this.prisma.jobApplication.create({ data });
+  }
+
   async getApplications(jobId: string) {
     return this.prisma.jobApplication.findMany({
       where: { jobPostingId: jobId },
-      include: { student: true },
+      include: { 
+        student: {
+          include: {
+            user: true,
+          }
+        }
+      },
     });
   }
 

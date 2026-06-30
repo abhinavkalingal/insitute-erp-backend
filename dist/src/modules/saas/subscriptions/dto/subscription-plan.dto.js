@@ -20,6 +20,8 @@ class CreateSubscriptionPlanDto {
     yearlyPrice;
     trialDays;
     isActive;
+    features;
+    metadata;
 }
 exports.CreateSubscriptionPlanDto = CreateSubscriptionPlanDto;
 __decorate([
@@ -59,6 +61,16 @@ __decorate([
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", Boolean)
 ], CreateSubscriptionPlanDto.prototype, "isActive", void 0);
+__decorate([
+    (0, swagger_1.ApiPropertyOptional)(),
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", Object)
+], CreateSubscriptionPlanDto.prototype, "features", void 0);
+__decorate([
+    (0, swagger_1.ApiPropertyOptional)(),
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", Object)
+], CreateSubscriptionPlanDto.prototype, "metadata", void 0);
 class UpdateSubscriptionPlanDto extends (0, swagger_1.PartialType)(CreateSubscriptionPlanDto) {
 }
 exports.UpdateSubscriptionPlanDto = UpdateSubscriptionPlanDto;

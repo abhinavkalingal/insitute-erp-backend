@@ -5,11 +5,11 @@ export declare class TelecallerController {
     constructor(telecallerService: TelecallerService);
     createLead(data: Prisma.LeadCreateInput): Promise<{
         id: string;
-        createdAt: Date;
-        updatedAt: Date;
         email: string | null;
         firstName: string;
         lastName: string | null;
+        createdAt: Date;
+        updatedAt: Date;
         status: string;
         courseId: string | null;
         phone: string;
@@ -19,22 +19,22 @@ export declare class TelecallerController {
     }>;
     getLeads(): Promise<({
         followUps: {
-            date: Date;
             id: string;
             createdAt: Date;
             updatedAt: Date;
             status: string;
+            date: Date;
             notes: string;
             nextFollowUpDate: Date | null;
             leadId: string;
         }[];
     } & {
         id: string;
-        createdAt: Date;
-        updatedAt: Date;
         email: string | null;
         firstName: string;
         lastName: string | null;
+        createdAt: Date;
+        updatedAt: Date;
         status: string;
         courseId: string | null;
         phone: string;
@@ -44,22 +44,22 @@ export declare class TelecallerController {
     })[]>;
     getLeadById(id: string): Promise<{
         followUps: {
-            date: Date;
             id: string;
             createdAt: Date;
             updatedAt: Date;
             status: string;
+            date: Date;
             notes: string;
             nextFollowUpDate: Date | null;
             leadId: string;
         }[];
     } & {
         id: string;
-        createdAt: Date;
-        updatedAt: Date;
         email: string | null;
         firstName: string;
         lastName: string | null;
+        createdAt: Date;
+        updatedAt: Date;
         status: string;
         courseId: string | null;
         phone: string;
@@ -69,11 +69,11 @@ export declare class TelecallerController {
     }>;
     updateLeadStatus(id: string, status: string): Promise<{
         id: string;
-        createdAt: Date;
-        updatedAt: Date;
         email: string | null;
         firstName: string;
         lastName: string | null;
+        createdAt: Date;
+        updatedAt: Date;
         status: string;
         courseId: string | null;
         phone: string;
@@ -82,22 +82,22 @@ export declare class TelecallerController {
         assignedTo: string | null;
     }>;
     addFollowUp(id: string, data: Omit<Prisma.FollowUpCreateInput, 'lead'>): Promise<{
-        date: Date;
         id: string;
         createdAt: Date;
         updatedAt: Date;
         status: string;
+        date: Date;
         notes: string;
         nextFollowUpDate: Date | null;
         leadId: string;
     }>;
     deleteLead(id: string): Promise<{
         id: string;
-        createdAt: Date;
-        updatedAt: Date;
         email: string | null;
         firstName: string;
         lastName: string | null;
+        createdAt: Date;
+        updatedAt: Date;
         status: string;
         courseId: string | null;
         phone: string;

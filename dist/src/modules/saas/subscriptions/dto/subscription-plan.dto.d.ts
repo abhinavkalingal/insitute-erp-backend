@@ -6,6 +6,8 @@ export declare class CreateSubscriptionPlanDto {
     yearlyPrice: number;
     trialDays?: number;
     isActive?: boolean;
+    features?: any;
+    metadata?: any;
 }
 declare const UpdateSubscriptionPlanDto_base: import("@nestjs/common").Type<Partial<CreateSubscriptionPlanDto>>;
 export declare class UpdateSubscriptionPlanDto extends UpdateSubscriptionPlanDto_base {

@@ -13,17 +13,17 @@ export declare class CoursesController {
                 credits: number | null;
             };
         } & {
-            subjectId: string;
             courseId: string;
+            subjectId: string;
             isOptional: boolean;
         })[];
     } & {
         id: string;
-        name: string;
         isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
+        name: string;
         description: string | null;
         code: string | null;
     }>>;
@@ -31,11 +31,11 @@ export declare class CoursesController {
     update(id: string, updateDto: UpdateCourseDto): Promise<any>;
     remove(id: string): Promise<{
         id: string;
-        name: string;
         isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
+        name: string;
         description: string | null;
         code: string | null;
     }>;

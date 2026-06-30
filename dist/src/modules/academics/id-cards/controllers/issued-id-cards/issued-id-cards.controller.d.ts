@@ -14,9 +14,9 @@ export declare class IssuedIdCardsController {
             templateId: string;
             issueDate: Date;
             holderName: string | null;
-            validUntil: Date | null;
-            barcodeData: string | null;
             cardNumber: string;
+            barcodeData: string | null;
+            validUntil: Date | null;
         };
         renderedHtml: string;
         backgroundUrl: string | null;
@@ -36,9 +36,9 @@ export declare class IssuedIdCardsController {
         templateId: string;
         issueDate: Date;
         holderName: string | null;
-        validUntil: Date | null;
-        barcodeData: string | null;
         cardNumber: string;
+        barcodeData: string | null;
+        validUntil: Date | null;
     }>>;
     revokeCard(id: string): Promise<{
         id: string;
@@ -50,9 +50,9 @@ export declare class IssuedIdCardsController {
         templateId: string;
         issueDate: Date;
         holderName: string | null;
-        validUntil: Date | null;
-        barcodeData: string | null;
         cardNumber: string;
+        barcodeData: string | null;
+        validUntil: Date | null;
     }>;
     verifyCard(cardNumber: string): Promise<{
         isValid: boolean;

@@ -10,33 +10,33 @@ export declare class StaffService {
     create(createStaffDto: CreateStaffDto): Promise<{
         user: {
             id: string;
-            isActive: boolean;
-            createdAt: Date;
-            updatedAt: Date;
-            deletedAt: Date | null;
             email: string;
             passwordHash: string;
             firstName: string;
             lastName: string | null;
+            isActive: boolean;
             isEmailVerified: boolean;
             resetPasswordToken: string | null;
             resetPasswordExpires: Date | null;
             emailVerificationToken: string | null;
+            createdAt: Date;
+            updatedAt: Date;
+            deletedAt: Date | null;
         };
     } & {
         id: string;
-        profile: Prisma.JsonValue | null;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         userId: string;
         status: string;
+        profile: Prisma.JsonValue | null;
         branchId: string | null;
+        documents: Prisma.JsonValue | null;
         employeeId: string | null;
         department: string | null;
         designation: string | null;
         joiningDate: Date | null;
-        documents: Prisma.JsonValue | null;
     }>;
     findAll(queryOptions: StaffQueryOptionsDto): Promise<PageDto<{
         branch: {
@@ -45,25 +45,25 @@ export declare class StaffService {
         } | null;
         user: {
             id: string;
-            isActive: boolean;
             email: string;
             firstName: string;
             lastName: string | null;
+            isActive: boolean;
         };
     } & {
         id: string;
-        profile: Prisma.JsonValue | null;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         userId: string;
         status: string;
+        profile: Prisma.JsonValue | null;
         branchId: string | null;
+        documents: Prisma.JsonValue | null;
         employeeId: string | null;
         department: string | null;
         designation: string | null;
         joiningDate: Date | null;
-        documents: Prisma.JsonValue | null;
     }>>;
     findOne(id: string): Promise<{
         branch: {
@@ -72,25 +72,25 @@ export declare class StaffService {
         } | null;
         user: {
             id: string;
-            isActive: boolean;
             email: string;
             firstName: string;
             lastName: string | null;
+            isActive: boolean;
         };
     } & {
         id: string;
-        profile: Prisma.JsonValue | null;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         userId: string;
         status: string;
+        profile: Prisma.JsonValue | null;
         branchId: string | null;
+        documents: Prisma.JsonValue | null;
         employeeId: string | null;
         department: string | null;
         designation: string | null;
         joiningDate: Date | null;
-        documents: Prisma.JsonValue | null;
     }>;
     update(id: string, updateStaffDto: UpdateStaffDto): Promise<{
         user: {
@@ -100,33 +100,33 @@ export declare class StaffService {
         };
     } & {
         id: string;
-        profile: Prisma.JsonValue | null;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         userId: string;
         status: string;
+        profile: Prisma.JsonValue | null;
         branchId: string | null;
+        documents: Prisma.JsonValue | null;
         employeeId: string | null;
         department: string | null;
         designation: string | null;
         joiningDate: Date | null;
-        documents: Prisma.JsonValue | null;
     }>;
     uploadDocument(id: string, documentUrl: string, originalName: string, mimetype: string): Promise<{
         id: string;
-        profile: Prisma.JsonValue | null;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         userId: string;
         status: string;
+        profile: Prisma.JsonValue | null;
         branchId: string | null;
+        documents: Prisma.JsonValue | null;
         employeeId: string | null;
         department: string | null;
         designation: string | null;
         joiningDate: Date | null;
-        documents: Prisma.JsonValue | null;
     }>;
     remove(id: string): Promise<{
         message: string;

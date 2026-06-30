@@ -33,6 +33,14 @@ export class CreateSubscriptionPlanDto {
   @IsBoolean()
   @IsOptional()
   isActive?: boolean;
+
+  @ApiPropertyOptional()
+  @IsOptional()
+  features?: any;
+
+  @ApiPropertyOptional()
+  @IsOptional()
+  metadata?: any;
 }
 
 export class UpdateSubscriptionPlanDto extends PartialType(CreateSubscriptionPlanDto) {}

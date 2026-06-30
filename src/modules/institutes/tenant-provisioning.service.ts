@@ -3,6 +3,7 @@ import { PrismaTenantService } from '@infrastructure/database/prisma-tenant.serv
 import { exec } from 'child_process';
 import * as util from 'util';
 import * as bcrypt from 'bcrypt';
+import { createApiClient } from '@neondatabase/api-client';
 
 const execAsync = util.promisify(exec);
 
@@ -12,14 +13,44 @@ export class TenantProvisioningService {
 
   constructor(private readonly prismaTenant: PrismaTenantService) {}
 
-  async provisionTenant(databaseUrl: string, adminEmail: string, adminFirstName: string, adminLastName: string): Promise<boolean> {
-    this.logger.log(`Starting provisioning for tenant DB: ${databaseUrl}`);
+  async provisionTenant(databaseUrl: string, adminEmail: string, adminFirstName: string, adminLastName: string, instituteName: string = 'New Institute'): Promise<string | false> {
+    this.logger.log(`Starting provisioning for tenant...`);
+    
+    let targetDbUrl = databaseUrl;
 
     try {
+      // 0. Neon Integration
+      const neonApiKey = process.env.NEON_API_KEY;
+      if (neonApiKey) {
+        this.logger.log('Neon API Key detected. Provisioning a new Neon Postgres database in the cloud...');
+        const neon = createApiClient({ apiKey: neonApiKey });
+        
+        // Create a new project for this tenant
+        const project = await neon.createProject({
+          project: {
+            name: instituteName.toLowerCase().replace(/[^a-z0-9]/g, '-'),
+          }
+        });
+
+        // Get the connection string for the main role
+        const connectionUri = project.data.connection_uris.find(uri => uri.connection_parameters.role === 'neondb_owner')?.connection_uri;
+        if (!connectionUri) {
+          throw new Error('Failed to retrieve connection URI from Neon');
+        }
+        
+        targetDbUrl = connectionUri;
+        this.logger.log(`Successfully provisioned Neon database at: ${targetDbUrl.split('@')[1]}`);
+        
+        // Add a small delay to ensure the Neon endpoint is fully ready before pushing schema
+        await new Promise(resolve => setTimeout(resolve, 5000));
+      } else {
+        this.logger.log(`No NEON_API_KEY found. Falling back to local postgres: ${targetDbUrl}`);
+      }
+
       // 1. Run Prisma DB Push to create schemas/tables
       this.logger.log('Pushing Prisma schema to new tenant database...');
       // Using npx prisma db push with --url override
-      const { stdout, stderr } = await execAsync(`npx prisma db push --schema=prisma/schema.prisma --url="${databaseUrl}" --accept-data-loss`);
+      const { stdout, stderr } = await execAsync(`npx prisma db push --schema=prisma/schema.prisma --url="${targetDbUrl}" --accept-data-loss`);
       this.logger.log(`Prisma Push Output: ${stdout}`);
       if (stderr) {
         this.logger.warn(`Prisma Push Stderr: ${stderr}`);
@@ -27,7 +58,7 @@ export class TenantProvisioningService {
 
       // 2. Connect to the new database directly to seed data
       this.logger.log('Connecting to tenant database for seeding...');
-      const tenantPrisma = this.prismaTenant.getClient(databaseUrl);
+      const tenantPrisma = this.prismaTenant.getClient(targetDbUrl);
 
       // 3. Seed Permissions
       this.logger.log('Seeding permissions...');
@@ -68,6 +99,17 @@ export class TenantProvisioningService {
         }
       });
 
+      // Also create default staff roles
+      this.logger.log('Creating default staff roles...');
+      await tenantPrisma.role.createMany({
+        data: [
+          { name: 'Accountant', description: 'Manages finance, fees, and payroll.' },
+          { name: 'Telecaller', description: 'Handles admissions and leads pipeline.' },
+          { name: 'Teacher', description: 'Manages academics, batches, and attendance.' },
+        ],
+        skipDuplicates: true,
+      });
+
       // 5. Create Tenant Admin User
       this.logger.log(`Creating Admin user: ${adminEmail}`);
       const passwordHash = await bcrypt.hash('Welcome123!', 10);
@@ -102,11 +144,14 @@ export class TenantProvisioningService {
       }
 
       // No need to disconnect manually as it's pooled by PrismaTenantService
-      this.logger.log(`Tenant provisioning successful for ${databaseUrl}`);
-      return true;
+      this.logger.log(`Tenant provisioning successful for ${targetDbUrl}`);
+      return targetDbUrl; // Return the URL so the master database can store it
 
-    } catch (error) {
+    } catch (error: any) {
       this.logger.error(`Error provisioning tenant: ${error}`);
+      if (error.response?.data) {
+        this.logger.error(`Neon API Error Data: ${JSON.stringify(error.response.data)}`);
+      }
       return false;
     }
   }

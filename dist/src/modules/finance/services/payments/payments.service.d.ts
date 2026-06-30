@@ -13,11 +13,11 @@ export declare class PaymentsService {
         status: string;
         remarks: string | null;
         amount: number;
-        invoiceId: string;
+        receiptNumber: string;
         paymentDate: Date;
         paymentMethod: string;
         reference: string | null;
-        receiptNumber: string;
+        invoiceId: string;
     }>;
     findAll(queryOptions: PaymentQueryOptionsDto): Promise<PageDto<{
         invoice: {
@@ -36,44 +36,44 @@ export declare class PaymentsService {
         status: string;
         remarks: string | null;
         amount: number;
-        invoiceId: string;
+        receiptNumber: string;
         paymentDate: Date;
         paymentMethod: string;
         reference: string | null;
-        receiptNumber: string;
+        invoiceId: string;
     }>>;
     findOne(id: string): Promise<{
         invoice: {
             student: {
                 user: {
                     id: string;
-                    isActive: boolean;
-                    createdAt: Date;
-                    updatedAt: Date;
-                    deletedAt: Date | null;
                     email: string;
                     passwordHash: string;
                     firstName: string;
                     lastName: string | null;
+                    isActive: boolean;
                     isEmailVerified: boolean;
                     resetPasswordToken: string | null;
                     resetPasswordExpires: Date | null;
                     emailVerificationToken: string | null;
+                    createdAt: Date;
+                    updatedAt: Date;
+                    deletedAt: Date | null;
                 };
             } & {
                 id: string;
-                profile: Prisma.JsonValue | null;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 userId: string;
                 status: string;
+                profile: Prisma.JsonValue | null;
                 courseId: string | null;
                 batchId: string | null;
                 branchId: string | null;
-                documents: Prisma.JsonValue | null;
                 enrollmentNo: string | null;
                 admissionDate: Date | null;
+                documents: Prisma.JsonValue | null;
             };
         } & {
             id: string;
@@ -96,10 +96,10 @@ export declare class PaymentsService {
         status: string;
         remarks: string | null;
         amount: number;
-        invoiceId: string;
+        receiptNumber: string;
         paymentDate: Date;
         paymentMethod: string;
         reference: string | null;
-        receiptNumber: string;
+        invoiceId: string;
     }>;
 }

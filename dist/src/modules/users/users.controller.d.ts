@@ -6,26 +6,26 @@ export declare class UsersController {
     constructor(usersService: UsersService);
     create(createUserDto: CreateUserDto): Promise<{
         id: string;
-        isActive: boolean;
-        createdAt: Date;
-        updatedAt: Date;
-        deletedAt: Date | null;
         email: string;
         firstName: string;
         lastName: string | null;
+        isActive: boolean;
         isEmailVerified: boolean;
         resetPasswordToken: string | null;
         resetPasswordExpires: Date | null;
         emailVerificationToken: string | null;
+        createdAt: Date;
+        updatedAt: Date;
+        deletedAt: Date | null;
     }>;
     getProfile(req: any): Promise<{
         id: string;
-        isActive: boolean;
-        createdAt: Date;
-        deletedAt: Date | null;
         email: string;
         firstName: string;
         lastName: string | null;
+        isActive: boolean;
+        createdAt: Date;
+        deletedAt: Date | null;
         roles: ({
             role: {
                 permissions: ({
@@ -43,9 +43,9 @@ export declare class UsersController {
                 })[];
             } & {
                 id: string;
-                name: string;
                 createdAt: Date;
                 updatedAt: Date;
+                name: string;
                 description: string | null;
             };
         } & {
@@ -56,17 +56,17 @@ export declare class UsersController {
     }>;
     findAll(): Promise<{
         id: string;
-        isActive: boolean;
-        createdAt: Date;
         email: string;
         firstName: string;
         lastName: string | null;
+        isActive: boolean;
+        createdAt: Date;
         roles: ({
             role: {
                 id: string;
-                name: string;
                 createdAt: Date;
                 updatedAt: Date;
+                name: string;
                 description: string | null;
             };
         } & {
@@ -77,12 +77,12 @@ export declare class UsersController {
     }[]>;
     findOne(id: string): Promise<{
         id: string;
-        isActive: boolean;
-        createdAt: Date;
-        deletedAt: Date | null;
         email: string;
         firstName: string;
         lastName: string | null;
+        isActive: boolean;
+        createdAt: Date;
+        deletedAt: Date | null;
         roles: ({
             role: {
                 permissions: ({
@@ -100,9 +100,9 @@ export declare class UsersController {
                 })[];
             } & {
                 id: string;
-                name: string;
                 createdAt: Date;
                 updatedAt: Date;
+                name: string;
                 description: string | null;
             };
         } & {
@@ -113,17 +113,17 @@ export declare class UsersController {
     }>;
     update(id: string, updateUserDto: UpdateUserDto): Promise<{
         id: string;
-        isActive: boolean;
-        createdAt: Date;
-        updatedAt: Date;
-        deletedAt: Date | null;
         email: string;
         firstName: string;
         lastName: string | null;
+        isActive: boolean;
         isEmailVerified: boolean;
         resetPasswordToken: string | null;
         resetPasswordExpires: Date | null;
         emailVerificationToken: string | null;
+        createdAt: Date;
+        updatedAt: Date;
+        deletedAt: Date | null;
     }>;
     remove(id: string): Promise<{
         message: string;

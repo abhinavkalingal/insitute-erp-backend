@@ -6,9 +6,9 @@ export declare class ExpenseCategoriesService {
     constructor(prisma: PrismaService);
     create(createDto: CreateExpenseCategoryDto): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         description: string | null;
     }>;
     findAll(queryOptions: ExpenseCategoryQueryOptionsDto): Promise<PageDto<{
@@ -17,30 +17,30 @@ export declare class ExpenseCategoriesService {
         };
     } & {
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         description: string | null;
     }>>;
     findOne(id: string): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         description: string | null;
     }>;
     update(id: string, updateDto: UpdateExpenseCategoryDto): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         description: string | null;
     }>;
     remove(id: string): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         description: string | null;
     }>;
 }

@@ -12,12 +12,12 @@ export declare class MaterialsController {
         type: string;
         title: string;
         staffId: string;
-        subjectId: string;
         courseId: string | null;
         batchId: string | null;
+        subjectId: string;
         fileUrl: string | null;
-        categoryId: string;
         videoUrl: string | null;
+        categoryId: string;
     }>;
     findAll(queryOptions: MaterialQueryOptionsDto): Promise<import("../../../../../core/utils/pagination/page.dto").PageDto<{
         staff: {
@@ -27,18 +27,18 @@ export declare class MaterialsController {
             };
         } & {
             id: string;
-            profile: import("@prisma/client/runtime/client").JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
             status: string;
+            profile: import("@prisma/client/runtime/client").JsonValue | null;
             branchId: string | null;
+            documents: import("@prisma/client/runtime/client").JsonValue | null;
             employeeId: string | null;
             department: string | null;
             designation: string | null;
             joiningDate: Date | null;
-            documents: import("@prisma/client/runtime/client").JsonValue | null;
         };
         subject: {
             name: string;
@@ -55,12 +55,12 @@ export declare class MaterialsController {
         type: string;
         title: string;
         staffId: string;
-        subjectId: string;
         courseId: string | null;
         batchId: string | null;
+        subjectId: string;
         fileUrl: string | null;
-        categoryId: string;
         videoUrl: string | null;
+        categoryId: string;
     }>>;
     findOne(id: string): Promise<{
         staff: {
@@ -70,18 +70,18 @@ export declare class MaterialsController {
             };
         } & {
             id: string;
-            profile: import("@prisma/client/runtime/client").JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
             status: string;
+            profile: import("@prisma/client/runtime/client").JsonValue | null;
             branchId: string | null;
+            documents: import("@prisma/client/runtime/client").JsonValue | null;
             employeeId: string | null;
             department: string | null;
             designation: string | null;
             joiningDate: Date | null;
-            documents: import("@prisma/client/runtime/client").JsonValue | null;
         };
         subject: {
             name: string;
@@ -95,9 +95,9 @@ export declare class MaterialsController {
         } | null;
         category: {
             id: string;
-            name: string;
             createdAt: Date;
             updatedAt: Date;
+            name: string;
             description: string | null;
         };
     } & {
@@ -109,12 +109,12 @@ export declare class MaterialsController {
         type: string;
         title: string;
         staffId: string;
-        subjectId: string;
         courseId: string | null;
         batchId: string | null;
+        subjectId: string;
         fileUrl: string | null;
-        categoryId: string;
         videoUrl: string | null;
+        categoryId: string;
     }>;
     update(id: string, updateDto: UpdateMaterialDto): Promise<{
         id: string;
@@ -125,12 +125,12 @@ export declare class MaterialsController {
         type: string;
         title: string;
         staffId: string;
-        subjectId: string;
         courseId: string | null;
         batchId: string | null;
+        subjectId: string;
         fileUrl: string | null;
-        categoryId: string;
         videoUrl: string | null;
+        categoryId: string;
     }>;
     remove(id: string): Promise<{
         id: string;
@@ -141,11 +141,11 @@ export declare class MaterialsController {
         type: string;
         title: string;
         staffId: string;
-        subjectId: string;
         courseId: string | null;
         batchId: string | null;
+        subjectId: string;
         fileUrl: string | null;
-        categoryId: string;
         videoUrl: string | null;
+        categoryId: string;
     }>;
 }

@@ -17,18 +17,18 @@ export declare class ResultsService {
             };
         } & {
             id: string;
-            profile: Prisma.JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
             status: string;
+            profile: Prisma.JsonValue | null;
             courseId: string | null;
             batchId: string | null;
             branchId: string | null;
-            documents: Prisma.JsonValue | null;
             enrollmentNo: string | null;
             admissionDate: Date | null;
+            documents: Prisma.JsonValue | null;
         };
     } & {
         id: string;
@@ -53,24 +53,24 @@ export declare class ResultsService {
                 };
             } & {
                 id: string;
-                profile: Prisma.JsonValue | null;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 userId: string;
                 status: string;
+                profile: Prisma.JsonValue | null;
                 courseId: string | null;
                 batchId: string | null;
                 branchId: string | null;
-                documents: Prisma.JsonValue | null;
                 enrollmentNo: string | null;
                 admissionDate: Date | null;
+                documents: Prisma.JsonValue | null;
             };
             term: {
                 id: string;
-                name: string;
                 createdAt: Date;
                 updatedAt: Date;
+                name: string;
                 startDate: Date;
                 endDate: Date;
                 isPublished: boolean;
@@ -90,11 +90,11 @@ export declare class ResultsService {
         };
         details: ({
             exam: {
-                date: Date;
                 subject: {
                     name: string;
                     code: string | null;
                 };
+                date: Date;
                 maxMarks: number;
                 passingMarks: number;
             };
@@ -105,8 +105,8 @@ export declare class ResultsService {
             studentId: string;
             marksObtained: number | null;
             remarks: string | null;
-            isAbsent: boolean;
             examId: string;
+            isAbsent: boolean;
         })[];
     }>;
 }

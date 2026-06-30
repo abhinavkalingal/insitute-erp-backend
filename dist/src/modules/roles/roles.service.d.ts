@@ -19,9 +19,9 @@ export declare class RolesService {
         })[];
     } & {
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         description: string | null;
     }>;
     findAll(): import("@prisma/client").Prisma.PrismaPromise<({
@@ -40,9 +40,9 @@ export declare class RolesService {
         })[];
     } & {
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         description: string | null;
     })[]>;
     update(id: string, updateRoleDto: {
@@ -64,9 +64,9 @@ export declare class RolesService {
         })[];
     } & {
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         description: string | null;
     }>;
     remove(id: string): Promise<{

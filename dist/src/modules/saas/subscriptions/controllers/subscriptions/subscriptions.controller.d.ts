@@ -14,13 +14,15 @@ export declare class SubscriptionsController {
             monthlyPrice: number;
             yearlyPrice: number;
             trialDays: number;
+            features: import("@prisma-master/client/runtime/client").JsonValue | null;
+            metadata: import("@prisma-master/client/runtime/client").JsonValue | null;
         };
         history: {
             id: string;
             createdAt: Date;
-            action: string;
             instituteId: string;
             metadata: import("@prisma-master/client/runtime/client").JsonValue | null;
+            action: string;
             subscriptionId: string;
             details: import("@prisma-master/client/runtime/client").JsonValue | null;
             previousPlanId: string | null;

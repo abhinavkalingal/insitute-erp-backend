@@ -66,9 +66,18 @@ export class InstitutesService {
         createInstituteDto.databaseUrl, 
         adminEmail, 
         adminFirstName, 
-        adminLastName
-      ).then(success => {
-        if (!success) console.error(`Failed to provision tenant DB: ${createInstituteDto.databaseUrl}`);
+        adminLastName,
+        institute.name
+      ).then(async targetDbUrl => {
+        if (!targetDbUrl) {
+          console.error(`Failed to provision tenant DB: ${createInstituteDto.databaseUrl}`);
+        } else if (typeof targetDbUrl === 'string' && targetDbUrl !== createInstituteDto.databaseUrl) {
+          console.log(`Updating institute record with actual cloud DB URL: ${targetDbUrl.split('@')[1]}`);
+          await this.prisma.institute.update({
+            where: { id: institute.id },
+            data: { databaseUrl: targetDbUrl }
+          });
+        }
       });
     }
 

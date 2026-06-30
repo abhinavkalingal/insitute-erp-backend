@@ -5,44 +5,44 @@ export declare class FeesController {
     constructor(feesService: FeesService);
     createCategory(createDto: CreateFeeCategoryDto): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         description: string | null;
     }>;
     findAllCategories(queryOptions: FeeCategoryQueryOptionsDto): Promise<import("../../../../core/utils/pagination/page.dto").PageDto<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         description: string | null;
     }>>;
     findOneCategory(id: string): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         description: string | null;
     }>;
     updateCategory(id: string, updateDto: UpdateFeeCategoryDto): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         description: string | null;
     }>;
     removeCategory(id: string): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         description: string | null;
     }>;
     createStructure(createDto: CreateFeeStructureDto): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         courseId: string | null;
         batchId: string | null;
         categoryId: string;
@@ -60,9 +60,9 @@ export declare class FeesController {
         };
     } & {
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         courseId: string | null;
         batchId: string | null;
         categoryId: string;
@@ -80,9 +80,9 @@ export declare class FeesController {
         };
     } & {
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         courseId: string | null;
         batchId: string | null;
         categoryId: string;
@@ -90,9 +90,9 @@ export declare class FeesController {
     }>;
     updateStructure(id: string, updateDto: UpdateFeeStructureDto): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         courseId: string | null;
         batchId: string | null;
         categoryId: string;
@@ -100,9 +100,9 @@ export declare class FeesController {
     }>;
     removeStructure(id: string): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         courseId: string | null;
         batchId: string | null;
         categoryId: string;

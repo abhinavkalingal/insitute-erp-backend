@@ -13,8 +13,8 @@ export declare class IssuedCertificatesService {
             updatedAt: Date;
             studentId: string;
             fileUrl: string | null;
-            templateId: string;
             certificateNumber: string;
+            templateId: string;
             issueDate: Date;
         };
         renderedHtml: string;
@@ -28,18 +28,18 @@ export declare class IssuedCertificatesService {
             };
         } & {
             id: string;
-            profile: Prisma.JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
             status: string;
+            profile: Prisma.JsonValue | null;
             courseId: string | null;
             batchId: string | null;
             branchId: string | null;
-            documents: Prisma.JsonValue | null;
             enrollmentNo: string | null;
             admissionDate: Date | null;
+            documents: Prisma.JsonValue | null;
         };
         template: {
             name: string;
@@ -50,8 +50,8 @@ export declare class IssuedCertificatesService {
         updatedAt: Date;
         studentId: string;
         fileUrl: string | null;
-        templateId: string;
         certificateNumber: string;
+        templateId: string;
         issueDate: Date;
     }>>;
     verifyQrCode(certificateNumber: string): Promise<{

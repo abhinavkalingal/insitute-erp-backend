@@ -38,4 +38,8 @@ export declare class AuthController {
     verifyEmail(token: string): Promise<{
         message: string;
     }>;
+    getInstituteFeatures(tenantId: string): Promise<{
+        type: any;
+        features: string[];
+    }>;
 }

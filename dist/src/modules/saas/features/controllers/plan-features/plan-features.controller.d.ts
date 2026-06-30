@@ -7,10 +7,10 @@ export declare class PlanFeaturesController {
         feature: {
             id: string;
             name: string;
+            type: string;
             createdAt: Date;
             updatedAt: Date;
             description: string | null;
-            type: string;
             key: string;
         };
     } & {
@@ -24,10 +24,10 @@ export declare class PlanFeaturesController {
         feature: {
             id: string;
             name: string;
+            type: string;
             createdAt: Date;
             updatedAt: Date;
             description: string | null;
-            type: string;
             key: string;
         };
     } & {
@@ -41,10 +41,10 @@ export declare class PlanFeaturesController {
         feature: {
             id: string;
             name: string;
+            type: string;
             createdAt: Date;
             updatedAt: Date;
             description: string | null;
-            type: string;
             key: string;
         };
     } & {

@@ -6,10 +6,10 @@ export declare class RoomsService {
     constructor(prisma: PrismaService);
     create(createDto: CreateRoomDto): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
+        name: string;
         branchId: string | null;
         capacity: number | null;
     }>;
@@ -19,10 +19,10 @@ export declare class RoomsService {
         } | null;
     } & {
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
+        name: string;
         branchId: string | null;
         capacity: number | null;
     }>>;
@@ -32,28 +32,28 @@ export declare class RoomsService {
         } | null;
     } & {
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
+        name: string;
         branchId: string | null;
         capacity: number | null;
     }>;
     update(id: string, updateDto: UpdateRoomDto): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
+        name: string;
         branchId: string | null;
         capacity: number | null;
     }>;
     remove(id: string): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
+        name: string;
         branchId: string | null;
         capacity: number | null;
     }>;

@@ -10,11 +10,13 @@ exports.MarketingModule = void 0;
 const common_1 = require("@nestjs/common");
 const marketing_controller_1 = require("./marketing.controller");
 const marketing_service_1 = require("./marketing.service");
+const students_module_1 = require("../students/students.module");
 let MarketingModule = class MarketingModule {
 };
 exports.MarketingModule = MarketingModule;
 exports.MarketingModule = MarketingModule = __decorate([
     (0, common_1.Module)({
+        imports: [students_module_1.StudentsModule],
         controllers: [marketing_controller_1.MarketingController],
         providers: [marketing_service_1.MarketingService],
         exports: [marketing_service_1.MarketingService],

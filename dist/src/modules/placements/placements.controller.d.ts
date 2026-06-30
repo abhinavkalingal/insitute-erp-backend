@@ -5,9 +5,9 @@ export declare class PlacementsController {
     constructor(placementsService: PlacementsService);
     createCompany(data: Prisma.CompanyCreateInput): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         industry: string | null;
         website: string | null;
         hrName: string | null;
@@ -16,9 +16,9 @@ export declare class PlacementsController {
     }>;
     getCompanies(): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         industry: string | null;
         website: string | null;
         hrName: string | null;
@@ -27,9 +27,9 @@ export declare class PlacementsController {
     }[]>;
     updateCompany(id: string, data: Prisma.CompanyUpdateInput): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         industry: string | null;
         website: string | null;
         hrName: string | null;
@@ -38,9 +38,9 @@ export declare class PlacementsController {
     }>;
     deleteCompany(id: string): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         industry: string | null;
         website: string | null;
         hrName: string | null;
@@ -48,21 +48,21 @@ export declare class PlacementsController {
         hrPhone: string | null;
     }>;
     createDrive(data: Prisma.PlacementDriveCreateInput): Promise<{
-        date: Date;
         id: string;
         createdAt: Date;
         updatedAt: Date;
         description: string | null;
         status: string;
+        date: Date;
         batchId: string | null;
         companyId: string;
     }>;
     getDrives(): Promise<({
         company: {
             id: string;
-            name: string;
             createdAt: Date;
             updatedAt: Date;
+            name: string;
             industry: string | null;
             website: string | null;
             hrName: string | null;
@@ -70,32 +70,32 @@ export declare class PlacementsController {
             hrPhone: string | null;
         };
     } & {
-        date: Date;
         id: string;
         createdAt: Date;
         updatedAt: Date;
         description: string | null;
         status: string;
+        date: Date;
         batchId: string | null;
         companyId: string;
     })[]>;
     updateDrive(id: string, data: Prisma.PlacementDriveUpdateInput): Promise<{
-        date: Date;
         id: string;
         createdAt: Date;
         updatedAt: Date;
         description: string | null;
         status: string;
+        date: Date;
         batchId: string | null;
         companyId: string;
     }>;
     deleteDrive(id: string): Promise<{
-        date: Date;
         id: string;
         createdAt: Date;
         updatedAt: Date;
         description: string | null;
         status: string;
+        date: Date;
         batchId: string | null;
         companyId: string;
     }>;
@@ -117,9 +117,9 @@ export declare class PlacementsController {
         drive: {
             company: {
                 id: string;
-                name: string;
                 createdAt: Date;
                 updatedAt: Date;
+                name: string;
                 industry: string | null;
                 website: string | null;
                 hrName: string | null;
@@ -127,12 +127,12 @@ export declare class PlacementsController {
                 hrPhone: string | null;
             };
         } & {
-            date: Date;
             id: string;
             createdAt: Date;
             updatedAt: Date;
             description: string | null;
             status: string;
+            date: Date;
             batchId: string | null;
             companyId: string;
         };
@@ -169,21 +169,46 @@ export declare class PlacementsController {
         locations: string | null;
         driveId: string;
     }>;
+    createApplication(data: Prisma.JobApplicationCreateInput): Promise<{
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        status: string;
+        studentId: string;
+        notes: string | null;
+        jobPostingId: string;
+    }>;
     getApplications(jobId: string): Promise<({
         student: {
+            user: {
+                id: string;
+                email: string;
+                passwordHash: string;
+                firstName: string;
+                lastName: string | null;
+                isActive: boolean;
+                isEmailVerified: boolean;
+                resetPasswordToken: string | null;
+                resetPasswordExpires: Date | null;
+                emailVerificationToken: string | null;
+                createdAt: Date;
+                updatedAt: Date;
+                deletedAt: Date | null;
+            };
+        } & {
             id: string;
-            profile: Prisma.JsonValue | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             userId: string;
             status: string;
+            profile: Prisma.JsonValue | null;
             courseId: string | null;
             batchId: string | null;
             branchId: string | null;
-            documents: Prisma.JsonValue | null;
             enrollmentNo: string | null;
             admissionDate: Date | null;
+            documents: Prisma.JsonValue | null;
         };
     } & {
         id: string;

@@ -83,10 +83,19 @@ let PlacementsService = class PlacementsService {
             where: { id },
         });
     }
+    async createApplication(data) {
+        return this.prisma.jobApplication.create({ data });
+    }
     async getApplications(jobId) {
         return this.prisma.jobApplication.findMany({
             where: { jobPostingId: jobId },
-            include: { student: true },
+            include: {
+                student: {
+                    include: {
+                        user: true,
+                    }
+                }
+            },
         });
     }
     async updateApplicationStatus(id, status) {

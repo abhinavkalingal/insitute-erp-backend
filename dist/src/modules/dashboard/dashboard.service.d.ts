@@ -33,19 +33,58 @@ export declare class DashboardService {
     }>;
     getDirectorDashboard(): Promise<{
         stats: {
-            pendingApprovals: number;
             totalStudents: number;
             totalRevenue: number;
+            activeBatches: number;
+            attendancePercentage: number;
+            pendingApprovals: number;
             activeCampaigns: number;
         };
+        charts: {
+            revenueVsExpenses: {
+                month: string;
+                revenue: number;
+                expenses: number;
+            }[];
+            admissionsPipeline: {
+                label: string;
+                value: number;
+            }[];
+        };
+        tasks: {
+            id: string;
+            title: string;
+            dueDate: string;
+            priority: string;
+        }[];
+        activities: {
+            title: string;
+            description: string;
+            time: string;
+            severity: string;
+        }[];
     }>;
     getFinanceDashboard(): Promise<{
         stats: {
             totalRevenue: number;
-            pendingPayments: number;
+            outstandingFees: number;
             totalExpenses: number;
-            netProfit: number;
+            bankBalance: number;
         };
+        recentTransactions: {
+            id: string;
+            desc: string;
+            amount: string;
+            status: string;
+            date: string;
+            isCredit: boolean;
+        }[];
+        pendingApprovals: {
+            id: string;
+            title: string;
+            subtitle: string;
+            amount: string;
+        }[];
     }>;
     getHrDashboard(): Promise<{
         stats: {

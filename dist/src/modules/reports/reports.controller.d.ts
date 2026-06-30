@@ -12,9 +12,9 @@ export declare class ReportsController {
     exportReport(executeDto: ExecuteReportDto, res: Response): Promise<Response<any, Record<string, any>>>;
     saveReport(req: any, createDto: CreateSavedReportDto): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         userId: string;
         description: string | null;
         module: string;
@@ -23,9 +23,9 @@ export declare class ReportsController {
     }>;
     getSavedReports(): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         userId: string;
         description: string | null;
         module: string;
@@ -34,9 +34,9 @@ export declare class ReportsController {
     }[]>;
     getSavedReportById(id: string): Promise<{
         id: string;
-        name: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
         userId: string;
         description: string | null;
         module: string;
@@ -49,18 +49,18 @@ export declare class ReportsController {
         createdAt: Date;
         updatedAt: Date;
         format: string;
-        savedReportId: string;
         frequency: string;
         recipients: import("@prisma/client/runtime/client").JsonValue;
         lastRunAt: Date | null;
         nextRunAt: Date | null;
+        savedReportId: string;
     }>;
     getScheduledReports(): Promise<({
         savedReport: {
             id: string;
-            name: string;
             createdAt: Date;
             updatedAt: Date;
+            name: string;
             userId: string;
             description: string | null;
             module: string;
@@ -73,10 +73,10 @@ export declare class ReportsController {
         createdAt: Date;
         updatedAt: Date;
         format: string;
-        savedReportId: string;
         frequency: string;
         recipients: import("@prisma/client/runtime/client").JsonValue;
         lastRunAt: Date | null;
         nextRunAt: Date | null;
+        savedReportId: string;
     })[]>;
 }

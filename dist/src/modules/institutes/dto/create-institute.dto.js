@@ -17,6 +17,7 @@ class CreateInstituteDto {
     domain;
     databaseUrl;
     isActive;
+    type;
     profile;
     settings;
 }
@@ -45,6 +46,12 @@ __decorate([
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", Boolean)
 ], CreateInstituteDto.prototype, "isActive", void 0);
+__decorate([
+    (0, swagger_1.ApiPropertyOptional)({ example: 'General' }),
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", String)
+], CreateInstituteDto.prototype, "type", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({ description: 'Institute profile information (address, phone, etc)' }),
     (0, class_validator_1.IsOptional)(),

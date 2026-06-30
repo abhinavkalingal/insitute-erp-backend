@@ -10,11 +10,11 @@ export declare class PaymentsController {
         status: string;
         remarks: string | null;
         amount: number;
-        invoiceId: string;
+        receiptNumber: string;
         paymentDate: Date;
         paymentMethod: string;
         reference: string | null;
-        receiptNumber: string;
+        invoiceId: string;
     }>;
     refundPayment(id: string): Promise<{
         id: string;
@@ -23,11 +23,11 @@ export declare class PaymentsController {
         status: string;
         remarks: string | null;
         amount: number;
-        invoiceId: string;
+        receiptNumber: string;
         paymentDate: Date;
         paymentMethod: string;
         reference: string | null;
-        receiptNumber: string;
+        invoiceId: string;
     }>;
     findAll(queryOptions: PaymentQueryOptionsDto): Promise<import("../../../core/utils/pagination/page.dto").PageDto<{
         invoice: {
@@ -41,11 +41,11 @@ export declare class PaymentsController {
         status: string;
         remarks: string | null;
         amount: number;
-        invoiceId: string;
+        receiptNumber: string;
         paymentDate: Date;
         paymentMethod: string;
         reference: string | null;
-        receiptNumber: string;
+        invoiceId: string;
     }>>;
     findOne(id: string): Promise<{
         invoice: {
@@ -56,18 +56,18 @@ export declare class PaymentsController {
                 };
             } & {
                 id: string;
-                profile: import("@prisma/client/runtime/client").JsonValue | null;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 userId: string;
                 status: string;
+                profile: import("@prisma/client/runtime/client").JsonValue | null;
                 courseId: string | null;
                 batchId: string | null;
                 branchId: string | null;
-                documents: import("@prisma/client/runtime/client").JsonValue | null;
                 enrollmentNo: string | null;
                 admissionDate: Date | null;
+                documents: import("@prisma/client/runtime/client").JsonValue | null;
             };
         } & {
             id: string;
@@ -90,10 +90,10 @@ export declare class PaymentsController {
         status: string;
         remarks: string | null;
         amount: number;
-        invoiceId: string;
+        receiptNumber: string;
         paymentDate: Date;
         paymentMethod: string;
         reference: string | null;
-        receiptNumber: string;
+        invoiceId: string;
     }>;
 }

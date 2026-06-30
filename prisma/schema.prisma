@@ -1024,7 +1024,8 @@ model IdCardTemplate {
 
   // Design Config
   backgroundUrl String?
-  contentHtml   String // HTML layout for CR80 card size
+  contentHtml   String? // HTML layout for CR80 card size
+  canvasState   Json?   // JSON array of elements for the drag-and-drop designer
 
   createdAt DateTime       @default(now())
   updatedAt DateTime       @updatedAt
@@ -1381,3 +1382,86 @@ model ApprovalRequest {
   approver  User? @relation("ApprovalApprover", fields: [approvedBy], references: [id], onDelete: SetNull)
 }
 
+model RepairTicket {
+  id                 String   @id @default(uuid())
+  customerName       String
+  customerPhone      String
+  deviceModel        String
+  imeiOrSerial       String?
+  problemDescription String
+  status             String   @default("RECEIVED") // RECEIVED, DIAGNOSING, WAITING_PARTS, REPAIRED, DELIVERED
+  
+  assignedStudentId  String?
+  assignedStaffId    String?
+
+  estimatedCost      Float?
+  finalCost          Float?
+  
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  logs               RepairLog[]
+}
+
+model RepairLog {
+  id           String   @id @default(uuid())
+  ticketId     String
+  statusUpdate String
+  notes        String?
+  createdBy    String
+  createdAt    DateTime @default(now())
+
+  ticket       RepairTicket @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+}
+model InventoryItem {
+  id           String   @id @default(uuid())
+  sku          String   @unique
+  name         String
+  category     String
+  quantity     Int      @default(0)
+  unit         String   @default("pcs")
+  reorderLevel Int      @default(5)
+  unitCost     Float?
+
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  transactions InventoryTransaction[]
+}
+
+model InventoryTransaction {
+  id        String   @id @default(uuid())
+  itemId    String
+  type      String   // "IN" or "OUT"
+  quantity  Int
+  reference String?
+  notes     String?
+  createdAt DateTime @default(now())
+
+  item      InventoryItem @relation(fields: [itemId], references: [id], onDelete: Cascade)
+}
+model ToolAsset {
+  id           String   @id @default(uuid())
+  barcode      String   @unique
+  name         String
+  category     String
+  status       String   @default("AVAILABLE")
+  condition    String   @default("GOOD")
+
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  issuances    ToolIssuance[]
+}
+
+model ToolIssuance {
+  id               String   @id @default(uuid())
+  toolId           String
+  assignedToUser   String
+  issuedAt         DateTime @default(now())
+  expectedReturnAt DateTime?
+  returnedAt       DateTime?
+  notes            String?
+
+  tool             ToolAsset @relation(fields: [toolId], references: [id], onDelete: Cascade)
+}
